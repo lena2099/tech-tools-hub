@@ -266,6 +266,9 @@ def main():
     print("💰 Inserting affiliate links...")
     article["content"] = insert_affiliate_links(article["content"], topic)
 
+    # 4.5. Append cross-links to related posts
+    article["content"] = append_cross_links(article["content"], article.get("slug", ""))
+
     # 5. Save as Jekyll post
     post_path = save_jekyll_post(article, topic)
     if post_path is None:
@@ -288,6 +291,49 @@ def main():
         print("   Sitemap + robots.txt updated")
 
     print("\n✨ Done. Next run in ~4 hours.")
+
+
+# ── CROSS-LINKING ────────────────────────────────────────
+def get_recent_posts(exclude_slug: str = "", count: int = 3) -> list[dict]:
+    """Get recent posts for cross-linking, excluding the current one."""
+    posts = sorted(OUT_DIR.glob("*.md"), reverse=True) if OUT_DIR.exists() else []
+    result = []
+    for p in posts:
+        if len(result) >= count:
+            break
+        if exclude_slug and exclude_slug in p.stem:
+            continue
+        # Extract title from frontmatter
+        content = p.read_text()
+        if content.startswith("---"):
+            parts = content.split("---", 2)
+            if len(parts) >= 3:
+                for line in parts[1].split("\n"):
+                    if line.startswith("title:"):
+                        title = line.split(":", 1)[1].strip().strip('"')
+                        parts2 = p.stem.split("-", 3)
+                        if len(parts2) >= 4:
+                            y, m, d, slug = parts2[0], parts2[1], parts2[2], parts2[3]
+                            url = f"{SITE_URL}/{y}/{m}/{d}/{slug}.html"
+                            result.append({"title": title, "url": url})
+                        break
+    return result
+
+
+def append_cross_links(content: str, current_slug: str) -> str:
+    """Append 'Related Posts' cross-links to the article."""
+    recent = get_recent_posts(exclude_slug=current_slug, count=3)
+    if len(recent) < 2:
+        return content
+
+    links_md = "\n".join(f"- [{p['title']}]({p['url']})" for p in recent)
+    return content + f"""
+
+---
+
+### 📚 Related Posts
+
+{links_md}"""
 
 
 # ── SEO: SITEMAP ─────────────────────────────────────────
