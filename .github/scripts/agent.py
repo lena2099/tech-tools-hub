@@ -253,7 +253,64 @@ def main():
     else:
         print("🏜️  DRY_RUN mode — skipping Dev.to publish")
 
+    # 7. Regenerate SEO files
+    if post_path:
+        print("🔍 Updating SEO files...")
+        generate_sitemap()
+        generate_robots()
+        print("   Sitemap + robots.txt updated")
+
     print("\n✨ Done. Next run in ~4 hours.")
+
+
+# ── SEO: SITEMAP ─────────────────────────────────────────
+SITE_URL = "https://lena2099.github.io/tech-tools-hub"
+
+
+def generate_sitemap():
+    """Generate sitemap.xml from all _posts/*.md files."""
+    posts = sorted(OUT_DIR.glob("*.md")) if OUT_DIR.exists() else []
+    if not posts:
+        return
+
+    urls = []
+    # Homepage
+    urls.append(f"""  <url>
+    <loc>{SITE_URL}/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>""")
+
+    for p in posts:
+        # Derive URL from filename: YYYY-MM-DD-slug.md
+        name = p.stem
+        parts = name.split("-", 3)
+        if len(parts) >= 4:
+            year, month, day, slug = parts[0], parts[1], parts[2], parts[3]
+            url = f"{SITE_URL}/{year}/{month}/{day}/{slug}.html"
+            urls.append(f"""  <url>
+    <loc>{url}</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>""")
+
+    sitemap = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{chr(10).join(urls)}
+</urlset>
+"""
+    Path("sitemap.xml").write_text(sitemap)
+    print(f"   sitemap.xml: {len(urls)} URLs")
+
+
+# ── SEO: ROBOTS.TXT ──────────────────────────────────────
+def generate_robots():
+    robots = f"""User-agent: *
+Allow: /
+Sitemap: {SITE_URL}/sitemap.xml
+"""
+    Path("robots.txt").write_text(robots)
+
 
 if __name__ == "__main__":
     main()

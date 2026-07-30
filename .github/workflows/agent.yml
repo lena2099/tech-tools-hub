@@ -35,7 +35,7 @@ jobs:
         run: |
           git config user.name "Athena Bot"
           git config user.email "bot@athena.local"
-          git add _posts/
+          git add _posts/ sitemap.xml robots.txt
           git diff --staged --quiet && echo "No changes" || (
             git commit -m "🤖 Auto: new article $(date -u +%Y-%m-%d_%H:%M)"
             git push
