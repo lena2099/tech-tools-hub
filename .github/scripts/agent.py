@@ -160,14 +160,14 @@ def _clean_tag(tag: str) -> str:
 
 
 # ── DEV.TO PUBLISH ───────────────────────────────────────
-def publish_to_devto(article):
+def publish_to_devto(article, topic):
     if not DEVTO_KEY:
         return {"status": "skipped", "reason": "no api key"}
     payload = {"article": {
         "title": article["title"],
         "body_markdown": article["content"],
         "published": True,
-        "tags": [_clean_tag(t) for t in article.get("tags", [])[:4]],
+        "tags": _pick_devto_tags(topic, article.get("tags", [])),
         "description": article.get("meta_description", ""),
     }}
     try:
@@ -181,6 +181,33 @@ def publish_to_devto(article):
         return {"status": "failed", "error": str(resp)[:200]}
     except Exception as e:
         return {"status": "failed", "error": str(e)[:200]}
+
+
+# ── DEV.TO TAG STRATEGY ──────────────────────────────────
+# Boost discoverability by always including these high-traffic tags
+BOOST_TAGS = {
+    "AI tools & tutorials":       ["ai", "tutorial", "productivity"],
+    "personal productivity":      ["productivity", "tutorial", "career"],
+    "remote work & freelancing":  ["career", "productivity", "beginners"],
+    "tech reviews":               ["programming", "webdev", "tutorial"],
+    "side hustle strategies":     ["career", "beginners", "productivity"],
+}
+
+
+def _pick_devto_tags(topic: str, article_tags: list[str]) -> list:
+    """Smart tag selection: content tags + high-traffic boost tags. Max 4."""
+    clean = []
+    for t in article_tags:
+        tag = re.sub(r"[^a-z0-9]", "", t.strip().lower())[:25]
+        if tag and tag not in clean:
+            clean.append(tag)
+
+    boost = BOOST_TAGS.get(topic, [])
+    for b in boost:
+        if b not in clean:
+            clean.append(b)
+
+    return clean[:4]
 
 
 # ── SAVE AS JEKYLL POST ──────────────────────────────────
@@ -248,7 +275,7 @@ def main():
     # 6. Publish to Dev.to
     if not DRY_RUN:
         print("📤 Publishing to Dev.to...")
-        result = publish_to_devto(article)
+        result = publish_to_devto(article, topic)
         print(f"   Dev.to: {result}")
     else:
         print("🏜️  DRY_RUN mode — skipping Dev.to publish")
