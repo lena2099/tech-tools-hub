@@ -153,6 +153,12 @@ def insert_affiliate_links(content, topic):
     return content
 
 
+def _clean_tag(tag: str) -> str:
+    """Dev.to tags: lowercase, alphanumeric, max 25 chars, no spaces."""
+    clean = re.sub(r"[^a-z0-9]", "", tag.strip().lower())
+    return clean[:25] if clean else "tech"
+
+
 # ── DEV.TO PUBLISH ───────────────────────────────────────
 def publish_to_devto(article):
     if not DEVTO_KEY:
@@ -161,17 +167,20 @@ def publish_to_devto(article):
         "title": article["title"],
         "body_markdown": article["content"],
         "published": True,
-        "tags": [t.strip().lower()[:30] for t in article.get("tags", [])[:4]],
+        "tags": [_clean_tag(t) for t in article.get("tags", [])[:4]],
         "description": article.get("meta_description", ""),
     }}
-    req = Request("https://dev.to/api/articles",
-                  data=json.dumps(payload).encode(),
-                  headers={"api-key": DEVTO_KEY, "Content-Type": "application/json"},
-                  method="POST")
-    resp = json.loads(urlopen(req, timeout=30).read())
-    if "url" in resp:
-        return {"status": "published", "url": resp["url"]}
-    return {"status": "failed", "error": str(resp)[:200]}
+    try:
+        req = Request("https://dev.to/api/articles",
+                      data=json.dumps(payload).encode(),
+                      headers={"api-key": DEVTO_KEY, "Content-Type": "application/json"},
+                      method="POST")
+        resp = json.loads(urlopen(req, timeout=30).read())
+        if "url" in resp:
+            return {"status": "published", "url": resp["url"]}
+        return {"status": "failed", "error": str(resp)[:200]}
+    except Exception as e:
+        return {"status": "failed", "error": str(e)[:200]}
 
 
 # ── SAVE AS JEKYLL POST ──────────────────────────────────
