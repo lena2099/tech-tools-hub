@@ -24,19 +24,19 @@ TOPICS = [
 
 AFFILIATE_LINKS = {
     "AI tools & tutorials": [
-        ("Jasper AI",   "https://www.amazon.com/dp/B0C1N5P6QK?tag=technolo0b423-20"),
-        ("Notion AI",   "https://affiliate.notion.so/"),
-        ("Sudowrite",   "https://www.sudowrite.com/"),
+        ("Jasper AI",      "https://www.amazon.com/dp/B0C1N5P6QK?tag=technolo0b423-20"),
+        ("Notion",         "https://affiliate.notion.so/"),
+        ("M1 MacBook Air", "https://www.amazon.com/dp/B08N5KWB9H?tag=technolo0b423-20"),
     ],
     "personal productivity": [
-        ("Notion",      "https://affiliate.notion.so/"),
-        ("Todoist",     "https://todoist.com/"),
-        ("Toggl Track", "https://toggl.com/track/"),
+        ("Notion",         "https://affiliate.notion.so/"),
+        ("Todoist",        "https://todoist.com/"),
+        ("Keychron K8",    "https://www.amazon.com/dp/B08PZ8F88K?tag=technolo0b423-20"),
     ],
     "remote work & freelancing": [
-        ("Fiverr",      "https://www.fiverr.com/"),
-        ("Upwork",      "https://www.upwork.com/"),
-        ("Zoom",        "https://zoom.us/"),
+        ("M1 MacBook Air",  "https://www.amazon.com/dp/B08N5KWB9H?tag=technolo0b423-20"),
+        ("Keychron K8",     "https://www.amazon.com/dp/B08PZ8F88K?tag=technolo0b423-20"),
+        ("LG UltraFine",    "https://www.amazon.com/dp/B088G1PKKN?tag=technolo0b423-20"),
     ],
     "tech reviews": [
         ("M1 MacBook Air",  "https://www.amazon.com/dp/B08N5KWB9H?tag=technolo0b423-20"),
@@ -44,9 +44,9 @@ AFFILIATE_LINKS = {
         ("LG UltraFine",    "https://www.amazon.com/dp/B088G1PKKN?tag=technolo0b423-20"),
     ],
     "side hustle strategies": [
-        ("Gumroad",     "https://gumroad.com/"),
-        ("Substack",    "https://substack.com/"),
-        ("Shopify",     "https://www.shopify.com/"),
+        ("M1 MacBook Air",  "https://www.amazon.com/dp/B08N5KWB9H?tag=technolo0b423-20"),
+        ("Keychron K8",     "https://www.amazon.com/dp/B08PZ8F88K?tag=technolo0b423-20"),
+        ("LG UltraFine",    "https://www.amazon.com/dp/B088G1PKKN?tag=technolo0b423-20"),
     ],
 }
 
