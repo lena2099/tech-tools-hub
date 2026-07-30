@@ -11,6 +11,11 @@ plugins:
   - jekyll-seo-tag
   - jekyll-remote-theme
 
+include:
+  - _chapters
+  - _premium
+  - fiction
+
 defaults:
   - scope:
       path: "_posts"
