@@ -1,16 +1,15 @@
-name: Tech & Tools Hub
+title: Tech & Tools Hub
 description: AI tools, productivity, remote work, and honest tech reviews
-url: https://your-username.github.io/tech-tools-hub
+url: https://lena2099.github.io/tech-tools-hub
 author:
   name: Lena
-  email: lena@example.com
 
-# Jekyll config
-markdown: kramdown
-theme: minima
+remote_theme: jekyll/minima
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-remote-theme
 
 defaults:
   - scope:
@@ -19,11 +18,6 @@ defaults:
       layout: post
       author: Lena
 
-# SEO
-twitter:
-  username: lena2099
-
-social:
-  name: Tech & Tools Hub
-  links:
-    - https://dev.to/lena2099
+minima:
+  social_links:
+    - { platform: devto, user_url: "https://dev.to/lena2099" }
