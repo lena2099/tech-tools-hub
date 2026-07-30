@@ -1,0 +1,41 @@
+name: System Breaker — Daily LitRPG Chapter
+
+on:
+  schedule:
+    - cron: '0 12 * * *'       # Daily at Noon UTC (8 PM Beijing)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  chapter:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install httpx
+
+      - name: Generate Chapter
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: python .github/scripts/fiction_agent.py
+
+      - name: Commit & Push
+        run: |
+          git config user.name "Athena Bot"
+          git config user.email "bot@athena.local"
+          git add _fiction/ _chapters/ fiction/
+          git diff --staged --quiet && echo "No changes" || (
+            git commit -m "📖 Auto: System Breaker chapter $(date -u +%Y-%m-%d)"
+            git push
+          )
