@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://lena2099.github.io/tech-tools-hub/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://lena2099.github.io/tech-tools-hub/2026/07/30/best-budget-tech-2024-smartphones-headphones-gaming-laptops.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://lena2099.github.io/tech-tools-hub/2026/07/30/side-hustle-strategies-introverts-full-time-jobs.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url>
+    <loc>https://lena2099.github.io/tech-tools-hub/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://lena2099.github.io/tech-tools-hub/2026/07/30/ai-tools-tutorials-automate-business-2025.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lena2099.github.io/tech-tools-hub/2026/07/30/best-budget-tech-2024-smartphones-headphones-gaming-laptops.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lena2099.github.io/tech-tools-hub/2026/07/30/side-hustle-strategies-introverts-full-time-jobs.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
