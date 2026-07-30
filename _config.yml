@@ -1,0 +1,29 @@
+name: Tech & Tools Hub
+description: AI tools, productivity, remote work, and honest tech reviews
+url: https://your-username.github.io/tech-tools-hub
+author:
+  name: Lena
+  email: lena@example.com
+
+# Jekyll config
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+defaults:
+  - scope:
+      path: "_posts"
+    values:
+      layout: post
+      author: Lena
+
+# SEO
+twitter:
+  username: lena2099
+
+social:
+  name: Tech & Tools Hub
+  links:
+    - https://dev.to/lena2099
