@@ -24,7 +24,7 @@ TOPICS = [
 
 AFFILIATE_LINKS = {
     "AI tools & tutorials": [
-        ("Jasper AI",   "https://www.jasper.ai/?fpr=affiliate"),
+        ("Jasper AI",   "https://www.amazon.com/dp/B0C1N5P6QK?tag=technolo0b423-20"),
         ("Notion AI",   "https://affiliate.notion.so/"),
         ("Sudowrite",   "https://www.sudowrite.com/"),
     ],
@@ -39,9 +39,9 @@ AFFILIATE_LINKS = {
         ("Zoom",        "https://zoom.us/"),
     ],
     "tech reviews": [
-        ("M1 MacBook Air",  "https://amzn.to/affiliate-macbook"),
-        ("Keychron K8",     "https://amzn.to/affiliate-keychron"),
-        ("LG UltraFine",    "https://amzn.to/affiliate-monitor"),
+        ("M1 MacBook Air",  "https://www.amazon.com/dp/B08N5KWB9H?tag=technolo0b423-20"),
+        ("Keychron K8",     "https://www.amazon.com/dp/B08PZ8F88K?tag=technolo0b423-20"),
+        ("LG UltraFine",    "https://www.amazon.com/dp/B088G1PKKN?tag=technolo0b423-20"),
     ],
     "side hustle strategies": [
         ("Gumroad",     "https://gumroad.com/"),
