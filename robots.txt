@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lena2099.github.io/tech-tools-hub/sitemap.xml
