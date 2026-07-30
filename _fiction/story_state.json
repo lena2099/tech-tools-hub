@@ -15,8 +15,19 @@
   "system": {
     "name": "N.E.X.U.S (Networked EXecution Unit System)",
     "personality": "Deadpan, sarcastic, treats Chen like a buggy user",
-    "quirks": ["Replies to complaints with log files", "Occasionally crashes mid-fight", "Has 'TODO' comments in its own code"],
-    "stats": ["STR", "DEX", "INT", "WIS", "CHA", "LUK"],
+    "quirks": [
+      "Replies to complaints with log files",
+      "Occasionally crashes mid-fight",
+      "Has 'TODO' comments in its own code"
+    ],
+    "stats": [
+      "STR",
+      "DEX",
+      "INT",
+      "WIS",
+      "CHA",
+      "LUK"
+    ],
     "level_cap": 100,
     "core_ability": "Debug Mode — view and modify the underlying 'code' of spells, items, and NPCs"
   },
@@ -30,8 +41,8 @@
     ],
     "current_arc": "Chen wakes up in a goblin dungeon at level 1 with nothing but a rusty dagger and a system that talks back."
   },
-  "chapters_published": 0,
-  "last_chapter_summary": "Story not started yet.",
+  "chapters_published": 1,
+  "last_chapter_summary": "Chen Lin wakes up in a fantasy world called Aethoria after dying from overwork, discovering he has the Debugger class and a Developer's Journal with a threatening message from the Admin. He accepts a quest to clear glowing rats from an old mill, stepping out into the dangerous night with only a rusted sword and his system's reluctant assistance.",
   "story_threads": [
     "Who or what is the Admin?",
     "Why does the system have bugs?",
