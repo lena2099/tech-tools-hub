@@ -10,12 +10,10 @@ from urllib.request import Request, urlopen
 
 API_KEY   = os.environ["DEEPSEEK_API_KEY"]
 DEVTO_KEY = os.environ.get("DEVTO_API_KEY", "")
-BUYMEACOFFEE = os.environ.get("BUYMEACOFFEE_URL", "https://buymeacoffee.com/lena2099")
 INDEXNOW_KEY = "0624a5ea55dc48afaefbe5ce8393c490"
 SITE_URL = "https://lena2099.github.io/tech-tools-hub"
 DRY_RUN   = os.environ.get("DRY_RUN", "") == "1"
 OUT_DIR   = Path("_posts")
-PREMIUM_DIR = Path("_premium")
 
 # ── CONFIG ────────────────────────────────────────────────
 TOPICS = [
@@ -94,7 +92,7 @@ def pick_topic():
 # ── KEYWORDS ─────────────────────────────────────────────
 def generate_keywords(topic):
     prompt = f"""Generate 3 long-tail SEO keywords for a blog article about "{topic}".
-Return ONLY a JSON array of strings. Example: ["best ai writing tools 2024", "ai tool comparison"]"""
+Return ONLY a JSON array of strings. Example: ["best ai writing tools July 2026", "ai tool comparison 2026"]"""
     try:
         text = call_deepseek([{"role": "user", "content": prompt}], max_tokens=200)
         match = re.search(r"\[.*\]", text, re.DOTALL)
@@ -102,7 +100,7 @@ Return ONLY a JSON array of strings. Example: ["best ai writing tools 2024", "ai
             return json.loads(match.group())
     except:
         pass
-    return [f"best {topic}", f"{topic} guide", f"{topic} 2024"]
+    return [f"best {topic}", f"{topic} guide", f"{topic} {datetime.now(timezone.utc).strftime('%Y')}"]
 
 
 # ── ARTICLE GENERATION ────────────────────────────────────
@@ -111,7 +109,13 @@ def generate_article(topic, keywords):
     links = AFFILIATE_LINKS.get(topic, [])
     link_hints = ", ".join(f"{name}({url})" for name, url in links)
 
+    current_date = datetime.now(timezone.utc)
+    current_month = current_date.strftime("%B %Y")
+    current_year = current_date.strftime("%Y")
+
     prompt = f"""Write a high-quality, SEO-optimized blog article in English.
+
+CRITICAL: Today is {current_date.strftime('%B %d, %Y')}. The article MUST discuss CURRENT tools, trends, and information from {current_month}. Do NOT mention 2024, 2025, or any past year. Only discuss {current_year} and forward-looking.
 
 Topic: {topic}
 Keywords to naturally integrate: {kw_str}
@@ -122,7 +126,7 @@ Structure: Hook → Problem → Solution → Step-by-step → Comparison table �
 Important: naturally mention these products where relevant: {link_hints}
 
 OUTPUT: ONLY a JSON object, no markdown outside it:
-{{"title": "SEO title (55-65 chars)", "slug": "url-friendly-slug", "meta_description": "150-160 char meta", "tags": ["tag1","tag2","tag3"], "content": "full # markdown ## article ### here"}}"""
+{{"title": "SEO title (include {current_year})", "slug": "url-friendly-slug", "meta_description": "150-160 char meta", "tags": ["tag1","tag2","tag3"], "content": "full # markdown ## article ### here"}}"""
 
     text = call_deepseek([{"role": "user", "content": prompt}], max_tokens=4096, temperature=0.7)
 
@@ -274,12 +278,6 @@ def main():
     # 4.5. Append cross-links to related posts
     article["content"] = append_cross_links(article["content"], article.get("slug", ""))
 
-    # 4.6. Generate premium resource & add CTA
-    premium = generate_premium_resource(topic, article["title"])
-    if premium:
-        premium_url = save_premium_page(premium, article)
-        article["content"] = add_premium_cta(article["content"], premium_url, premium["name"])
-
     # 5. Save as Jekyll post
     post_path = save_jekyll_post(article, topic)
     if post_path is None:
@@ -306,142 +304,6 @@ def main():
         ping_search_engines(article)
 
     print("\n✨ Done. Next run in ~4 hours.")
-
-
-# ── PREMIUM RESOURCE ─────────────────────────────────────
-PREMIUM_TYPES = {
-    "AI tools & tutorials":       ("AI Prompt Pack", "A curated collection of 10 ChatGPT prompts for {topic}. Copy, paste, get results."),
-    "personal productivity":      ("Productivity Notion Template", "A ready-to-use Notion dashboard for {topic}. Drag-and-drop setup."),
-    "remote work & freelancing":  ("Freelancer Toolkit", "Checklist + contract template + rate calculator for {topic}."),
-    "tech reviews":               ("Buyer's Comparison Sheet", "A detailed spec comparison spreadsheet for {topic}. Make smarter purchases."),
-    "side hustle strategies":     ("Side Hustle Launch Checklist", "Step-by-step launch checklist for {topic}. Don't miss a thing."),
-}
-
-
-def generate_premium_resource(topic: str, article_title: str) -> dict | None:
-    """Generate a short premium resource related to the article topic."""
-    if topic not in PREMIUM_TYPES:
-        return None
-
-    resource_name, resource_desc = PREMIUM_TYPES[topic]
-    desc = resource_desc.replace("{topic}", topic)
-
-    prompt = f"""Create a practical, downloadable resource related to: "{article_title}"
-
-Resource type: {resource_name}
-Description: {desc}
-
-Write in clean Markdown. Make it genuinely useful — something people would pay $3-5 for.
-Keep it concise (200-400 words). Include:
-- A clear title
-- Step-by-step instructions or a checklist
-- One practical example
-
-Do NOT include any paywall language or "buy now" text — the CTA is handled separately."""
-
-    try:
-        content = call_deepseek([{"role": "user", "content": prompt}], max_tokens=1024, temperature=0.6)
-        # Extract a filename-safe name
-        slug = re.sub(r"[^a-z0-9]+", "-", resource_name.lower())[:40]
-        return {
-            "name": resource_name,
-            "slug": slug,
-            "description": desc,
-            "content": content,
-        }
-    except Exception as e:
-        print(f"   ⚠️ Premium resource failed: {e}")
-        return None
-
-
-def save_premium_page(premium: dict, article: dict) -> str:
-    """Save premium resource as a hidden HTML page, return the URL."""
-    PREMIUM_DIR.mkdir(parents=True, exist_ok=True)
-    filename = f"{premium['slug']}.html"
-    path = PREMIUM_DIR / filename
-
-    # Simple HTML page with the resource content
-    html = f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{premium['name']}</title>
-<style>
-  body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-         max-width: 700px; margin: 40px auto; padding: 20px; line-height: 1.7;
-         color: #333; background: #fafafa; }}
-  h1 {{ font-size: 1.8em; border-bottom: 2px solid #ff813f; padding-bottom: 10px; }}
-  h2 {{ font-size: 1.3em; margin-top: 30px; }}
-  ul, ol {{ padding-left: 20px; }}
-  code {{ background: #f0f0f0; padding: 2px 6px; border-radius: 3px; }}
-  pre {{ background: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 8px; overflow-x: auto; }}
-  blockquote {{ border-left: 4px solid #ff813f; margin: 0; padding-left: 16px; color: #666; }}
-  .thank-you {{ background: #fff3e0; border: 1px solid #ff813f; padding: 16px; border-radius: 8px; margin: 30px 0; }}
-</style>
-</head>
-<body>
-<h1>🎁 {premium['name']}</h1>
-<div class="thank-you">Thanks for your support! Copy, save, or print this resource.</div>
-<div class="content">
-{_markdown_to_html(premium['content'])}
-</div>
-<p style="margin-top:40px;color:#999;font-size:0.9em;">
-This resource was auto-generated by <a href="https://lena2099.github.io/tech-tools-hub/">Tech & Tools Hub</a>.
-</p>
-</body>
-</html>"""
-
-    path.write_text(html)
-    url = f"{SITE_URL}/_premium/{filename}"
-    print(f"   💎 Premium: {premium['name']} → {url}")
-    return url
-
-
-def add_premium_cta(content: str, premium_url: str, premium_name: str) -> str:
-    """Append a 'Buy Me a Coffee' CTA for the premium resource."""
-    cta = f"""
-
----
-
-### 🎁 Get the Full Resource
-
-Want the complete **{premium_name}**? 
-
-👉 [Get it now →]({BUYMEACOFFEE}) (Pay what you want, ¥3-10)
-
-After payment, you'll be redirected to the full download page. Thanks for your support! ☕
-"""
-    return content + cta
-
-
-def _markdown_to_html(md: str) -> str:
-    """Super minimal markdown → HTML for premium pages."""
-    html = md
-    # Headers
-    html = re.sub(r'^### (.+)$', r'<h3>\1</h3>', html, flags=re.M)
-    html = re.sub(r'^## (.+)$', r'<h2>\1</h2>', html, flags=re.M)
-    html = re.sub(r'^# (.+)$', r'<h1>\1</h1>', html, flags=re.M)
-    # Bold / italic
-    html = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', html)
-    html = re.sub(r'\*(.+?)\*', r'<em>\1</em>', html)
-    # Inline code
-    html = re.sub(r'`([^`]+)`', r'<code>\1</code>', html)
-    # Links
-    html = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', html)
-    # Unordered lists
-    html = re.sub(r'^- (.+)$', r'<li>\1</li>', html, flags=re.M)
-    html = re.sub(r'(<li>.*</li>)', r'<ul>\n\1\n</ul>', html, flags=re.DOTALL)
-    # Paragraphs
-    paragraphs = html.split('\n\n')
-    result = []
-    for p in paragraphs:
-        p = p.strip()
-        if p and not p.startswith('<'):
-            result.append(f'<p>{p}</p>')
-        elif p:
-            result.append(p)
-    return '\n'.join(result)
 
 
 # ── CROSS-LINKING ────────────────────────────────────────
