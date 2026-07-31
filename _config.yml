@@ -26,3 +26,5 @@ defaults:
 minima:
   social_links:
     - { platform: devto, user_url: "https://dev.to/lena2099" }
+# Google Analytics 4
+google_analytics: G-XXXXXXXXXX
