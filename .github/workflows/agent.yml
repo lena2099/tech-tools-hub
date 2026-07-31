@@ -1,17 +1,17 @@
-name: Athena — Auto Article Generator
+name: Athena v3 — Generate + SEO + Distribute
 
 on:
   schedule:
-    - cron: '30 */4 * * *'   # Every 4 hours at :30
-  workflow_dispatch:           # Manual trigger for testing
+    - cron: '30 */4 * * *'
+  workflow_dispatch:
 
 permissions:
-  contents: write              # Allow pushing commits
+  contents: write
 
 jobs:
-  generate:
+  pipeline:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
 
     steps:
       - name: Checkout repo
@@ -25,18 +25,44 @@ jobs:
       - name: Install dependencies
         run: pip install httpx pyyaml
 
-      - name: Generate Article
+      # ── Stage 1: Generate + SEO (one commit) ──
+      - name: 🤖 Generate Article
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-          DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
         run: python .github/scripts/agent.py
 
-      - name: Commit & Push
+      - name: 🔍 SEO Engine
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: python .github/scripts/seo_engine.py
+
+      - name: 💾 Commit Article + SEO
         run: |
           git config user.name "Athena Bot"
           git config user.email "bot@athena.local"
-          git add _posts/ sitemap.xml robots.txt
-          git diff --staged --quiet && echo "No changes" || (
-            git commit -m "🤖 Auto: new article $(date -u +%Y-%m-%d_%H:%M)"
+          git add _posts/ sitemap.xml robots.txt _config.yml
+          if git diff --staged --quiet; then
+            echo "No changes — already published this cycle"
+          else
+            git commit -m "🤖+🔍 Auto: new article + SEO ($(date -u +%Y-%m-%d_%H:%M))"
             git push
-          )
+          fi
+
+      # ── Stage 2: Distribution ──
+      - name: 📡 Distribute
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
+          MEDIUM_TOKEN: ${{ secrets.MEDIUM_TOKEN }}
+          TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
+        run: python .github/scripts/dist_engine.py
+
+      - name: 💾 Commit Distribution Report
+        run: |
+          git add _dist/
+          if git diff --staged --quiet; then
+            echo "No distribution changes"
+          else
+            git commit -m "📡 Dist: cross-post report ($(date -u +%Y-%m-%d_%H:%M))"
+            git push
+          fi
