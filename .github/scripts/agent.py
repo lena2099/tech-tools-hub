@@ -11,6 +11,8 @@ from urllib.request import Request, urlopen
 API_KEY   = os.environ["DEEPSEEK_API_KEY"]
 DEVTO_KEY = os.environ.get("DEVTO_API_KEY", "")
 BUYMEACOFFEE = os.environ.get("BUYMEACOFFEE_URL", "https://buymeacoffee.com/lena2099")
+INDEXNOW_KEY = "0624a5ea55dc48afaefbe5ce8393c490"
+SITE_URL = "https://lena2099.github.io/tech-tools-hub"
 DRY_RUN   = os.environ.get("DRY_RUN", "") == "1"
 OUT_DIR   = Path("_posts")
 PREMIUM_DIR = Path("_premium")
@@ -299,6 +301,10 @@ def main():
         generate_robots()
         print("   Sitemap + robots.txt updated")
 
+    # 8. Ping search engines
+    if post_path and not DRY_RUN:
+        ping_search_engines(article)
+
     print("\n✨ Done. Next run in ~4 hours.")
 
 
@@ -482,7 +488,6 @@ def append_cross_links(content: str, current_slug: str) -> str:
 
 
 # ── SEO: SITEMAP ─────────────────────────────────────────
-SITE_URL = "https://lena2099.github.io/tech-tools-hub"
 
 
 def generate_sitemap():
@@ -528,6 +533,37 @@ Allow: /
 Sitemap: {SITE_URL}/sitemap.xml
 """
     Path("robots.txt").write_text(robots)
+
+
+# ── SEARCH ENGINE PING ───────────────────────────────────
+def ping_search_engines(article: dict):
+    """Ping Bing (IndexNow) and Google with updated sitemap after publishing."""
+    sitemap_url = f"{SITE_URL}/sitemap.xml"
+    article_url = article.get("canonical_url", "")
+
+    # IndexNow — Bing + Yandex
+    indexnow_payload = json.dumps({
+        "host": "lena2099.github.io",
+        "key": INDEXNOW_KEY,
+        "keyLocation": f"{SITE_URL}/{INDEXNOW_KEY}.txt",
+        "urlList": [article_url, sitemap_url],
+    }).encode()
+
+    try:
+        req = Request("https://api.indexnow.org/indexnow", data=indexnow_payload,
+                      headers={"Content-Type": "application/json"})
+        resp = urlopen(req, timeout=10)
+        print(f"   IndexNow: HTTP {resp.getcode()}")
+    except Exception as e:
+        print(f"   IndexNow: {e}")
+
+    # Google ping
+    try:
+        ping_url = f"https://www.google.com/ping?sitemap={sitemap_url}"
+        urlopen(Request(ping_url), timeout=10)
+        print("   Google: pinged")
+    except Exception as e:
+        print(f"   Google ping: {e}")
 
 
 if __name__ == "__main__":
