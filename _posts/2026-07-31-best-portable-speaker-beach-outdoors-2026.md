@@ -99,6 +99,11 @@ If you demand the loudest, most immersive audio experience and don't mind the ex
 
 ---
 
+
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What does IPX7 vs IP68 mean for beach use?", "acceptedAnswer": {"@type": "Answer", "text": "IPX7 means the speaker can be submerged in up to 1 meter of water for 30 minutes—fine for splashes and rain. IP68 is a higher rating, meaning it's fully dust-tight and can survive deeper submersion (typically 1.5m+). For beach use, both are fine, but IP68 offers better sand protection."}}, {"@type": "Question", "name": "Can I pair two speakers for stereo sound?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, most 2026 models support stereo pairing. The Bose SoundLink Flex 2 and JBL Charge 6 allow you to pair two units for a true left/right channel experience. The Tribit and Soundcore also have TWS (True Wireless Stereo) pairing modes."}}, {"@type": "Question", "name": "How do I clean sand out of my speaker?", "acceptedAnswer": {"@type": "Answer", "text": "Use a soft, dry brush or a gentle vacuum to remove loose sand. For the fabric grille, you can use a slightly damp microfiber cloth. Avoid using compressed air, which can push sand deeper into the drivers. Never submerge a speaker in water to clean it if it's not rated IP67 or higher."}}]}
+</script>
+
 ## FAQ (Frequently Asked Questions)
 
 **1. What does IPX7 vs IP68 mean for beach use?**
