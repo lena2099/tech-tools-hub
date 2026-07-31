@@ -119,22 +119,54 @@ def generate_schema_jsonld(post_path: Path) -> str:
     else:
         product_schema = None
 
-    # FAQ schema — extract from FAQ section
+    # FAQ schema — extract Q&A pairs
+    # Patterns: "### 1. Question?" or "**Q:** ..." or "### Question?"
     faq = []
     in_faq = False
-    q = ""
     for line in body.split("\n"):
-        if line.strip().startswith("###") and "FAQ" in line:
+        ls = line.strip()
+        # Detect FAQ section start
+        if ls.lower() in ('faq', 'frequently asked questions') or ls.lower().startswith('### faq'):
             in_faq = True
             continue
-        if in_faq:
-            if line.strip().startswith("##"):
-                break
-            if line.strip().startswith("###") or line.strip().startswith("**"):
-                q = line.strip().lstrip("#").strip(" *")
-            elif q and line.strip() and not line.strip().startswith("#") and not line.strip().startswith("-"):
-                faq.append({"q": q[:150], "a": line.strip()[:300]})
-                q = ""
+        if not in_faq:
+            continue
+        if ls.startswith("##") and 'faq' not in ls.lower():
+            break
+        # Match: ### N. Question? or ### Question?
+        m = re.match(r'^#+\s*(?:\d+\.\s*)?(.+?\??)\s*$', ls)
+        if m:
+            q_text = m.group(1).strip().strip('*').strip()
+            # Collect answer lines until next heading or empty+heading
+            a_lines = []
+            # We need the context after this line — scan the body directly
+            q_pos = body.find(line)
+            if q_pos < 0:
+                continue
+            rest = body[q_pos + len(line):]
+            for aline in rest.split("\n"):
+                als = aline.strip()
+                if als.startswith("###") or (als.startswith("##") and 'faq' not in als.lower()):
+                    break
+                if als == '':
+                    continue
+                if als.startswith('|') or als.startswith('- ') or als.startswith('* '):
+                    a_lines.append(als)
+                elif not als.startswith('#'):
+                    a_lines.append(als)
+            answer = ' '.join(a_lines)[:300]
+            if q_text and answer and len(q_text) > 5:
+                faq.append({"q": q_text[:150], "a": answer})
+        # Also match: **Q:** pattern
+        qm = re.match(r'\*\*Q:?\*\*\s*(.+)', ls)
+        if qm and not faq or (faq and faq[-1]['q'] != qm.group(1).strip()):
+            q_text = qm.group(1).strip()
+            q_pos2 = body.find(line)
+            if q_pos2 >= 0:
+                rest2 = body[q_pos2 + len(line):]
+                ans2 = rest2.split("\n\n")[0].strip().replace('\n',' ')[:300]
+                if ans2 and q_text:
+                    faq.append({"q": q_text[:150], "a": ans2})
 
     faq_schema = None
     if faq:
