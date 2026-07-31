@@ -175,7 +175,8 @@ def publish_to_devto(article, topic):
     try:
         req = Request("https://dev.to/api/articles",
                       data=json.dumps(payload).encode(),
-                      headers={"api-key": DEVTO_KEY, "Content-Type": "application/json"},
+                      headers={"api-key": DEVTO_KEY, "Content-Type": "application/json",
+                               "User-Agent": "Mozilla/5.0 (compatible; Athena/1.0; +https://lena2099.github.io/tech-tools-hub)"},
                       method="POST")
         resp = json.loads(urlopen(req, timeout=30).read())
         if "url" in resp:
