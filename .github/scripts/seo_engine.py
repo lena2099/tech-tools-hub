@@ -125,13 +125,14 @@ def generate_schema_jsonld(post_path: Path) -> str:
     in_faq = False
     for line in body.split("\n"):
         ls = line.strip()
-        # Detect FAQ section start
-        if ls.lower() in ('faq', 'frequently asked questions') or ls.lower().startswith('### faq'):
+        # Detect FAQ section start — any heading or standalone line
+        low = ls.lower().lstrip('#').strip()
+        if low in ('faq', 'frequently asked questions', 'faqs', 'frequently asked questions (faq)'):
             in_faq = True
             continue
         if not in_faq:
             continue
-        if ls.startswith("##") and 'faq' not in ls.lower():
+        if ls.startswith("##") and 'faq' not in low and 'bonus' not in low and 'verdict' not in low:
             break
         # Match: ### N. Question? or ### Question?
         m = re.match(r'^#+\s*(?:\d+\.\s*)?(.+?\??)\s*$', ls)
