@@ -122,52 +122,62 @@ def generate_schema_jsonld(post_path: Path) -> str:
     # FAQ schema — extract Q&A pairs
     # Patterns: "### 1. Question?" or "**Q:** ..." or "### Question?"
     faq = []
-    in_faq = False
-    for line in body.split("\n"):
-        ls = line.strip()
-        # Detect FAQ section start — any heading or standalone line
-        low = ls.lower().lstrip('#').strip()
+    faq_lines = body.split("\n")
+    
+    # Find FAQ section start
+    faq_start = -1
+    for i, line in enumerate(faq_lines):
+        low = line.strip().lower().lstrip('#').strip()
         if low in ('faq', 'frequently asked questions', 'faqs', 'frequently asked questions (faq)'):
-            in_faq = True
-            continue
-        if not in_faq:
-            continue
-        if ls.startswith("##") and 'faq' not in low and 'bonus' not in low and 'verdict' not in low:
+            faq_start = i
             break
-        # Match: ### N. Question? or ### Question?
-        m = re.match(r'^#+\s*(?:\d+\.\s*)?(.+?\??)\s*$', ls)
-        if m:
-            q_text = m.group(1).strip().strip('*').strip()
-            # Collect answer lines until next heading or empty+heading
-            a_lines = []
-            # We need the context after this line — scan the body directly
-            q_pos = body.find(line)
-            if q_pos < 0:
+    if faq_start < 0:
+        faq = []  # no FAQ section
+    else:
+        for i in range(faq_start + 1, len(faq_lines)):
+            ls = faq_lines[i].strip()
+            if not ls:
                 continue
-            rest = body[q_pos + len(line):]
-            for aline in rest.split("\n"):
-                als = aline.strip()
-                if als.startswith("###") or (als.startswith("##") and 'faq' not in als.lower()):
+            # Stop before next major section
+            if ls.startswith("##") and 'faq' not in ls.lower().lstrip('#').strip():
+                break
+            
+            # Style A: ### N. Question? — answer on next non-empty line
+            m = re.match(r'^###?\s+(\d+)[\.)]\s+(.+?)(\?)?\s*$', ls)
+            if m:
+                q = m.group(2).strip()
+                for j in range(i + 1, min(len(faq_lines), i + 5)):
+                    a = faq_lines[j].strip()
+                    if not a: continue
+                    if a.startswith('#'): break
+                    faq.append({"q": q[:150], "a": a[:300]})
                     break
-                if als == '':
-                    continue
-                if als.startswith('|') or als.startswith('- ') or als.startswith('* '):
-                    a_lines.append(als)
-                elif not als.startswith('#'):
-                    a_lines.append(als)
-            answer = ' '.join(a_lines)[:300]
-            if q_text and answer and len(q_text) > 5:
-                faq.append({"q": q_text[:150], "a": answer})
-        # Also match: **Q:** pattern
-        qm = re.match(r'\*\*Q:?\*\*\s*(.+)', ls)
-        if qm and not faq or (faq and faq[-1]['q'] != qm.group(1).strip()):
-            q_text = qm.group(1).strip()
-            q_pos2 = body.find(line)
-            if q_pos2 >= 0:
-                rest2 = body[q_pos2 + len(line):]
-                ans2 = rest2.split("\n\n")[0].strip().replace('\n',' ')[:300]
-                if ans2 and q_text:
-                    faq.append({"q": q_text[:150], "a": ans2})
+                continue
+            
+            # Style B: **Q: Question?** — answer on next line starting with "A:"
+            m = re.match(r'\*\*Q:\s*(.+?)\*?\*\*?\s*$', ls)
+            if m:
+                q = m.group(1).strip().rstrip('*').strip()
+                for j in range(i + 1, min(len(faq_lines), i + 5)):
+                    a = faq_lines[j].strip()
+                    if not a: continue
+                    if a.startswith('A:'):
+                        faq.append({"q": q[:150], "a": a[2:].strip()[:300]})
+                        break
+                    if a.startswith('**') or a.startswith('#'): break
+                continue
+            
+            # Style C: **N. Question?** — answer on next non-empty line
+            m = re.match(r'\*\*\s*(\d+)[\.)]\s+(.+?\??)\*\*\s*$', ls)
+            if m:
+                q = m.group(2).strip()
+                for j in range(i + 1, min(len(faq_lines), i + 5)):
+                    a = faq_lines[j].strip()
+                    if not a: continue
+                    if a.startswith('**') or a.startswith('#'): break
+                    faq.append({"q": q[:150], "a": a[:300]})
+                    break
+                continue
 
     faq_schema = None
     if faq:
