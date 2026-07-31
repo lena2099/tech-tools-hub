@@ -89,6 +89,11 @@ ASUS has shaken up the mid-range market with the Zenfone 11 Ultra. It packs a 6.
 
 **Best Premium:** **ASUS Zenfone 11 Ultra** — If you want flagship performance and a 144Hz screen but refuse to pay $1000, the Zenfone 11 Ultra is the premium choice that punches far above its weight class.
 
+
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is it worth buying a 5G phone under $500 in 2026?", "acceptedAnswer": {"@type": "Answer", "text": "Absolutely. All the phones on this list support 5G, and carriers are now heavily prioritizing 5G bands. It ensures you get faster speeds and better call quality, and it future-proofs your device for the next few years."}}, {"@type": "Question", "name": "Can I get a good camera phone for under $500?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, the Google Pixel 9a is arguably the best camera phone you can buy under $600. The computational photography from Google makes it incredibly easy to take stunning photos, even in low light, which is typically a struggle for budget phones."}}, {"@type": "Question", "name": "How much RAM do I need in a budget phone?", "acceptedAnswer": {"@type": "Answer", "text": "For most users, 8GB of RAM is the sweet spot in 2026. It allows for smooth multitasking and gaming. The phones on this list offer 8GB to 12GB, so you won't have to worry about apps reloading constantly."}}]}
+</script>
+
 ## FAQ
 
 **Q: Is it worth buying a 5G phone under $500 in 2026?**
