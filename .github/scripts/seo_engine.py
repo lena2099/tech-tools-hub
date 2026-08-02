@@ -339,7 +339,25 @@ def generate_enhanced_sitemap():
         parts = p.stem.split("-", 3)
         if len(parts) < 4:
             continue
-        url = f"{SITE_URL}/{parts[0]}/{parts[1]}/{parts[2]}/{parts[3]}.html"
+        # Read category from frontmatter
+        category = ""
+        try:
+            pc = p.read_text()
+            for line in pc.split("\n"):
+                if line.strip() == "---":
+                    continue
+                if line.startswith("categories:"):
+                    category = line.split(":", 1)[1].strip()
+                    break
+                # Stop at second ---
+                if line.strip() == "---" and category:
+                    break
+        except:
+            pass
+        if category:
+            url = f"{SITE_URL}/{category}/{parts[0]}/{parts[1]}/{parts[2]}/{parts[3]}.html"
+        else:
+            url = f"{SITE_URL}/{parts[0]}/{parts[1]}/{parts[2]}/{parts[3]}.html"
         # Newest posts get higher priority
         priority = min(1.0, 1.0 - (i * 0.05))
         lastmod = f"{parts[0]}-{parts[1]}-{parts[2]}"
