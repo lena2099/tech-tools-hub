@@ -8,10 +8,16 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://lena2099.github.io/tech-tools-hub/smart-home-devices/2026/08/02/best-video-doorbell-security-cameras-2026.html</loc>
+    <loc>https://lena2099.github.io/tech-tools-hub/portable-audio/2026/08/02/jbl-vs-bose-vs-sony-best-portable-sound-2026.html</loc>
     <lastmod>2026-08-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://lena2099.github.io/tech-tools-hub/smart-home-devices/2026/08/02/best-video-doorbell-security-cameras-2026.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://lena2099.github.io/tech-tools-hub/wearables-fitness/2026/08/02/best-smartwatch-2026-iphone-android.html</loc>
@@ -22,8 +28,8 @@
   <url>
     <loc>https://lena2099.github.io/tech-tools-hub/home-office-gear/2026/08/02/best-desk-lamps-lighting-eye-comfort-2026.html</loc>
     <lastmod>2026-08-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://lena2099.github.io/tech-tools-hub/noise-cancelling-headphones/2026/08/01/over-ear-vs-in-ear-noise-cancelling-2026.html</loc>
@@ -41,13 +47,13 @@
     <loc>https://lena2099.github.io/tech-tools-hub/home-office-gear/2026/08/01/best-ergonomic-keyboard-mouse-2026.html</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://lena2099.github.io/tech-tools-hub/ereaders-tablets/2026/08/01/best-budget-tablets-reading-note-taking-2026.html</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://lena2099.github.io/tech-tools-hub/budget-smartphones/2026/07/31/best-smartphones-under-500-2026.html</loc>
@@ -65,12 +71,12 @@
     <loc>https://lena2099.github.io/tech-tools-hub/noise-cancelling-headphones/2026/07/31/best-noise-cancelling-headphones-remote-work-2026.html</loc>
     <lastmod>2026-07-31</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://lena2099.github.io/tech-tools-hub/home-office-gear/2026/07/31/best-budget-monitor-programming-design-2026.html</loc>
     <lastmod>2026-07-31</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
 </urlset>
