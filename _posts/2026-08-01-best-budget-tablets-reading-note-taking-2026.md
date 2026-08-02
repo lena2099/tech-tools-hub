@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "看书做笔记买什么平板？iPad 不是唯一答案"
+seo_title: "Best Budget Tablets for Reading & Note-Taking in 2026"
 date: 2026-08-01T02:00:00.000000+00:00
 categories: ereaders-tablets
 tags:
