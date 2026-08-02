@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Best Desk Lamps & Lighting for Eye Comfort in 2026"
+seo_title: "Best Desk Lamps & Lighting for Eye Comfort in 2026"
 date: 2026-08-02T09:00:55.441677+00:00
 categories: home-office-gear
 tags:
