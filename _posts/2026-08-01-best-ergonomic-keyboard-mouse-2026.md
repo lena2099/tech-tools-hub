@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "人体工学键盘值不值？用了两年的人说几句实话"
+seo_title: "Best Ergonomic Keyboard & Mouse for Home Office in 2026"
 date: 2026-08-01T06:00:00.000000+00:00
 categories: home-office-gear
 tags:
