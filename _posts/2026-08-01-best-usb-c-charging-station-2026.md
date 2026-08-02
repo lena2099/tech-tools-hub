@@ -1,7 +1,6 @@
 ---
 layout: post
-title: "桌面充电站怎么选？一个插头充所有设备的快乐"
-seo_title: "Best USB-C Charging Station for Multiple Devices in 2026"
+title: "Best USB-C Charging Station for Multiple Devices in 2026 — 多设备USB-C充电站推荐"
 date: 2026-08-01T10:00:00.000000+00:00
 categories: charging-accessories
 tags:
