@@ -192,39 +192,47 @@ def generate_article(topic: dict, angle: str):
         f"  - {name}: {url} ({desc})" for name, url, desc in AMZN_SUBS
     )
 
-    prompt = f"""Write a BUYER-DECISION blog article in English. The reader is actively shopping — help them choose.
+    prompt = f"""Write a BUYER-DECISION blog article. The reader is shopping — help them choose.
 
-CRITICAL RULES:
-- Today is {current_date.strftime('%B %d, %Y')}. ONLY mention products available NOW in {this_year}. Never mention 2024, 2025, or any discontinued products.
-- This is NOT a tutorial or how-to. It's a shopping guide / comparison / vs-style article.
-- Every product mentioned must link to an Amazon SEARCH page (e.g. https://www.amazon.com/s?k=product+name&tag=technolo0b423-20). NEVER invent fake ASINs like B0ABC1234 — use search links only.
-- Include a comparison table of 3-5 products with key specs and prices.
-- End with a clear VERDICT section: "Best Overall" / "Best Budget" / "Best Premium".
+VOICE RULES — THIS IS THE MOST IMPORTANT PART:
+- Write like a real person who actually owns and uses tech products. First-person, casual, opinionated.
+- NEVER use these AI phrases: "You're looking for X but the market is confusing/overwhelming", "After hours of testing", "the truth is", "game-changer", "revolutionary", "whether you're on a budget or want premium", "let's dive deep", "without further ado".
+- DON'T sound like a marketing copywriter. Sound like someone texting a friend about what to buy.
+- Include at least one personal experience detail: a specific thing that annoyed you, a feature you didn't expect to use but now love, something you returned.
+- Every product should have at least one honest CON: not just "no backlight", but real stuff — "the software requires an account just to remap keys", "the ear tips don't fit small ears".
+- Use contractions (don't, can't, I've, you're). Short paragraphs. 40-80 words max per paragraph.
+- READABILITY: grade 8-10. Short sentences. No corporate buzzwords.
+- NEVER lie. Don't say "I tested" if you haven't. Say "most reviewers report" or "based on specs".
+
+CONTENT RULES:
+- Today is {current_date.strftime('%B %d, %Y')}. ONLY real, currently-available products. No 2024 models unless they're still sold new.
+- This is a shopping guide, not a tutorial.
+- Mention 3-4 products max. Not 5. Quality over quantity.
+- EVERY product link MUST be an Amazon search link: https://www.amazon.com/s?k=Exact+Product+Name&tag=technolo0b423-20 — NEVER invent fake ASINs.
+- NO comparison table with fake star ratings. Instead, describe differences in plain sentences.
+- NO numbered list of features. Tell me what matters, not everything.
+- Skip the "Quick Picks" box. Skip the "Verdict" with "Best Overall/Budget/Premium" labels. Just tell the reader what to buy and why.
+- FAQ section: 2 questions max. Keep answers 2-3 sentences.
+- Mention subscriptions ONLY if genuinely relevant. Don't cram Kindle Unlimited into a keyboard review.
+- Affiliate disclosure at the very end: "*As an Amazon Associate, I earn from qualifying purchases.*"
 
 ARTICLE INFO:
-- Title angle: {angle}
-- Product category: {topic['category']}
-- Length: 800-1200 words
+- Title: {angle} — keep it under 60 chars, include {this_year}
+- Category: {topic['category']}
+- Length: 600-900 words. Short is better than padded.
 
-STRUCTURE:
-1. Hook paragraph: "You're looking for X but the market is confusing... here are the 3-5 best options right now in {this_year}."
-2. Quick Picks box (3 bullets, one sentence each)
-3. Comparison table (Markdown table: Product | Price | Key Feature | Rating | Link). Link column: use Amazon search links, NOT fake ASINs.
-4. Detailed reviews: 100-150 words per product, with Amazon SEARCH link
-5. Verdict section: "Best Overall" / "Best Budget" / "Best Premium" with reasons
-6. FAQ section: 3 common questions buyers ask, 2-3 sentence answers
-7. Subscription bonus: if relevant, mention one of these Amazon subscriptions (free trial gives commission): {subs_text}
-8. Affiliate disclosure: "*As an Amazon Associate, I earn from qualifying purchases.*"
+STRUCTURE (flexible — don't follow this rigidly):
+1. Opening: personal anecdote or strong opinion. Not a generic "market is confusing" hook.
+2. What actually matters: 2-3 things buyers overlook but should know.
+3. Product recommendations: 3-4 products, 100-150 words each, with honest pros and cons.
+4. Closing: one sentence telling the reader which one to buy and why.
+5. FAQ: 2 questions.
+6. Disclosure line.
 
-AMAZON LINKS — NEVER invent ASINs (product codes). The model does not know real Amazon product IDs.
-Use Amazon SEARCH links instead — this is safer and always leads to real products:
-  Format: https://www.amazon.com/s?k=descriptive+search+terms&tag=technolo0b423-20
-  Example: https://www.amazon.com/s?k=ergonomic+keyboard+wireless&tag=technolo0b423-20
+OUTPUT: ONLY a JSON object:
+{{"title": "...", "slug": "url-friendly-slug", "meta_description": "150-160 chars", "tags": ["tag1","tag2"], "content": "FULL # markdown article"}}"""
 
-OUTPUT: ONLY a JSON object, no markdown outside:
-{{"title": "SEO title (include {this_year}, 55-70 chars)", "slug": "url-friendly-slug", "meta_description": "150-160 char shopping meta", "tags": ["tag1","tag2","tag3"], "content": "FULL # markdown article including comparison table and verdict"}}"""
-
-    text = call_deepseek([{"role": "user", "content": prompt}], max_tokens=4096, temperature=0.7)
+    text = call_deepseek([{"role": "user", "content": prompt}], max_tokens=3072, temperature=0.7)
 
     match = re.search(r"\{.*\}", text, re.DOTALL)
     if match:
