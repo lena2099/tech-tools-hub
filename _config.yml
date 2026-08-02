@@ -1,6 +1,7 @@
 title: Tech & Tools Hub
 description: AI tools, productivity, remote work, and honest tech reviews
-url: https://lena2099.github.io/tech-tools-hub
+url: https://lena2099.github.io
+baseurl: /tech-tools-hub
 author:
   name: Lena
 
