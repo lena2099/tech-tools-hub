@@ -1,0 +1,51 @@
+name: Prometheus — Social Distribution Engine
+
+on:
+  workflow_run:
+    workflows: ["Athena v3 — Generate + SEO + Distribute"]
+    types:
+      - completed
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  distribute:
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install httpx pyyaml
+
+      # ── Stage 1: Social post generation + publishing ──
+      - name: 📣 Generate & Publish Social Posts
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
+          MEDIUM_TOKEN: ${{ secrets.MEDIUM_TOKEN }}
+          TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
+        run: python .github/scripts/promote.py
+
+      # ── Stage 2: Commit distribution report ──
+      - name: 💾 Commit Distribution Report
+        run: |
+          git config user.name "Prometheus Bot"
+          git config user.email "bot@prometheus.local"
+          git add _social/
+          if git diff --staged --quiet; then
+            echo "No social distribution changes"
+          else
+            git commit -m "📣 Social: cross-platform post report ($(date -u +%Y-%m-%d_%H:%M))"
+            git push
+          fi
