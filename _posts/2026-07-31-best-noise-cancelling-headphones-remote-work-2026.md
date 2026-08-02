@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "降噪耳机选购：别只看参数，这些坑我帮你踩过了"
+seo_title: "Best Noise Cancelling Headphones for Remote Work in 2026"
 date: 2026-07-31T14:00:00.000000+00:00
 categories: noise-cancelling-headphones
 tags:
