@@ -54,19 +54,19 @@ description: "入耳和头戴降噪耳机的真实对比。取决于你的使用
 
 降噪好，关键是**舒服**。耳压感比 Sony 轻（有些人受不了 Sony 的压迫感）。通话收音对方听不到键盘声。折叠后体积小。
 
-[在 Amazon 上搜 Bose QC Ultra Headphones](https://www.amazon.com/s?k=Bose+QuietComfort+Ultra+headphones&tag=technolo0b423-20)
+[在 Amazon 上搜 Bose QC Ultra Headphones](https://www.amazon.com/dp/B0CCZ1L489?tag=technolo0b423-20)
 
 ### 头戴式备选：Sony WH-1000XM6
 
 降噪稍强于 Bose，App 可以手动调降噪等级。声音默认低音重（要进 App 调 EQ）。折叠便携。
 
-[在 Amazon 上搜 Sony WH-1000XM6](https://www.amazon.com/s?k=Sony+WH-1000XM6+headphones&tag=technolo0b423-20)
+[在 Amazon 上搜 Sony WH-1000XM6](https://www.amazon.com/dp/B0F9B9SN25?tag=technolo0b423-20)
 
 ### 入耳式：AirPods Pro 2
 
 通透模式是所有入耳式里最自然的。IPX4 防水溅，骑车出汗没事。跟 iPhone 切换无缝。Android 也能用但功能少很多。
 
-[在 Amazon 上搜 AirPods Pro 2](https://www.amazon.com/s?k=AirPods+Pro+2+USB-C&tag=technolo0b423-20)
+[在 Amazon 上搜 AirPods Pro 2](https://www.amazon.com/dp/B0CHWRXH8B?tag=technolo0b423-20)
 
 ### 入耳式备选：Sony WF-1000XM6
 
