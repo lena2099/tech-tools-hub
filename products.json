@@ -1,0 +1,41 @@
+{
+  "home-office-gear": [
+    {"name": "Dell S2722QC", "asin": "B08XNYXHKS", "search": "Dell+S2722QC+27+4K+USB-C+monitor", "price": 299, "note": "27 4K IPS USB-C 65W"},
+    {"name": "LG 27UP600-W", "asin": "B0BTTRLYBX", "search": "LG+27UP600+27+4K+monitor", "price": 229, "note": "27 4K IPS, no USB-C"},
+    {"name": "Logitech ERGO K860", "asin": "B07ZWK2TQT", "search": "Logitech+ERGO+K860+keyboard", "price": 129, "note": "split curved keyboard"},
+    {"name": "Microsoft Sculpt Ergonomic Desktop", "asin": "B00CYX54C0", "search": "Microsoft+Sculpt+Ergonomic+Desktop", "price": 89, "note": "keyboard+mouse combo"},
+    {"name": "Logitech MX Vertical", "asin": "B07FNJB8TT", "search": "Logitech+MX+Vertical+mouse", "price": 99, "note": "57 vertical mouse"}
+  ],
+  "noise-cancelling-headphones": [
+    {"name": "Bose QuietComfort Ultra Headphones", "asin": "B0CCZ1L489", "search": "Bose+QuietComfort+Ultra+headphones", "price": 429, "note": "over-ear ANC"},
+    {"name": "Sony WH-1000XM6", "asin": "B0F9B9SN25", "search": "Sony+WH-1000XM6+headphones", "price": 399, "note": "over-ear ANC, LDAC"},
+    {"name": "AirPods Pro 2", "asin": "B0CHWRXH8B", "search": "AirPods+Pro+2+USB-C", "price": 249, "note": "in-ear ANC, iPhone"},
+    {"name": "Sony WF-1000XM6", "asin": null, "search": "Sony+WF-1000XM6+earbuds", "price": 299, "note": "in-ear ANC, LDAC"},
+    {"name": "Anker Soundcore Space One", "asin": "B0CW1DCKHZ", "search": "Anker+Soundcore+Space+One", "price": 99, "note": "budget over-ear ANC"}
+  ],
+  "portable-audio": [
+    {"name": "JBL Flip 7", "asin": "B0F9B3PDKP", "search": "JBL+Flip+7+bluetooth+speaker", "price": 129, "note": "IP68, 12H battery"},
+    {"name": "JBL Charge 6", "asin": "B0DN2ZCZX6", "search": "JBL+Charge+6+bluetooth+speaker", "price": 199, "note": "IP68, 28H, powerbank"},
+    {"name": "Tribit StormBox Micro 2", "asin": "B0BGPCSM6Y", "search": "Tribit+StormBox+Micro+2", "price": 59, "note": "IP67, bike mount"}
+  ],
+  "budget-smartphones": [
+    {"name": "Google Pixel 9a", "asin": "B0D7HWPR3J", "search": "Google+Pixel+9a+unlocked", "price": 499, "note": "7yr updates, Tensor G4"},
+    {"name": "Samsung Galaxy A56", "asin": "B0F1GF39WJ", "search": "Samsung+Galaxy+A56+unlocked", "price": 449, "note": "6.6 120Hz, 50MP"},
+    {"name": "Moto G Stylus 2026", "asin": "B0GR2DX7ZT", "search": "Moto+G+Stylus+2026+unlocked", "price": 299, "note": "built-in stylus"}
+  ],
+  "ereaders-tablets": [
+    {"name": "Kindle Paperwhite", "asin": null, "search": "Kindle+Paperwhite+2024", "price": 159, "note": "6.8 e-ink, waterproof"},
+    {"name": "Samsung Galaxy Tab S9 FE", "asin": "B0CCX11JT6", "search": "Samsung+Galaxy+Tab+S9+FE", "price": 449, "note": "10.9, S Pen included"},
+    {"name": "Amazon Fire HD 10", "asin": null, "search": "Amazon+Fire+HD+10+tablet", "price": 139, "note": "10.1, budget"}
+  ],
+  "wearables-fitness": [
+    {"name": "Apple Watch Series 10", "asin": null, "search": "Apple+Watch+Series+10+GPS", "price": 399, "note": "iPhone only"},
+    {"name": "Samsung Galaxy Watch 7", "asin": "B0D7FFJQ77", "search": "Samsung+Galaxy+Watch+7", "price": 299, "note": "Wear OS, 40mm"},
+    {"name": "Garmin Venu 3", "asin": "B0CHCCCDB9", "search": "Garmin+Venu+3+smartwatch", "price": 449, "note": "14-day battery, cross-platform"}
+  ],
+  "charging-accessories": [
+    {"name": "Anker Prime 100W GaN", "asin": "B0C4DGBHY2", "search": "Anker+Prime+100W+GaN+charger", "price": 59, "note": "3-port, compact"},
+    {"name": "Ugreen Nexode Pro 160W", "asin": "B0FYFDD1WW", "search": "Ugreen+Nexode+Pro+160W+GaN", "price": 89, "note": "4-port, 140W single"},
+    {"name": "Anker 525 Charging Station", "asin": "B0B3HW6MPD", "search": "Anker+525+Charging+Station", "price": 49, "note": "7-in-1, desktop"}
+  ]
+}
