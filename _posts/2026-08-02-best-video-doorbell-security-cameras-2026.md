@@ -1,8 +1,7 @@
 ---
 
 layout: post
-title: "Best Video Doorbell & Security Cams 2026"
-seo_title: "Best Video Doorbell & Security Cameras in 2026"
+title: "Best Video Doorbell & Security Cameras in 2026 — 视频门铃和安全摄像头推荐"
 date: 2026-08-02T15:48:20.529496+00:00
 categories: smart-home-devices
 tags:
