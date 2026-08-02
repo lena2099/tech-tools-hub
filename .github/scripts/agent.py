@@ -112,6 +112,45 @@ TOPICS = [
 # Amazon affiliate tag
 AMZN_TAG = "technolo0b423-20"
 
+# ── PRODUCT CATALOG (verified ASINs) ──────────────────────
+def load_products():
+    """Load product whitelist from products.json."""
+    p = Path("products.json")
+    if p.exists():
+        with open(p) as f:
+            return json.load(f)
+    return {}
+
+def pick_products(category_slug: str, count: int = 4) -> list:
+    """Pick products for a category from the whitelist."""
+    catalog = load_products()
+    products = catalog.get(category_slug, [])
+    if not products:
+        return []
+    with_asin = [p for p in products if p.get("asin")]
+    without_asin = [p for p in products if not p.get("asin")]
+    selected = with_asin[:count]
+    if len(selected) < count:
+        selected += without_asin[:count - len(selected)]
+    return selected
+
+def format_product_links(products: list) -> str:
+    """Format product list for prompt injection."""
+    lines = []
+    for p in products:
+        asin = p.get("asin")
+        name = p["name"]
+        price = p.get("price", "?")
+        note = p.get("note", "")
+        if asin:
+            url = f"https://www.amazon.com/dp/{asin}?tag=technolo0b423-20"
+            lines.append(f"- {name}: {url} (${price}, {note})")
+        else:
+            search = p.get("search", name.replace(" ", "+"))
+            url = f"https://www.amazon.com/s?k={search}&tag=technolo0b423-20"
+            lines.append(f"- {name}: {url} (${price}, {note}, search link)")
+    return "\n".join(lines)
+
 # Subscription bounties (PA API product links, NOT search redirects)
 AMZN_SUBS = [
     ("Kindle Unlimited", "https://www.amazon.com/kindle-dbs/hz/subscribe/ku?tag=technolo0b423-20",
@@ -185,6 +224,11 @@ def pick_topic_and_angle():
 # ── ARTICLE GENERATION ────────────────────────────────────
 def generate_article(topic: dict, angle: str):
     current_date = datetime.now(timezone.utc)
+    # Pick verified products from catalog
+    products = pick_products(topic['slug'])
+    product_block = format_product_links(products)
+    if not product_block:
+        product_block = "(no verified products — use well-known products with Amazon search links only)"
     month_year = current_date.strftime("%B %Y")
     this_year = current_date.strftime("%Y")
 
@@ -207,10 +251,12 @@ VOICE RULES — THIS IS THE MOST IMPORTANT PART:
 CONTENT RULES:
 - Today is {current_date.strftime('%B %d, %Y')}. ONLY real, currently-available products. No 2024 models unless they're still sold new.
 - This is a shopping guide, not a tutorial.
-- Mention 3-4 products max. Not 5. Quality over quantity.
-- EVERY product link MUST be an Amazon search link: https://www.amazon.com/s?k=Exact+Product+Name&tag=technolo0b423-20 — NEVER invent fake ASINs.
-- NO comparison table with fake star ratings. Instead, describe differences in plain sentences.
-- NO numbered list of features. Tell me what matters, not everything.
+- Use these verified products (with real ASINs or search links):
+{product_block}
+- ONLY use the products listed above. Do NOT invent your own products or ASINs.
+- For products with ASINs (amazon.com/dp/...), use exactly the provided link.
+- No comparison table with fake star ratings. Describe differences in plain sentences.
+- No numbered feature lists. Tell me what matters.
 - Skip the "Quick Picks" box. Skip the "Verdict" with "Best Overall/Budget/Premium" labels. Just tell the reader what to buy and why.
 - FAQ section: 2 questions max. Keep answers 2-3 sentences.
 - Mention subscriptions ONLY if genuinely relevant. Don't cram Kindle Unlimited into a keyboard review.
