@@ -197,7 +197,7 @@ def generate_article(topic: dict, angle: str):
 CRITICAL RULES:
 - Today is {current_date.strftime('%B %d, %Y')}. ONLY mention products available NOW in {this_year}. Never mention 2024, 2025, or any discontinued products.
 - This is NOT a tutorial or how-to. It's a shopping guide / comparison / vs-style article.
-- Every product mentioned must link to Amazon with tag=technolo0b423-20.
+- Every product mentioned must link to an Amazon SEARCH page (e.g. https://www.amazon.com/s?k=product+name&tag=technolo0b423-20). NEVER invent fake ASINs like B0ABC1234 — use search links only.
 - Include a comparison table of 3-5 products with key specs and prices.
 - End with a clear VERDICT section: "Best Overall" / "Best Budget" / "Best Premium".
 
@@ -209,15 +209,17 @@ ARTICLE INFO:
 STRUCTURE:
 1. Hook paragraph: "You're looking for X but the market is confusing... here are the 3-5 best options right now in {this_year}."
 2. Quick Picks box (3 bullets, one sentence each)
-3. Comparison table (Markdown table: Product | Price | Key Feature | Rating | Link)
-4. Detailed reviews: 100-150 words per product, with Amazon link
+3. Comparison table (Markdown table: Product | Price | Key Feature | Rating | Link). Link column: use Amazon search links, NOT fake ASINs.
+4. Detailed reviews: 100-150 words per product, with Amazon SEARCH link
 5. Verdict section: "Best Overall" / "Best Budget" / "Best Premium" with reasons
 6. FAQ section: 3 common questions buyers ask, 2-3 sentence answers
 7. Subscription bonus: if relevant, mention one of these Amazon subscriptions (free trial gives commission): {subs_text}
 8. Affiliate disclosure: "*As an Amazon Associate, I earn from qualifying purchases.*"
 
-AMAZON LINKS — use this tag on every link:
-Example: https://www.amazon.com/dp/B0EXAMPLE?tag=technolo0b423-20
+AMAZON LINKS — NEVER invent ASINs (product codes). The model does not know real Amazon product IDs.
+Use Amazon SEARCH links instead — this is safer and always leads to real products:
+  Format: https://www.amazon.com/s?k=descriptive+search+terms&tag=technolo0b423-20
+  Example: https://www.amazon.com/s?k=ergonomic+keyboard+wireless&tag=technolo0b423-20
 
 OUTPUT: ONLY a JSON object, no markdown outside:
 {{"title": "SEO title (include {this_year}, 55-70 chars)", "slug": "url-friendly-slug", "meta_description": "150-160 char shopping meta", "tags": ["tag1","tag2","tag3"], "content": "FULL # markdown article including comparison table and verdict"}}"""
