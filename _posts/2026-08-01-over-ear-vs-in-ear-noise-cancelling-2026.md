@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "入耳还是头戴？降噪耳机的选择没有标准答案"
+seo_title: "Over-Ear vs In-Ear Noise Cancelling: Which One Should You Buy?"
 date: 2026-08-01T14:00:00.000000+00:00
 categories: noise-cancelling-headphones
 tags:
