@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "沙滩音响怎么挑？防水等级和音量才是硬道理"
+seo_title: "Best Portable Speaker for Beach & Outdoors in 2026"
 date: 2026-07-31T18:00:00.000000+00:00
 categories: portable-audio
 tags:
