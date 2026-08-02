@@ -59,7 +59,7 @@ PD、QC、PPS、AFC——这些是各家快充协议。你只需要知道：
 
 缺点：三口插满后分配很保守，总功率不会超过 100W。
 
-[在 Amazon 上搜 Anker Prime 100W GaN charger](https://www.amazon.com/s?k=Anker+Prime+100W+GaN+charger&tag=technolo0b423-20)
+[在 Amazon 上搜 Anker Prime 100W GaN charger](https://www.amazon.com/dp/B0C4DGBHY2?tag=technolo0b423-20)
 
 ### Ugreen Nexode Pro 160W：多设备党
 
@@ -67,7 +67,7 @@ PD、QC、PPS、AFC——这些是各家快充协议。你只需要知道：
 
 缺点：比 Anker 大一圈，插墙上有点重。
 
-[在 Amazon 上搜 Ugreen Nexode Pro 160W](https://www.amazon.com/s?k=Ugreen+Nexode+Pro+160W+GaN&tag=technolo0b423-20)
+[在 Amazon 上搜 Ugreen Nexode Pro 160W](https://www.amazon.com/dp/B0FYFDD1WW?tag=technolo0b423-20)
 
 ### Anker 525 Charging Station：桌面固定方案
 
@@ -75,7 +75,7 @@ PD、QC、PPS、AFC——这些是各家快充协议。你只需要知道：
 
 缺点：不是纯充电器——它的 AC 口只是延长线。如果你只需要 USB 口，这个太大了。
 
-[在 Amazon 上搜 Anker 525 Charging Station](https://www.amazon.com/s?k=Anker+525+Charging+Station&tag=technolo0b423-20)
+[在 Amazon 上搜 Anker 525 Charging Station](https://www.amazon.com/dp/B0B3HW6MPD?tag=technolo0b423-20)
 
 ---
 
