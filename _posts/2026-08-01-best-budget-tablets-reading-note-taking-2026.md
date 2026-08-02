@@ -72,7 +72,7 @@ description: "阅读和笔记场景选平板，不买贵的只买对的。Kindle
 
 缺点：不是 OLED 屏，黑色不够黑。三星系统预装 App 有点多。
 
-[在 Amazon 上搜 Samsung Galaxy Tab S9 FE](https://www.amazon.com/s?k=Samsung+Galaxy+Tab+S9+FE&tag=technolo0b423-20)
+[在 Amazon 上搜 Samsung Galaxy Tab S9 FE](https://www.amazon.com/dp/B0CCX11JT6?tag=technolo0b423-20)
 
 ### 预算最低：Amazon Fire HD 10
 
