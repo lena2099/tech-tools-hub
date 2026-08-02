@@ -1,8 +1,7 @@
 ---
 
 layout: post
-title: "智能手表买 Apple 还是 Android？别再纠结了"
-seo_title: "Best Smartwatch 2026: Apple Watch vs Galaxy Watch vs Garmin"
+title: "Best Smartwatch 2026: Apple Watch vs Galaxy Watch vs Garmin — 智能手表买哪个？"
 date: 2026-08-02T02:00:00.000000+00:00
 categories: wearables-fitness
 tags:
