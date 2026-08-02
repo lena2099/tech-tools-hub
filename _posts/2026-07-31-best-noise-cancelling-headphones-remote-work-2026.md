@@ -53,7 +53,7 @@ Sony 和 Bose 的降噪参数每年都在卷，但参数好不等于适合你。
 
 缺点是贵，而且不支持有线连接——没电了不能用。
 
-[在 Amazon 上搜 Bose QC Ultra Headphones](https://www.amazon.com/s?k=Bose+QuietComfort+Ultra+headphones&tag=technolo0b423-20)
+[在 Amazon 上搜 Bose QC Ultra Headphones](https://www.amazon.com/dp/B0CCZ1L489?tag=technolo0b423-20)
 
 ### 咖啡厅办公/旅行：Sony WH-1000XM6
 
@@ -61,7 +61,7 @@ Sony 和 Bose 的降噪参数每年都在卷，但参数好不等于适合你。
 
 缺点是默认音效低音偏重，需要在 App 里调一下。耳压感比 Bose 明显，敏感的人慎重。
 
-[在 Amazon 上搜 Sony WH-1000XM6](https://www.amazon.com/s?k=Sony+WH-1000XM6+headphones&tag=technolo0b423-20)
+[在 Amazon 上搜 Sony WH-1000XM6](https://www.amazon.com/dp/B0F9B9SN25?tag=technolo0b423-20)
 
 ### 通勤/走路/健身：AirPods Pro 2
 
@@ -69,7 +69,7 @@ Sony 和 Bose 的降噪参数每年都在卷，但参数好不等于适合你。
 
 缺点也明显：Android 用不了很多功能，续航 6 小时（开降噪），比头戴式短。
 
-[在 Amazon 上搜 AirPods Pro 2](https://www.amazon.com/s?k=AirPods+Pro+2+USB-C&tag=technolo0b423-20)
+[在 Amazon 上搜 AirPods Pro 2](https://www.amazon.com/dp/B0CHWRXH8B?tag=technolo0b423-20)
 
 ### 预算有限：Anker Soundcore Space One
 
@@ -77,7 +77,7 @@ Sony 和 Bose 的降噪参数每年都在卷，但参数好不等于适合你。
 
 缺点是塑料感强，戴久了有点闷。通话降噪一般。
 
-[在 Amazon 上搜 Anker Soundcore Space One](https://www.amazon.com/s?k=Anker+Soundcore+Space+One&tag=technolo0b423-20)
+[在 Amazon 上搜 Anker Soundcore Space One](https://www.amazon.com/dp/B0CW1DCKHZ?tag=technolo0b423-20)
 
 ---
 
