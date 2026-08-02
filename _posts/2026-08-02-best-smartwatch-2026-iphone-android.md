@@ -57,7 +57,7 @@ Wear OS 5 终于不卡了。3nm 芯片让流畅度提升明显。BioActive 传�
 
 缺点：三星独家功能只配三星手机用，其他 Android 只能用到基础功能。
 
-[在 Amazon 上搜 Samsung Galaxy Watch 7](https://www.amazon.com/s?k=Samsung+Galaxy+Watch+7&tag=technolo0b423-20)
+[在 Amazon 上搜 Samsung Galaxy Watch 7](https://www.amazon.com/dp/B0D7FFJQ77?tag=technolo0b423-20)
 
 ### 不想每天充电：Garmin Venu 3
 
@@ -65,7 +65,7 @@ Wear OS 5 终于不卡了。3nm 芯片让流畅度提升明显。BioActive 传�
 
 缺点：没有 App Store，只能装 Garmin 自己的表盘和应用。屏幕比苹果暗。
 
-[在 Amazon 上搜 Garmin Venu 3](https://www.amazon.com/s?k=Garmin+Venu+3+smartwatch&tag=technolo0b423-20)
+[在 Amazon 上搜 Garmin Venu 3](https://www.amazon.com/dp/B0CHCCCDB9?tag=technolo0b423-20)
 
 ---
 
