@@ -52,7 +52,7 @@ IP68，能在水下用。手掌大小，挂背包上不占地方。低音在同�
 
 缺点：音量在沙滩开到最大也只是勉强够用。人多的话建议上更大的。
 
-[在 Amazon 上搜 JBL Flip 7](https://www.amazon.com/s?k=JBL+Flip+7+bluetooth+speaker&tag=technolo0b423-20)
+[在 Amazon 上搜 JBL Flip 7](https://www.amazon.com/dp/B0F9B3PDKP?tag=technolo0b423-20)
 
 ### UE Boom 4：360 度环绕声
 
@@ -68,7 +68,7 @@ IP68，能在水下用。手掌大小，挂背包上不占地方。低音在同�
 
 缺点：580 克，挂在包上走路会晃。
 
-[在 Amazon 上搜 JBL Charge 6](https://www.amazon.com/s?k=JBL+Charge+6+bluetooth+speaker&tag=technolo0b423-20)
+[在 Amazon 上搜 JBL Charge 6](https://www.amazon.com/dp/B0DN2ZCZX6?tag=technolo0b423-20)
 
 ### Tribit StormBox Micro 2：自行车/摩托神器
 
@@ -76,7 +76,7 @@ IP68，能在水下用。手掌大小，挂背包上不占地方。低音在同�
 
 缺点：最大音量不如大型音箱。适合一个人骑行，不适合一群人聚会。
 
-[在 Amazon 上搜 Tribit StormBox Micro 2](https://www.amazon.com/s?k=Tribit+StormBox+Micro+2&tag=technolo0b423-20)
+[在 Amazon 上搜 Tribit StormBox Micro 2](https://www.amazon.com/dp/B0BGPCSM6Y?tag=technolo0b423-20)
 
 ---
 
