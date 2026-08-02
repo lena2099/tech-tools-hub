@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "$500 以内买什么手机？2026 年这几个选择不踩坑"
+seo_title: "Best Smartphones Under $500 in 2026"
 date: 2026-07-31T22:00:00.000000+00:00
 categories: budget-smartphones
 tags:
