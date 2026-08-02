@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "写代码用的显示器，不买贵的只买对的（2026版）"
+seo_title: "Best Budget Monitors for Programming & Design in 2026"
 date: 2026-07-31T10:00:00.000000+00:00
 categories: home-office-gear
 tags:
