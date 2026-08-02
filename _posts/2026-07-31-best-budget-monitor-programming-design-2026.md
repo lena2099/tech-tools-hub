@@ -42,7 +42,7 @@ description: "Actually useful monitor recommendations for programmers in 2026 �
 
 缺点是 60Hz，玩游戏不够。但写代码正好。
 
-[在 Amazon 上搜 Dell S2722QC](https://www.amazon.com/s?k=Dell+S2722QC+27+4K+USB-C+monitor&tag=technolo0b423-20)
+[在 Amazon 上搜 Dell S2722QC](https://www.amazon.com/dp/B08XNYXHKS?tag=technolo0b423-20)
 
 ### 便宜够用：LG 27UP600
 
@@ -50,7 +50,7 @@ description: "Actually useful monitor recommendations for programmers in 2026 �
 
 注意：支架只能调俯仰，不能升降。
 
-[在 Amazon 上搜 LG 27UP600](https://www.amazon.com/s?k=LG+27UP600+27+4K+monitor&tag=technolo0b423-20)
+[在 Amazon 上搜 LG 27UP600](https://www.amazon.com/dp/B0BTTRLYBX?tag=technolo0b423-20)
 
 ### 想大一点：Dell U3223QE
 
