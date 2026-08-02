@@ -39,7 +39,7 @@ Tensor G4 芯片 + 8GB 内存 + 7 年系统更新。拍照算法是 Google 的�
 
 缺点是充电只有 23W，不算快。而且 Tensor 芯片重度游戏会发热。
 
-[在 Amazon 上搜 Google Pixel 9a](https://www.amazon.com/s?k=Google+Pixel+9a+unlocked&tag=technolo0b423-20)
+[在 Amazon 上搜 Google Pixel 9a](https://www.amazon.com/dp/B0D7HWPR3J?tag=technolo0b423-20)
 
 ### 拍照更强：Samsung Galaxy A56
 
@@ -47,7 +47,7 @@ Exynos 1580 + 50MP 主摄。三星的相机调教偏鲜艳，拍食物和人像�
 
 缺点：塑料中框，手感一般。One UI 预装 App 有点多。
 
-[在 Amazon 上搜 Samsung Galaxy A56](https://www.amazon.com/s?k=Samsung+Galaxy+A56+unlocked&tag=technolo0b423-20)
+[在 Amazon 上搜 Samsung Galaxy A56](https://www.amazon.com/dp/B0F1GF39WJ?tag=technolo0b423-20)
 
 ### 续航怪兽：OnePlus Nord 4
 
@@ -63,7 +63,7 @@ Exynos 1580 + 50MP 主摄。三星的相机调教偏鲜艳，拍食物和人像�
 
 缺点：拍照是这几台里最差的，塑料机身。性能只够日常用，大型游戏跑不动。
 
-[在 Amazon 上搜 Moto G Stylus 2026](https://www.amazon.com/s?k=Moto+G+Stylus+2026+unlocked&tag=technolo0b423-20)
+[在 Amazon 上搜 Moto G Stylus 2026](https://www.amazon.com/dp/B0GR2DX7ZT?tag=technolo0b423-20)
 
 ---
 
