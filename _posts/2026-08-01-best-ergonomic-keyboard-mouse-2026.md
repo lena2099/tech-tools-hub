@@ -47,7 +47,7 @@ description: "用了两年分体键盘和垂直鼠标的真实体验。不是越
 
 缺点：腕托是固定的，不能拆卸——如果你已经有腕托或者桌子小，它占地方。
 
-[在 Amazon 上搜 Logitech ERGO K860](https://www.amazon.com/s?k=Logitech+ERGO+K860+keyboard&tag=technolo0b423-20)
+[在 Amazon 上搜 Logitech ERGO K860](https://www.amazon.com/dp/B07ZWK2TQT?tag=technolo0b423-20)
 
 ### 预算选择：Microsoft Sculpt
 
@@ -63,7 +63,7 @@ description: "用了两年分体键盘和垂直鼠标的真实体验。不是越
 
 缺点：对我这种手小的人稍微偏大。左右键不是静音，按下去有咔哒声。
 
-[在 Amazon 上搜 Logitech MX Vertical](https://www.amazon.com/s?k=Logitech+MX+Vertical+mouse&tag=technolo0b423-20)
+[在 Amazon 上搜 Logitech MX Vertical](https://www.amazon.com/dp/B07FNJB8TT?tag=technolo0b423-20)
 
 ---
 
