@@ -7,6 +7,8 @@ author:
 
 remote_theme: jekyll/minima
 
+google_site_verification: 5c72236a5c25e74d
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
