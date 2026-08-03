@@ -60,7 +60,7 @@ jobs:
       - name: 📡 Distribute (IndexNow + Bluesky + Dev.to)
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-          DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
+          # Dev.to manual publish — content generated in _social/
           BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
           BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
         run: python .github/scripts/dist_engine.py
