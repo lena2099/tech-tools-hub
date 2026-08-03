@@ -228,7 +228,7 @@ def generate_article(topic: dict, angle: str):
     products = pick_products(topic['slug'])
     product_block = format_product_links(products)
     if not product_block:
-        product_block = "(no verified products — use well-known products with Amazon search links only)"
+        product_block = "(no verified products for this category — use Amazon search links with tag=technolo0b423-20 for every product mentioned)"
     month_year = current_date.strftime("%B %Y")
     this_year = current_date.strftime("%Y")
 
@@ -251,10 +251,15 @@ VOICE RULES — THIS IS THE MOST IMPORTANT PART:
 CONTENT RULES:
 - Today is {current_date.strftime('%B %d, %Y')}. ONLY real, currently-available products. No 2024 models unless they're still sold new.
 - This is a shopping guide, not a tutorial.
-- Use these verified products (with real ASINs or search links):
+- Available verified products (use these ASIN links when applicable):
 {product_block}
-- ONLY use the products listed above. Do NOT invent your own products or ASINs.
-- For products with ASINs (amazon.com/dp/...), use exactly the provided link.
+- For products NOT listed above: you MAY include them. Use Amazon search links:
+  `https://www.amazon.com/s?k=PRODUCT+NAME&tag=technolo0b423-20`
+  Replace PRODUCT+NAME with the product name (e.g., Sony+WH-1000XM6).
+- For products listed above with ASINs (amazon.com/dp/...), use exactly the provided link.
+- IMPORTANT: Every product you mention MUST have an Amazon link.
+  If you discuss 5 products, there must be 5 Amazon links in the article.
+  This is not optional — it's the entire business model.
 - No comparison table with fake star ratings. Describe differences in plain sentences.
 - No numbered feature lists. Tell me what matters.
 - Skip the "Quick Picks" box. Skip the "Verdict" with "Best Overall/Budget/Premium" labels. Just tell the reader what to buy and why.
