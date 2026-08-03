@@ -16,17 +16,22 @@ def validate_article(filepath: Path) -> tuple[int, list[str]]:
     content = filepath.read_text(encoding='utf-8')
     issues = []
     
-    # Find Amazon product links with affiliate tag
+    # Find ALL Amazon links with affiliate tag (dp, search, and any other)
     dp_links = re.findall(r'https://www\.amazon\.com/dp/[A-Z0-9]+\?tag=' + TAG, content)
-    search_links = re.findall(r'https://www\.amazon\.com/s\?k=[^"]+\&tag=' + TAG, content)
+    search_links = re.findall(r'https://www\.amazon\.com/s\?k=[^"\s]+.*?tag=' + TAG, content)
     
-    total = len(dp_links) + len(search_links)
+    total_dp = len(dp_links)
+    total_search = len(search_links)
+    total = total_dp + total_search
     
     # Also check for the disclosure
     has_disclosure = "Amazon Associate" in content and "qualifying purchases" in content
     
     if total < MIN_AFFILIATE_LINKS:
-        issues.append(f"Only {total} affiliate links found (minimum: {MIN_AFFILIATE_LINKS})")
+        issues.append(
+            f"Only {total} affiliate links ({total_dp} ASIN + {total_search} search). "
+            f"Minimum required: {MIN_AFFILIATE_LINKS}"
+        )
     
     if not has_disclosure:
         issues.append("Missing affiliate disclosure")
