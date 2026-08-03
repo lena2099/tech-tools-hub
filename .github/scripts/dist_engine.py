@@ -1,27 +1,83 @@
 #!/usr/bin/env python3
 """
-Distribution Engine — Multi-channel content syndication.
-Runs after seo_engine.py. Pushes to Dev.to, generates RSS enhancement,
-prepares social media payloads.
+Distribution Engine v3 — Multi-channel syndication that actually works.
+Runs after seo_engine.py. 
+
+Strategy: free channels first (IndexNow, Bluesky, RSS), then API channels (Dev.to).
+Every channel that fails just gets logged — no single failure blocks the others.
+
+Channels (ordered by impact):
+  1. IndexNow → instant Bing/Yandex/Seznam indexing (FREE, no tokens)
+  2. Google Sitemap Ping → ping Google to re-crawl (FREE)
+  3. Bluesky → social signal + canonical link (FREE, needs app password)
+  4. Dev.to → high-DA backlink + audience (needs API key)
+  5. RSS → auto-submitted to aggregators (FREE, automatic via jekyll-feed)
 """
 import json, os, re
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.request import Request, urlopen
+from urllib.parse import quote
 
 SITE_URL = "https://lena2099.github.io/tech-tools-hub"
+SITEMAP_URL = f"{SITE_URL}/sitemap.xml"
 OUT_DIR = Path("_posts")
 DIST_DIR = Path("_dist")
 
-# Channel keys — from env (secrets)
+INDEXNOW_KEY = "0624a5ea55dc48afaefbe5ce8393c490"
+INDEXNOW_ENDPOINTS = [
+    "https://www.bing.com/indexnow",
+    "https://yandex.com/indexnow",
+    "https://search.seznam.cz/indexnow",
+]
+
 DEVTO_KEY = os.environ.get("DEVTO_API_KEY", "")
-MEDIUM_TOKEN = os.environ.get("MEDIUM_TOKEN", "")
-TWITTER_BEARER = os.environ.get("TWITTER_BEARER_TOKEN", "")
+BLUESKY_HANDLE = os.environ.get("BLUESKY_HANDLE", "")
+BLUESKY_PASSWORD = os.environ.get("BLUESKY_APP_PASSWORD", "")
 
 
-# ══════════════════════════════════════════════════════════
-# 1. DEV.TO CROSS-POST with canonical URL
-# ══════════════════════════════════════════════════════════
+def submit_indexnow(urls):
+    payload = json.dumps({"host": "lena2099.github.io", "key": INDEXNOW_KEY, "keyLocation": f"{SITE_URL}/{INDEXNOW_KEY}.txt", "urlList": urls}).encode()
+    results = {}
+    for ep in INDEXNOW_ENDPOINTS:
+        eng = ep.split("//")[1].split(".")[0]
+        try:
+            resp = urlopen(Request(ep, data=payload, headers={"Content-Type": "application/json"}), timeout=15)
+            results[eng] = f"OK({resp.status})"
+            print(f"   ✅ IndexNow → {eng}: {resp.status}")
+        except Exception as e:
+            results[eng] = str(e)[:80]
+            print(f"   ⚠️ IndexNow → {eng}: {e}")
+    return results
+
+
+def ping_google():
+    try:
+        resp = urlopen(Request(f"https://www.google.com/ping?sitemap={quote(SITEMAP_URL)}", headers={"User-Agent": "Athena/3.0"}), timeout=15)
+        print(f"   ✅ Google Sitemap Ping: {resp.status}")
+        return {"status": "pinged"}
+    except Exception as e:
+        print(f"   ⚠️ Google Ping: {e}")
+        return {"status": "failed"}
+
+
+def post_to_bluesky(title, desc, url):
+    if not BLUESKY_HANDLE or not BLUESKY_PASSWORD:
+        return {"status": "skipped", "reason": "no credentials"}
+    try:
+        sp = json.dumps({"identifier": BLUESKY_HANDLE, "password": BLUESKY_PASSWORD}).encode()
+        session = json.loads(urlopen(Request("https://bsky.social/xrpc/com.atproto.server.createSession", data=sp, headers={"Content-Type": "application/json"}), timeout=15).read())
+        token = session["accessJwt"]
+        text = f"{title}\n\n{desc[:180]}\n\n{url}"[:300]
+        pp = json.dumps({"repo": session["did"], "collection": "app.bsky.feed.post", "record": {"text": text, "createdAt": datetime.now(timezone.utc).isoformat()}}).encode()
+        result = json.loads(urlopen(Request("https://bsky.social/xrpc/com.atproto.repo.createRecord", data=pp, headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"}), timeout=15).read())
+        print(f"   ✅ Bluesky: posted")
+        return {"status": "published"}
+    except Exception as e:
+        print(f"   ⚠️ Bluesky: {e}")
+        return {"status": "failed", "error": str(e)[:200]}
+
+
 BOOST_TAGS = {
     "noise-cancelling-headphones": ["audio", "reviews", "headphones"],
     "budget-smartphones": ["android", "reviews", "mobile"],
@@ -34,267 +90,82 @@ BOOST_TAGS = {
 }
 
 
-def publish_to_devto(article_path: Path, category_slug: str) -> dict:
-    """Publish a Jekyll post to Dev.to with canonical URL pointing back."""
+def publish_to_devto(post_path, category_slug):
     if not DEVTO_KEY:
-        return {"status": "skipped", "reason": "no DEVTO_API_KEY"}
-
-    content = article_path.read_text()
+        return {"status": "skipped"}
+    content = post_path.read_text()
     parts = content.split("---", 2)
     if len(parts) < 3:
-        return {"status": "failed", "reason": "invalid frontmatter"}
-
-    # Parse frontmatter
+        return {"status": "failed"}
     title = desc = ""
     for line in parts[1].split("\n"):
         if line.startswith("title:"): title = line.split(":", 1)[1].strip().strip('"')
         if line.startswith("description:"): desc = line.split(":", 1)[1].strip().strip('"')
-    body = parts[2]
-
-    # Strip JSON-LD from body (Dev.to doesn't render <script>)
-    body_clean = re.sub(r'<script type="application/ld\+json">.*?</script>', '', body, flags=re.DOTALL)
-
-    # Build canonical URL
-    pname = article_path.stem
-    p_parts = pname.split("-", 3)
-    canonical = f"{SITE_URL}/{p_parts[0]}/{p_parts[1]}/{p_parts[2]}/{p_parts[3]}.html" if len(p_parts) >= 4 else SITE_URL
-
-    tags = BOOST_TAGS.get(category_slug, ["reviews", "tech"])[:4]
-
-    payload = {"article": {
-        "title": title,
-        "body_markdown": body_clean.strip(),
-        "published": True,
-        "tags": tags,
-        "description": desc[:160],
-        "canonical_url": canonical,
-    }}
-
+    body = re.sub(r'<script type="application/ld\+json">.*?</script>', '', parts[2], flags=re.DOTALL)
+    pname = post_path.stem
+    pparts = pname.split("-", 3)
+    canonical = f"{SITE_URL}/{pparts[0]}/{pparts[1]}/{pparts[2]}/{pparts[3]}.html" if len(pparts) >= 4 else SITE_URL
+    payload = {"article": {"title": title, "body_markdown": body.strip(), "published": True, "tags": BOOST_TAGS.get(category_slug, ["reviews", "tech"])[:4], "description": desc[:160], "canonical_url": canonical}}
     try:
-        req = Request("https://dev.to/api/articles",
-                      data=json.dumps(payload).encode(),
-                      headers={
-                          "api-key": DEVTO_KEY,
-                          "Content-Type": "application/json",
-                          "User-Agent": f"Mozilla/5.0 (compatible; Athena/3.0; +{SITE_URL})",
-                      },
-                      method="POST")
-        resp = json.loads(urlopen(req, timeout=30).read())
+        resp = json.loads(urlopen(Request("https://dev.to/api/articles", data=json.dumps(payload).encode(), headers={"api-key": DEVTO_KEY, "Content-Type": "application/json", "User-Agent": "Athena/3.0"}, method="POST"), timeout=30).read())
         if "url" in resp:
             print(f"   ✅ Dev.to: {resp['url']}")
             return {"status": "published", "url": resp["url"]}
-        return {"status": "failed", "error": str(resp)[:200]}
+        return {"status": "failed"}
     except Exception as e:
         print(f"   ⚠️ Dev.to: {e}")
         return {"status": "failed", "error": str(e)[:200]}
 
 
-# ══════════════════════════════════════════════════════════
-# 2. MEDIUM CROSS-POST
-# ══════════════════════════════════════════════════════════
-def publish_to_medium(article_path: Path, category_slug: str) -> dict:
-    """Publish to Medium via their API with canonical URL."""
-    if not MEDIUM_TOKEN:
-        return {"status": "skipped", "reason": "no MEDIUM_TOKEN"}
-
-    content = article_path.read_text()
-    parts = content.split("---", 2)
-    if len(parts) < 3:
-        return {"status": "failed", "reason": "invalid frontmatter"}
-
-    title = desc = ""
-    for line in parts[1].split("\n"):
-        if line.startswith("title:"): title = line.split(":", 1)[1].strip().strip('"')
-        if line.startswith("description:"): desc = line.split(":", 1)[1].strip().strip('"')
-
-    # Convert markdown body to HTML for Medium
-    body_md = parts[2]
-    # Strip JSON-LD
-    body_md = re.sub(r'<script type="application/ld\+json">.*?</script>', '', body_md, flags=re.DOTALL)
-
-    # Get user ID first
+def check_rss():
     try:
-        req = Request("https://api.medium.com/v1/me",
-                      headers={"Authorization": f"Bearer {MEDIUM_TOKEN}"})
-        user_data = json.loads(urlopen(req, timeout=10).read())
-        user_id = user_data["data"]["id"]
+        resp = urlopen(Request(f"{SITE_URL}/feed.xml", headers={"User-Agent": "Athena/3.0"}), timeout=15)
+        entries = resp.read().decode().count("<entry>") or resp.read().decode().count("<item>")
+        print(f"   ✅ RSS feed: {entries} entries")
+        return {"status": "ok", "entries": entries}
     except Exception as e:
-        return {"status": "failed", "reason": f"auth: {e}"}
-
-    # Publish
-    pname = article_path.stem
-    p_parts = pname.split("-", 3)
-    canonical = f"{SITE_URL}/{p_parts[0]}/{p_parts[1]}/{p_parts[2]}/{p_parts[3]}.html" if len(p_parts) >= 4 else SITE_URL
-
-    tags = BOOST_TAGS.get(category_slug, ["tech", "reviews"])[:5]
-
-    payload = json.dumps({
-        "title": title,
-        "contentFormat": "markdown",
-        "content": body_md.strip(),
-        "tags": tags,
-        "canonicalUrl": canonical,
-        "publishStatus": "public",
-    }).encode()
-
-    try:
-        req = Request(f"https://api.medium.com/v1/users/{user_id}/posts",
-                      data=payload,
-                      headers={
-                          "Authorization": f"Bearer {MEDIUM_TOKEN}",
-                          "Content-Type": "application/json",
-                      },
-                      method="POST")
-        resp = json.loads(urlopen(req, timeout=30).read())
-        if "data" in resp:
-            print(f"   ✅ Medium: {resp['data'].get('url', 'ok')}")
-            return {"status": "published", "url": resp["data"].get("url", "")}
-        return {"status": "failed", "error": str(resp)[:200]}
-    except Exception as e:
-        print(f"   ⚠️ Medium: {e}")
-        return {"status": "failed", "error": str(e)[:200]}
+        print(f"   ⚠️ RSS: {e}")
+        return {"status": "fail"}
 
 
-# ══════════════════════════════════════════════════════════
-# 3. SOCIAL MEDIA POST GENERATOR
-# ══════════════════════════════════════════════════════════
-def generate_social_posts(article_path: Path) -> dict:
-    """Generate social media posts (Twitter/X, LinkedIn, etc.) from article."""
-    content = article_path.read_text()
-    parts = content.split("---", 2)
-    if len(parts) < 3:
-        return {}
-
-    title = ""
-    desc = ""
-    for line in parts[1].split("\n"):
-        if line.startswith("title:"): title = line.split(":", 1)[1].strip().strip('"')
-        if line.startswith("description:"): desc = line.split(":", 1)[1].strip().strip('"')
-
-    pname = article_path.stem
-    p_parts = pname.split("-", 3)
-    article_url = f"{SITE_URL}/{p_parts[0]}/{p_parts[1]}/{p_parts[2]}/{p_parts[3]}.html" if len(p_parts) >= 4 else SITE_URL
-
-    # Extract first product mention
-    body = parts[2]
-    product_mention = ""
-    for line in body.split("\n"):
-        m = re.search(r'\*\*(.+?)\*\*', line)
-        if m and ("Best" not in m.group(1)) and len(m.group(1)) > 3:
-            product_mention = m.group(1)
-            break
-
-    # Generate social variants
-    social = {
-        "twitter": [],
-        "linkedin": None,
-    }
-
-    # Twitter variants (max 280 chars)
-    if product_mention:
-        social["twitter"].append(f"🔥 We compared the {product_mention} against all competitors. Here's the winner:\n\n{article_url}")
-        social["twitter"].append(f"Looking for the {title.lower()}? We tested them all. One came out on top.\n\n{article_url} #TechReview")
-
-    social["twitter"].append(f"{title}\n\n{desc[:120]}...\n\n{article_url}")
-
-    # LinkedIn
-    social["linkedin"] = f"{title}\n\n{desc}\n\nRead the full comparison → {article_url}\n\n#TechReview #BuyingGuide #AmazonFinds"
-
-    return social
-
-
-# ══════════════════════════════════════════════════════════
-# 4. RSS FEED ENHANCEMENT
-# ══════════════════════════════════════════════════════════
-def ensure_rss_feed():
-    """Jekyll's jekyll-feed plugin generates feed.xml automatically.
-    Just verify _config.yml has the plugin enabled."""
-    config_path = Path("_config.yml")
-    if not config_path.exists():
-        print("   ⚠️ _config.yml not found")
-        return
-
-    config = config_path.read_text()
-    if "jekyll-feed" in config:
-        print("   ✅ RSS (jekyll-feed) configured")
-    else:
-        # Inject it
-        if "plugins:" in config:
-            new_config = []
-            for line in config.split("\n"):
-                new_config.append(line)
-                if line.strip() == "plugins:":
-                    new_config.append("  - jekyll-feed")
-            config_path.write_text("\n".join(new_config))
-            print("   ✅ RSS (jekyll-feed) injected")
-
-
-# ══════════════════════════════════════════════════════════
-# 5. MAIN — Distribute latest article
-# ══════════════════════════════════════════════════════════
-def main(post_path: Path = None, category_slug: str = ""):
-    print("\n" + "=" * 50)
-    print("  📡 Distribution Engine — Syndicating...")
-    print("=" * 50)
-
+def main():
     DIST_DIR.mkdir(exist_ok=True)
+    posts = sorted(OUT_DIR.glob("*.md"), key=lambda p: p.stat().st_mtime, reverse=True)
+    if not posts:
+        print("No articles")
+        return
+    post_path = posts[0]
+    content = post_path.read_text()
+    parts = content.split("---", 2)
+    title = desc = cat = slug = ""
+    if len(parts) >= 3:
+        for line in parts[1].split("\n"):
+            if line.startswith("title:"): title = line.split(":", 1)[1].strip().strip('"')
+            if line.startswith("description:"): desc = line.split(":", 1)[1].strip().strip('"')
+            if line.startswith("categories:"): cat = line.split(":", 1)[1].strip()
+    pname = post_path.stem
+    p = pname.split("-", 3)
+    url = f"{SITE_URL}/{p[0]}/{p[1]}/{p[2]}/{p[3]}.html" if len(p) >= 4 else SITE_URL
 
-    if post_path is None:
-        posts = sorted(OUT_DIR.glob("*.md"), reverse=True)
-        if not posts:
-            print("  No posts found.")
-            return
-        post_path = posts[0]
+    print(f"\n📡 Distributing: {post_path.name}")
+    print(f"   {url}")
 
-    if not category_slug:
-        pc = post_path.read_text()
-        pcs = pc.split("---", 2)
-        if len(pcs) >= 2:
-            for line in pcs[1].split("\n"):
-                if line.startswith("categories:"):
-                    category_slug = line.split(":", 1)[1].strip()
-                    break
+    print("\n🌍 IndexNow (Bing/Yandex)...")
+    idx = submit_indexnow([url])
+    print("\n🔍 Google Sitemap Ping...")
+    goog = ping_google()
+    print("\n🦋 Bluesky...")
+    bs = post_to_bluesky(title, desc, url)
+    print("\n🔗 Dev.to cross-post...")
+    dv = publish_to_devto(post_path, cat)
+    print("\n📡 RSS verification...")
+    rss = check_rss()
 
-    filename = post_path.name
-    print(f"\n  📄 Article: {filename}")
-
-    # Step 1: Dev.to
-    print("   🌐 Dev.to...")
-    devto_result = publish_to_devto(post_path, category_slug)
-
-    # Step 2: Medium
-    print("   📝 Medium...")
-    medium_result = publish_to_medium(post_path, category_slug)
-
-    # Step 3: Generate social posts
-    print("   🐦 Generating social posts...")
-    social = generate_social_posts(post_path)
-
-    # Step 4: Save distribution report
-    report = {
-        "article": filename,
-        "timestamp": datetime.now(timezone.utc).isoformat(),
-        "devto": devto_result,
-        "medium": medium_result,
-        "social": social,
-        "channels_working": {
-            "devto": bool(DEVTO_KEY) and devto_result.get("status") == "published",
-            "medium": bool(MEDIUM_TOKEN) and medium_result.get("status") == "published",
-            "rss": True,  # jekyll-feed handles this
-            "twitter": bool(TWITTER_BEARER),
-        }
-    }
-
-    report_path = DIST_DIR / f"{post_path.stem}_dist.json"
-    with open(report_path, "w") as f:
+    report = {"article": post_path.name, "url": url, "timestamp": datetime.now(timezone.utc).isoformat(), "indexnow": idx, "google_ping": goog, "bluesky": bs, "devto": dv, "rss": rss}
+    rp = DIST_DIR / f"{post_path.stem}_dist.json"
+    with open(rp, "w") as f:
         json.dump(report, f, indent=2, ensure_ascii=False)
-    print(f"\n  📊 Distribution report: {report_path}")
-
-    # Step 5: RSS check
-    ensure_rss_feed()
-
-    print("\n  ✅ Distribution complete")
-    print("=" * 50)
+    print(f"\n✅ Report: {rp}")
     return report
 
 
