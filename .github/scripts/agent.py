@@ -17,7 +17,8 @@ DRY_RUN   = os.environ.get("DRY_RUN", "") == "1"
 OUT_DIR   = Path("_posts")
 
 # ── CONFIG: BUYER-INTENT TOPICS ───────────────────────────
-# Each topic maps to a product category + Amazon browse node
+# Each topic maps to a product category. Scope: tech + tech-adjacent only.
+# See TOPIC SCOPE in the prompt for full include/exclude rules.
 TOPICS = [
     {
         "slug": "noise-cancelling-headphones",
@@ -266,6 +267,35 @@ CONTENT RULES:
 - FAQ section: 2 questions max. Keep answers 2-3 sentences.
 - Mention subscriptions ONLY if genuinely relevant. Don't cram Kindle Unlimited into a keyboard review.
 - Affiliate disclosure at the very end: "*As an Amazon Associate, I earn from qualifying purchases.*"
+
+TOPIC SCOPE — what you CAN and CANNOT write about:
+- ✅ IN SCOPE: Anything tech, electronics, gadgets, or tech-adjacent gear. Examples:
+  • Core tech: headphones, phones, laptops, tablets, monitors, keyboards, mice, webcams
+  • Smart home: robot vacuums, smart lights, smart plugs, doorbells, smart locks, thermostats
+  • Smart pet gear: automatic pet feeders, smart water fountains, GPS pet trackers, self-cleaning litter boxes, pet cameras
+  • Smart kitchen: air fryers, Instant Pots, smart coffee makers, sous vide machines, smart scales
+  • Health & fitness: smartwatches, fitness trackers, sleep trackers, smart rings, smart scales, massage guns, posture correctors
+  • Office & ergonomics: standing desks, ergonomic chairs, monitor arms, standing desk mats, footrests
+  • Audio: speakers, soundbars, earbuds, DACs, microphones, audio interfaces
+  • Gaming: controllers, gaming mice, gaming keyboards, headsets, capture cards, racing wheels
+  • Charging & power: power banks, GaN chargers, charging stations, surge protectors, UPS units
+  • Photography: cameras, lenses, tripods, gimbals, action cameras, drones
+  • E-readers & tablets: Kindle, Kobo, reMarkable, iPad, drawing tablets
+  • Car tech: dashcams, OBD2 scanners, tire inflators, jump starters, phone mounts, CarPlay adapters
+  • Networking: mesh Wi-Fi, routers, range extenders, NAS, mini PCs
+  • Outdoor tech: portable solar panels, power stations, camping lanterns, bike computers
+  • Any product that plugs in, charges, connects via Bluetooth/Wi-Fi, or has a battery: ✅
+- 🚫 OUT OF SCOPE — DO NOT write about these:
+  • Fashion: clothing, shoes, bags, jewelry, watches (non-smart)
+  • Beauty: makeup, skincare, perfume
+  • Food & drink: supplements, snacks, coffee beans
+  • Home decor (non-tech): curtains, rugs, picture frames, artificial plants
+  • Sports equipment (non-smart): yoga mats, dumbbells, resistance bands
+  • Books, music, movies (content — Kindle/Kindle Unlimited is fine, but not specific book recommendations)
+  • Basically: if it doesn't have a battery, a plug, a Bluetooth chip, or a CPU, skip it.
+- When in doubt, err on the side of IN SCOPE. Better to write about a borderline product with Amazon links than to skip a revenue opportunity.
+- If the topic suggestion system picks something out of scope, REPLACE it with a nearby tech-adjacent alternative.
+  Example: "Best Running Shoes 2026" → replace with "Best Running Earbuds 2026"
 
 ARTICLE INFO:
 - Title: {angle} — keep it under 60 chars, include {this_year}
