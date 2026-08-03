@@ -1,0 +1,11 @@
+[build]
+  command = "jekyll build"
+  publish = "_site"
+
+[build.environment]
+  JEKYLL_ENV = "production"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
