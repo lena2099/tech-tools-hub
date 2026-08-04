@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Humanizer v2 — Post-processes Athena articles with structural randomization.
+Humanizer v3 (Lena persona) — Post-processes Athena articles with structural randomization.
 Each run picks a different structural template so consecutive articles
 never feel like the same person wrote them back-to-back.
 """
