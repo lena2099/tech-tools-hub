@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://lena2099.github.io/tech-tools-hub/sitemap.xml
+Sitemap: https://tech-tools-hub.netlify.app/sitemap.xml
 
 User-agent: Googlebot
 Allow: /
