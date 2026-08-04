@@ -14,7 +14,7 @@ API_KEY = os.environ["DEEPSEEK_API_KEY"]
 DEVTO_KEY = os.environ.get("DEVTO_API_KEY", "")
 MEDIUM_TOKEN = os.environ.get("MEDIUM_TOKEN", "")
 TWITTER_TOKEN = os.environ.get("TWITTER_BEARER_TOKEN", "")
-SITE_URL = "https://lena2099.github.io/tech-tools-hub"
+SITE_URL = "https://tech-tools-hub.netlify.app"
 OUT_DIR = Path("_posts")
 SOCIAL_DIR = Path("_social")
 
