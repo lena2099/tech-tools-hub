@@ -20,6 +20,7 @@ OUT_DIR   = Path("_posts")
 # Each topic maps to a product category. Scope: tech + tech-adjacent only.
 # See TOPIC SCOPE in the prompt for full include/exclude rules.
 TOPICS = [
+    # ── 1. 核心消费电子 ──
     {
         "slug": "noise-cancelling-headphones",
         "category": "Noise-Cancelling Headphones",
@@ -43,6 +44,18 @@ TOPICS = [
         ],
     },
     {
+        "slug": "laptops-computers",
+        "category": "Laptops & Computers",
+        "angles": [
+            "Best Laptops Under $800 for Work & Study",
+            "MacBook Air vs Windows Ultrabook: Which to Buy",
+            "Best Mini PCs for Home Office",
+            "Best Budget Chromebooks for Students",
+            "Best Used ThinkPads: Value King",
+        ],
+    },
+    # ── 2. 桌面与外设 ──
+    {
         "slug": "home-office-gear",
         "category": "Home Office Gear",
         "angles": [
@@ -54,16 +67,17 @@ TOPICS = [
         ],
     },
     {
-        "slug": "smart-home-devices",
-        "category": "Smart Home Devices",
+        "slug": "gaming-gear",
+        "category": "Gaming Gear",
         "angles": [
-            "Best Smart Home Starter Kit Under $200",
-            "Best Video Doorbell & Security Cameras",
-            "Best Smart Plugs & Lights for Beginners",
-            "Best Smart Speakers: Echo vs Nest vs HomePod",
-            "Best Robot Vacuums Under $400",
+            "Best Gaming Mouse Under $80",
+            "Best Mechanical Keyboard for Gaming vs Typing",
+            "Best Budget Gaming Headset with Good Mic",
+            "Best Controller for PC Gaming",
+            "Best Gaming Monitor: 144Hz vs 240Hz Worth It?",
         ],
     },
+    # ── 3. 平板与阅读器 ──
     {
         "slug": "ereaders-tablets",
         "category": "eReaders & Tablets",
@@ -72,9 +86,10 @@ TOPICS = [
             "Best Budget Tablet for Reading & Note-Taking",
             "Best Tablet for Kids: Parent's Guide",
             "Best iPad Alternatives Under $300",
-            "Best eReader for Students & Academics",
+            "Best Drawing Tablet for Beginners",
         ],
     },
+    # ── 4. 可穿戴与健身 ──
     {
         "slug": "wearables-fitness",
         "category": "Wearables & Fitness Tech",
@@ -86,6 +101,7 @@ TOPICS = [
             "Best Smart Scale & Health Monitors",
         ],
     },
+    # ── 5. 音频 ──
     {
         "slug": "portable-audio",
         "category": "Portable Audio",
@@ -98,14 +114,179 @@ TOPICS = [
         ],
     },
     {
+        "slug": "home-audio",
+        "category": "Home Audio & HiFi",
+        "angles": [
+            "Best Soundbar Under $300 for TV",
+            "Best Budget Bookshelf Speakers",
+            "Best DAC & Amp Combo for Headphones",
+            "Best Turntable for Beginners",
+            "Best Desktop Speakers for Music & Gaming",
+        ],
+    },
+    # ── 6. 智能家居 ──
+    {
+        "slug": "smart-home-devices",
+        "category": "Smart Home Devices",
+        "angles": [
+            "Best Smart Home Starter Kit Under $200",
+            "Best Video Doorbell & Security Cameras",
+            "Best Smart Plugs & Lights for Beginners",
+            "Best Smart Speakers: Echo vs Nest vs HomePod",
+            "Best Robot Vacuums Under $400",
+        ],
+    },
+    {
+        "slug": "smart-home-security",
+        "category": "Smart Home Security",
+        "angles": [
+            "Best DIY Home Security System No Subscription",
+            "Best Smart Lock for Apartments",
+            "Best Video Doorbell: Wired vs Battery",
+            "Best Outdoor Security Camera Wireless",
+            "Best Smart Smoke & CO Detector",
+        ],
+    },
+    # ── 7. 智能厨房家电 ──
+    {
+        "slug": "smart-kitchen",
+        "category": "Smart Kitchen Appliances",
+        "angles": [
+            "Best Air Fryer for Small Kitchens",
+            "Best Instant Pot vs Ninja Multi-Cooker",
+            "Best Smart Coffee Maker with App Control",
+            "Best Sous Vide Machine for Home Cooks",
+            "Best Smart Kitchen Scale & Thermometer",
+        ],
+    },
+    {
+        "slug": "kitchen-appliances",
+        "category": "Kitchen Appliances",
+        "angles": [
+            "Best Countertop Ice Maker for Summer",
+            "Best Rice Cooker: Zojirushi vs Cuckoo vs Instant",
+            "Best Blender for Smoothies: Vitamix vs Ninja vs NutriBullet",
+            "Best Electric Kettle with Temperature Control",
+            "Best Toaster Oven vs Air Fryer: Do You Need Both?",
+        ],
+    },
+    # ── 8. 智能宠物 ──
+    {
+        "slug": "smart-pet-gear",
+        "category": "Smart Pet Gear",
+        "angles": [
+            "Best Automatic Pet Feeder for Cats & Dogs",
+            "Best Smart Pet Water Fountain",
+            "Best Self-Cleaning Litter Box Worth It?",
+            "Best GPS Pet Tracker for Dogs",
+            "Best Pet Camera with Treat Dispenser",
+        ],
+    },
+    # ── 9. 充电与电源 ──
+    {
         "slug": "charging-accessories",
-        "category": "Charging & Accessories",
+        "category": "Charging & Power Accessories",
         "angles": [
             "Best USB-C Charging Station for Multi-Device",
             "Best Portable Power Bank for Travel",
             "Best GaN Chargers: Anker vs Ugreen vs Satechi",
             "Best MagSafe Accessories for iPhone",
-            "Best Cable Organizers & Desk Management",
+            "Best Portable Power Station for Camping & Outages",
+        ],
+    },
+    # ── 10. 汽车科技 ──
+    {
+        "slug": "car-tech",
+        "category": "Car Tech & Accessories",
+        "angles": [
+            "Best Dash Cam Front & Rear Under $200",
+            "Best Wireless CarPlay/Android Auto Adapter",
+            "Best Tire Inflator Portable for Car",
+            "Best Jump Starter Power Bank",
+            "Best OBD2 Scanner for DIY Diagnostics",
+        ],
+    },
+    # ── 11. 摄影与影像 ──
+    {
+        "slug": "photography-video",
+        "category": "Photography & Video Gear",
+        "angles": [
+            "Best Budget Mirrorless Camera for Beginners",
+            "Best Action Camera: GoPro vs DJI vs Insta360",
+            "Best Tripod for Travel Photography",
+            "Best Webcam vs DSLR as Webcam: Which to Use",
+            "Best Gimbal for iPhone & Android Video",
+        ],
+    },
+    {
+        "slug": "drones",
+        "category": "Drones & Aerial Photography",
+        "angles": [
+            "Best Beginner Drone Under $300",
+            "DJI Mini vs Air: Which Drone for You?",
+            "Best FPV Drone Kit for Beginners",
+            "Best Drone for Real Estate Photography",
+            "Best Budget Drone with 4K Camera",
+        ],
+    },
+    # ── 12. 家庭清洁家电 ──
+    {
+        "slug": "home-cleaning",
+        "category": "Home Cleaning Appliances",
+        "angles": [
+            "Best Robot Vacuum & Mop Combo",
+            "Best Cordless Stick Vacuum: Dyson vs Shark vs Tineco",
+            "Best Carpet Cleaner for Pet Owners",
+            "Best Window Cleaning Robot Worth It?",
+            "Best Air Purifier for Allergies & Pets",
+        ],
+    },
+    # ── 13. 网络与存储 ──
+    {
+        "slug": "networking",
+        "category": "Networking & Wi-Fi",
+        "angles": [
+            "Best Mesh Wi-Fi System for Large Homes",
+            "Best Wi-Fi 7 Router Worth the Upgrade?",
+            "Best Budget NAS for Home Media Server",
+            "Best VPN Router for Privacy",
+            "Best Wi-Fi Extender vs Mesh: Which to Buy",
+        ],
+    },
+    # ── 14. 户外与旅行科技 ──
+    {
+        "slug": "outdoor-tech",
+        "category": "Outdoor & Travel Tech",
+        "angles": [
+            "Best Portable Solar Panel for Camping",
+            "Best Camping Lantern Rechargeable",
+            "Best Bike Computer & GPS",
+            "Best Handheld GPS for Hiking",
+            "Best Portable Bluetooth Speaker Waterproof",
+        ],
+    },
+    # ── 15. 健康与个人护理电器 ──
+    {
+        "slug": "health-wellness",
+        "category": "Health & Wellness Tech",
+        "angles": [
+            "Best Electric Toothbrush: Oral-B vs Sonicare vs Quip",
+            "Best Water Flosser for Home Use",
+            "Best Massage Gun for Recovery",
+            "Best Posture Corrector Wearable",
+            "Best Light Therapy Lamp for SAD",
+        ],
+    },
+    # ── 16. 显示器与屏幕 ──
+    {
+        "slug": "monitors-displays",
+        "category": "Monitors & Displays",
+        "angles": [
+            "Best 4K Monitor for Work Under $500",
+            "Best Ultrawide Monitor for Productivity",
+            "Best Portable Monitor for Laptop",
+            "Best Monitor for MacBook: USB-C Worth It?",
+            "Best Budget Gaming Monitor 1440p",
         ],
     },
 ]
