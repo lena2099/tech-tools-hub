@@ -495,6 +495,13 @@ CONTENT RULES:
 - This is a shopping guide, not a tutorial.
 - Verified products (use these exact ASIN links. NO search links /s?k=):
 {product_block}
+- WRITING STYLE (ABSOLUTE):
+  10. Open with a strong opinion, not a description. "I returned three pairs before finding these."
+  11. Use specific numbers, not vague adjectives. "7.5 hours on a Teams call" not "great battery."
+  12. Admit flaws: every product you recommend MUST have at least one honest complaint.
+  13. No banned phrases. No corporate speak. No "In today's digital age."
+  14. End with action: "Buy the X if you care about Y. Skip it if Z matters more."
+  15. Read aloud test: if it wouldn't come out of a real person's mouth, rewrite.
 - LINK FORMAT RULES (ABSOLUTE — violation = article rejected):
   1. EVERY product you discuss MUST have an Amazon link. 5 products = 5 links. Non-negotiable.
   2. Use ASIN product links ONLY: `https://www.amazon.com/dp/ASIN?tag=technolo0b423-20`
