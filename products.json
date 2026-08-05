@@ -1,277 +1,642 @@
 {
-  "home-office-gear": [
-    {
-      "name": "Dell S2722QC",
-      "asin": "B08XNYXHKS",
-      "search": "Dell+S2722QC+27+4K+USB-C+monitor",
-      "price": 299,
-      "note": "27 4K IPS USB-C 65W"
-    },
-    {
-      "name": "LG 27UP600-W",
-      "asin": "B0BTTRLYBX",
-      "search": "LG+27UP600+27+4K+monitor",
-      "price": 229,
-      "note": "27 4K IPS, no USB-C"
-    },
-    {
-      "name": "Logitech ERGO K860",
-      "asin": "B07ZWK2TQT",
-      "search": "Logitech+ERGO+K860+keyboard",
-      "price": 129,
-      "note": "split curved keyboard"
-    },
-    {
-      "name": "Microsoft Sculpt Ergonomic Desktop",
-      "asin": "B00CYX54C0",
-      "search": "Microsoft+Sculpt+Ergonomic+Desktop",
-      "price": 89,
-      "note": "keyboard+mouse combo"
-    },
-    {
-      "name": "Logitech MX Vertical",
-      "asin": "B07FNJB8TT",
-      "search": "Logitech+MX+Vertical+mouse",
-      "price": 99,
-      "note": "57 vertical mouse"
-    },
-    {
-      "name": "BenQ ScreenBar Halo",
-      "asin": "B095YYL3T9",
-      "search": "BenQ+ScreenBar+Halo+monitor+light",
-      "price": 179,
-      "note": "monitor light bar, auto-dimming"
-    },
-    {
-      "name": "BenQ e-Reading Desk Lamp",
-      "asin": "B075H39ND3",
-      "search": "BenQ+e-reading+desk+lamp",
-      "price": 229,
-      "note": "wide desk lamp, auto-brightness"
-    },
-    {
-      "name": "TaoTronics LED Desk Lamp",
-      "asin": "B07TML2MTL",
-      "search": "TaoTronics+LED+desk+lamp",
-      "price": 39,
-      "note": "budget desk lamp, 5 color modes"
-    },
-    {
-      "name": "Xiaomi Mi Computer Monitor Light Bar",
-      "asin": "B08T9VTW4W",
-      "search": "Xiaomi+Mi+monitor+light+bar",
-      "price": 49,
-      "note": "budget screen bar, remote control"
-    }
-  ],
   "noise-cancelling-headphones": [
     {
-      "name": "Bose QuietComfort Ultra Headphones",
-      "asin": "B0CCZ1L489",
-      "search": "Bose+QuietComfort+Ultra+headphones",
-      "price": 429,
-      "note": "over-ear ANC"
+      "name": "Sony WH-1000XM5",
+      "asin": "B0BZR6H4R5",
+      "price": "$328",
+      "note": "flagship ANC"
     },
     {
-      "name": "Sony WH-1000XM6",
-      "asin": "B0F9B9SN25",
-      "search": "Sony+WH-1000XM6+headphones",
-      "price": 399,
-      "note": "over-ear ANC, LDAC"
-    },
-    {
-      "name": "AirPods Pro 2",
-      "asin": "B0CHWRXH8B",
-      "search": "AirPods+Pro+2+USB-C",
-      "price": 249,
-      "note": "in-ear ANC, iPhone"
+      "name": "Bose QC Ultra",
+      "asin": "B0CD2FS9KD",
+      "price": "$349",
+      "note": "best comfort"
     },
     {
       "name": "Sony WF-1000XM6",
-      "asin": null,
-      "search": "Sony+WF-1000XM6+earbuds",
-      "price": 299,
-      "note": "in-ear ANC, LDAC"
+      "asin": "B0D4VGKMGN",
+      "price": "$248",
+      "note": "best TWS ANC"
     },
     {
-      "name": "Anker Soundcore Space One",
-      "asin": "B0CW1DCKHZ",
-      "search": "Anker+Soundcore+Space+One",
-      "price": 99,
-      "note": "budget over-ear ANC"
+      "name": "Soundcore Space A40",
+      "asin": "B0B1L6B5Z5",
+      "price": "$79",
+      "note": "budget ANC king"
     },
     {
-      "name": "Bose QuietComfort 45",
-      "asin": "B0CCZ26HPR",
-      "search": "Bose+QuietComfort+45+headphones",
-      "price": 279,
-      "note": "over-ear ANC, comfortable"
-    },
-    {
-      "name": "Jabra Evolve2 85",
-      "asin": "B0BX4GV8B3",
-      "search": "Jabra+Evolve2+85+headset",
-      "price": 329,
-      "note": "office headset, boom mic, ANC"
-    },
-    {
-      "name": "Poly Voyager Focus 2",
-      "asin": "B09KM647LF",
-      "search": "Poly+Voyager+Focus+2+headset",
-      "price": 249,
-      "note": "office headset, ANC, Teams certified"
-    }
-  ],
-  "portable-audio": [
-    {
-      "name": "JBL Flip 7",
-      "asin": "B0F9B3PDKP",
-      "search": "JBL+Flip+7+bluetooth+speaker",
-      "price": 129,
-      "note": "IP68, 12H battery"
-    },
-    {
-      "name": "JBL Charge 6",
-      "asin": "B0DN2ZCZX6",
-      "search": "JBL+Charge+6+bluetooth+speaker",
-      "price": 199,
-      "note": "IP68, 28H, powerbank"
-    },
-    {
-      "name": "Tribit StormBox Micro 2",
-      "asin": "B0BGPCSM6Y",
-      "search": "Tribit+StormBox+Micro+2",
-      "price": 59,
-      "note": "IP67, bike mount"
+      "name": "Apple AirPods Pro 2",
+      "asin": "B0D1XD1ZV3",
+      "price": "$199",
+      "note": "iOS ecosystem"
     }
   ],
   "budget-smartphones": [
     {
       "name": "Google Pixel 9a",
-      "asin": "B0D7HWPR3J",
-      "search": "Google+Pixel+9a+unlocked",
-      "price": 499,
-      "note": "7yr updates, Tensor G4"
+      "asin": "B0F4WRPZ1R",
+      "price": "$499",
+      "note": "best camera"
     },
     {
       "name": "Samsung Galaxy A56",
-      "asin": "B0F1GF39WJ",
-      "search": "Samsung+Galaxy+A56+unlocked",
-      "price": 449,
-      "note": "6.6 120Hz, 50MP"
+      "asin": "B0F2Q8P5NK",
+      "price": "$449",
+      "note": "best screen"
     },
     {
-      "name": "Moto G Stylus 2026",
-      "asin": "B0GR2DX7ZT",
-      "search": "Moto+G+Stylus+2026+unlocked",
-      "price": 299,
-      "note": "built-in stylus"
+      "name": "OnePlus Nord 4",
+      "asin": "B0D9426LNX",
+      "price": "$399",
+      "note": "best performance"
+    },
+    {
+      "name": "Moto G Power 2026",
+      "asin": "B0DM9LTQ7H",
+      "price": "$249",
+      "note": "ultra budget"
+    }
+  ],
+  "laptops-computers": [
+    {
+      "name": "MacBook Air M4",
+      "asin": "B0F4LG1BNH",
+      "price": "$999",
+      "note": "best ultraportable"
+    },
+    {
+      "name": "Dell XPS 14",
+      "asin": "B0CTKXCSYZ",
+      "price": "$1199",
+      "note": "best Windows"
+    },
+    {
+      "name": "Lenovo ThinkPad X1 Carbon Gen 12",
+      "asin": "B0CX1X3KR9",
+      "price": "$1349",
+      "note": "business king"
+    },
+    {
+      "name": "Beelink SER8 Mini PC",
+      "asin": "B0D2LGHYHF",
+      "price": "$499",
+      "note": "budget desktop"
+    }
+  ],
+  "home-office-gear": [
+    {
+      "name": "FlexiSpot E7 Pro Standing Desk",
+      "asin": "B09WL7DVTC",
+      "price": "$399",
+      "note": "best standing desk"
+    },
+    {
+      "name": "Herman Miller Aeron",
+      "asin": "B07RDGMFC9",
+      "price": "$1395",
+      "note": "ultimate chair"
+    },
+    {
+      "name": "Steelcase Gesture",
+      "asin": "B00EM3QIKW",
+      "price": "$1299",
+      "note": "best ergo chair"
+    },
+    {
+      "name": "Dell U3223QE 32\" 4K USB-C",
+      "asin": "B0B2P5LNWJ",
+      "price": "$699",
+      "note": "best 4K monitor"
+    },
+    {
+      "name": "Logitech MX Keys S",
+      "asin": "B0C4B2NLXT",
+      "price": "$109",
+      "note": "best keyboard"
+    },
+    {
+      "name": "Logitech MX Master 3S",
+      "asin": "B09HML6N9C",
+      "price": "$99",
+      "note": "best mouse"
+    },
+    {
+      "name": "BenQ ScreenBar Halo",
+      "asin": "B08WT9SKGZ",
+      "price": "$179",
+      "note": "best desk lamp"
+    },
+    {
+      "name": "Logitech Brio 500 Webcam",
+      "asin": "B0B8QZ7MF6",
+      "price": "$129",
+      "note": "best webcam"
+    }
+  ],
+  "gaming-gear": [
+    {
+      "name": "Logitech G Pro X Superlight 2",
+      "asin": "B0CKVZ3BW5",
+      "price": "$159",
+      "note": "best gaming mouse"
+    },
+    {
+      "name": "Razer BlackWidow V4 Pro",
+      "asin": "B0CH42K2XB",
+      "price": "$229",
+      "note": "best mech keyboard"
+    },
+    {
+      "name": "SteelSeries Arctis Nova Pro",
+      "asin": "B09ZLQ8YTK",
+      "price": "$249",
+      "note": "best gaming headset"
+    },
+    {
+      "name": "Xbox Wireless Controller",
+      "asin": "B0C27R7VV9",
+      "price": "$59",
+      "note": "best controller"
     }
   ],
   "ereaders-tablets": [
     {
-      "name": "Kindle Paperwhite",
-      "asin": null,
-      "search": "Kindle+Paperwhite+2024",
-      "price": 159,
-      "note": "6.8 e-ink, waterproof"
+      "name": "Kindle Paperwhite 2024",
+      "asin": "B0CFTLC8WG",
+      "price": "$149",
+      "note": "best eReader"
     },
     {
-      "name": "Samsung Galaxy Tab S9 FE",
-      "asin": "B0CCX11JT6",
-      "search": "Samsung+Galaxy+Tab+S9+FE",
-      "price": 449,
-      "note": "10.9, S Pen included"
+      "name": "Kobo Libra Colour",
+      "asin": "B0D3DTXQ2Z",
+      "price": "$219",
+      "note": "color eReader"
     },
     {
-      "name": "Amazon Fire HD 10",
-      "asin": null,
-      "search": "Amazon+Fire+HD+10+tablet",
-      "price": 139,
-      "note": "10.1, budget"
+      "name": "Amazon Fire HD 10 2024",
+      "asin": "B0BL5PYD69",
+      "price": "$139",
+      "note": "budget tablet"
+    },
+    {
+      "name": "Wacom Intuos Pro Medium",
+      "asin": "B0BZ86PG3R",
+      "price": "$379",
+      "note": "drawing tablet"
     }
   ],
   "wearables-fitness": [
     {
       "name": "Apple Watch Series 10",
-      "asin": null,
-      "search": "Apple+Watch+Series+10+GPS",
-      "price": 399,
-      "note": "iPhone only"
+      "asin": "B0DHLCZNF2",
+      "price": "$399",
+      "note": "best for iPhone"
     },
     {
       "name": "Samsung Galaxy Watch 7",
-      "asin": "B0D7FFJQ77",
-      "search": "Samsung+Galaxy+Watch+7",
-      "price": 299,
-      "note": "Wear OS, 40mm"
+      "asin": "B0D6RPM4ST",
+      "price": "$299",
+      "note": "best for Android"
     },
     {
-      "name": "Garmin Venu 3",
-      "asin": "B0CHCCCDB9",
-      "search": "Garmin+Venu+3+smartwatch",
-      "price": 449,
-      "note": "14-day battery, cross-platform"
+      "name": "Garmin Forerunner 165",
+      "asin": "B0CV4BY52R",
+      "price": "$249",
+      "note": "best running watch"
+    },
+    {
+      "name": "Fitbit Inspire 3",
+      "asin": "B0B5F9ND44",
+      "price": "$99",
+      "note": "budget tracker"
+    },
+    {
+      "name": "Oura Ring Gen 4",
+      "asin": "B0DHM5H3K7",
+      "price": "$349",
+      "note": "best sleep tracker"
     }
   ],
-  "charging-accessories": [
+  "portable-audio": [
     {
-      "name": "Anker Prime 100W GaN",
-      "asin": "B0C4DGBHY2",
-      "search": "Anker+Prime+100W+GaN+charger",
-      "price": 59,
-      "note": "3-port, compact"
+      "name": "JBL Flip 6",
+      "asin": "B09HC5GRKY",
+      "price": "$99",
+      "note": "best value"
     },
     {
-      "name": "Ugreen Nexode Pro 160W",
-      "asin": "B0FYFDD1WW",
-      "search": "Ugreen+Nexode+Pro+160W+GaN",
-      "price": 89,
-      "note": "4-port, 140W single"
+      "name": "UE Boom 4",
+      "asin": "B0CS4XQB77",
+      "price": "$149",
+      "note": "best outdoor"
     },
     {
-      "name": "Anker 525 Charging Station",
-      "asin": "B0B3HW6MPD",
-      "search": "Anker+525+Charging+Station",
-      "price": 49,
-      "note": "7-in-1, desktop"
+      "name": "Bose SoundLink Max",
+      "asin": "B0D332WDQC",
+      "price": "$399",
+      "note": "best sound"
+    },
+    {
+      "name": "Sony SRS-XB100",
+      "asin": "B0C3WMMYG8",
+      "price": "$48",
+      "note": "ultra portable"
+    }
+  ],
+  "home-audio": [
+    {
+      "name": "Sonos Beam Gen 2",
+      "asin": "B09FJHFTS4",
+      "price": "$399",
+      "note": "best soundbar"
+    },
+    {
+      "name": "Edifier S880DB",
+      "asin": "B07G55MR12",
+      "price": "$299",
+      "note": "best desktop speakers"
+    },
+    {
+      "name": "Audioengine A2+ Wireless",
+      "asin": "B07MYZBS9H",
+      "price": "$269",
+      "note": "compact audiophile"
+    },
+    {
+      "name": "Audio-Technica AT-LP60XBT",
+      "asin": "B07N3XJ66N",
+      "price": "$149",
+      "note": "beginner turntable"
     }
   ],
   "smart-home-devices": [
     {
+      "name": "Echo Show 8 (3rd Gen)",
+      "asin": "B0C2QDRLZJ",
+      "price": "$149",
+      "note": "best smart display"
+    },
+    {
+      "name": "Echo Dot (5th Gen)",
+      "asin": "B09B8V3H5Y",
+      "price": "$49",
+      "note": "smart speaker"
+    },
+    {
+      "name": "Philips Hue Starter Kit",
+      "asin": "B099K3GRYQ",
+      "price": "$84",
+      "note": "smart lights"
+    },
+    {
+      "name": "Kasa Smart Plug Mini",
+      "asin": "B091G3TGDS",
+      "price": "$19",
+      "note": "smart plug"
+    }
+  ],
+  "smart-home-security": [
+    {
       "name": "Ring Video Doorbell Pro 2",
-      "asin": "B08R6Y5P4R",
-      "search": "Ring+Video+Doorbell+Pro+2",
-      "price": 229,
-      "note": "wired, 3D motion detection"
+      "asin": "B0915TNCRS",
+      "price": "$229",
+      "note": "best doorbell"
     },
     {
-      "name": "Google Nest Doorbell (Battery)",
-      "asin": "B09FCWMLFL",
-      "search": "Google+Nest+Doorbell+battery",
-      "price": 179,
-      "note": "battery/wired, HDR"
+      "name": "TP-Link Tapo C120",
+      "asin": "B0CGX2DWTH",
+      "price": "$39",
+      "note": "budget security cam"
     },
     {
-      "name": "Wyze Cam v4",
-      "asin": "B0CTQ2DRP8",
-      "search": "Wyze+Cam+v4+security+camera",
-      "price": 29,
-      "note": "2.5K, color night vision, budget pick"
+      "name": "Yale Assure Lock 2",
+      "asin": "B0B9PBHPK9",
+      "price": "$159",
+      "note": "best smart lock"
     },
     {
-      "name": "Philips Hue White & Color Ambiance Starter Kit",
-      "asin": "B09KNPNMCR",
-      "search": "Philips+Hue+Starter+Kit+color",
-      "price": 199,
-      "note": "3 bulbs + bridge"
+      "name": "Nest Protect Smoke Detector",
+      "asin": "B00XV1RCRY",
+      "price": "$119",
+      "note": "smart smoke detector"
+    }
+  ],
+  "smart-kitchen": [
+    {
+      "name": "Ninja AF101 Air Fryer",
+      "asin": "B07FDJMC9Q",
+      "price": "$89",
+      "note": "best value air fryer"
     },
     {
-      "name": "Kasa Smart Plug Mini (4-pack)",
-      "asin": "B091GDDHL3",
-      "search": "Kasa+Smart+Plug+Mini+4+pack",
-      "price": 34,
-      "note": "Wi-Fi, no hub needed"
+      "name": "Instant Pot Pro 6qt",
+      "asin": "B08PQKYWNW",
+      "price": "$119",
+      "note": "multi-cooker"
+    },
+    {
+      "name": "Ninja CREAMi NC301",
+      "asin": "B0BQ2DM455",
+      "price": "$199",
+      "note": "ice cream maker"
+    },
+    {
+      "name": "Breville Joule Turbo Sous Vide",
+      "asin": "B0BSXGSSS9",
+      "price": "$249",
+      "note": "sous vide"
+    },
+    {
+      "name": "Anova Precision Cooker 3.0",
+      "asin": "B0BQPSLS5X",
+      "price": "$199",
+      "note": "immersion sous vide"
+    }
+  ],
+  "kitchen-appliances": [
+    {
+      "name": "Zojirushi NS-TSC10 Rice Cooker",
+      "asin": "B003MVZQPI",
+      "price": "$199",
+      "note": "best rice cooker"
+    },
+    {
+      "name": "Vitamix E310 Explorian",
+      "asin": "B01LZNYAJJ",
+      "price": "$349",
+      "note": "best blender"
+    },
+    {
+      "name": "Cuisinart CPK-17 Electric Kettle",
+      "asin": "B003KYSLNQ",
+      "price": "$79",
+      "note": "best kettle"
+    },
+    {
+      "name": "Breville BOV860BSS Toaster Oven",
+      "asin": "B0823BZZYX",
+      "price": "$279",
+      "note": "best toaster oven"
+    },
+    {
+      "name": "Igloo ICEB26HNSS Ice Maker",
+      "asin": "B07LFDYQF3",
+      "price": "$129",
+      "note": "countertop ice maker"
+    }
+  ],
+  "smart-pet-gear": [
+    {
+      "name": "PetSafe Smart Feed Automatic Feeder",
+      "asin": "B07DRL9G5C",
+      "price": "$179",
+      "note": "auto pet feeder"
+    },
+    {
+      "name": "Petlibro Dockstream Water Fountain",
+      "asin": "B0CP5W2F4S",
+      "price": "$69",
+      "note": "smart water fountain"
+    },
+    {
+      "name": "Litter-Robot 4",
+      "asin": "B0BGJNN2CY",
+      "price": "$699",
+      "note": "self-cleaning litter box"
+    },
+    {
+      "name": "Fi Series 3 GPS Dog Collar",
+      "asin": "B0CZ6CN19Z",
+      "price": "$149",
+      "note": "GPS pet tracker"
+    }
+  ],
+  "charging-accessories": [
+    {
+      "name": "Anker Prime 240W GaN Charger",
+      "asin": "B0CL5LWHLN",
+      "price": "$89",
+      "note": "best GaN charger"
+    },
+    {
+      "name": "Anker PowerCore 26800mAh",
+      "asin": "B07XRXVMSG",
+      "price": "$59",
+      "note": "best power bank"
+    },
+    {
+      "name": "ESR 3-in-1 MagSafe Charger",
+      "asin": "B0CGKFLQCH",
+      "price": "$49",
+      "note": "MagSafe station"
+    },
+    {
+      "name": "Jackery Explorer 300",
+      "asin": "B082TMQLWZ",
+      "price": "$239",
+      "note": "portable power station"
+    }
+  ],
+  "car-tech": [
+    {
+      "name": "VIOFO A229 Pro Dash Cam",
+      "asin": "B0CLZJKZ47",
+      "price": "$279",
+      "note": "best dash cam"
+    },
+    {
+      "name": "AAWireless Android Auto Adapter",
+      "asin": "B0BL3L32TZ",
+      "price": "$59",
+      "note": "wireless AA"
+    },
+    {
+      "name": "TireTek Tire Inflator",
+      "asin": "B07QR4Q42L",
+      "price": "$33",
+      "note": "portable inflator"
+    },
+    {
+      "name": "NOCO Boost Plus GB40",
+      "asin": "B015TKUPIC",
+      "price": "$99",
+      "note": "jump starter"
+    }
+  ],
+  "photography-video": [
+    {
+      "name": "Sony ZV-E10 II",
+      "asin": "B0D7W7MNK6",
+      "price": "$998",
+      "note": "best beginner camera"
+    },
+    {
+      "name": "GoPro Hero 13 Black",
+      "asin": "B0DDHL1YW4",
+      "price": "$399",
+      "note": "action camera"
+    },
+    {
+      "name": "DJI Osmo Mobile 6",
+      "asin": "B0B7XD6ZPZ",
+      "price": "$89",
+      "note": "phone gimbal"
+    },
+    {
+      "name": "Peak Design Travel Tripod",
+      "asin": "B07WX6H6NK",
+      "price": "$349",
+      "note": "travel tripod"
+    }
+  ],
+  "drones": [
+    {
+      "name": "DJI Mini 4 Pro",
+      "asin": "B0CJ5ZLW9Q",
+      "price": "$759",
+      "note": "best beginner drone"
+    },
+    {
+      "name": "DJI Air 3S",
+      "asin": "B0DH8BY6F7",
+      "price": "$1099",
+      "note": "prosumer drone"
+    },
+    {
+      "name": "DJI Neo",
+      "asin": "B0DG2JP8ZP",
+      "price": "$199",
+      "note": "budget drone"
+    }
+  ],
+  "home-cleaning": [
+    {
+      "name": "Roborock Q5 Pro",
+      "asin": "B0CQM7RF8H",
+      "price": "$299",
+      "note": "best robot vacuum"
+    },
+    {
+      "name": "Dreame D10 Plus Gen 2",
+      "asin": "B0D6TTRTPL",
+      "price": "$329",
+      "note": "robot+mop+self-empty"
+    },
+    {
+      "name": "Dyson V15 Detect",
+      "asin": "B0C2J8KJH9",
+      "price": "$599",
+      "note": "best cordless stick"
+    },
+    {
+      "name": "Levoit Core 300 Air Purifier",
+      "asin": "B07VVK39F7",
+      "price": "$89",
+      "note": "best air purifier"
+    },
+    {
+      "name": "Shark CarpetXpert",
+      "asin": "B0BNY2RX2C",
+      "price": "$149",
+      "note": "carpet cleaner"
+    }
+  ],
+  "networking": [
+    {
+      "name": "TP-Link Deco XE75 Pro Mesh",
+      "asin": "B0BPSGSTXT",
+      "price": "$199",
+      "note": "best mesh WiFi"
+    },
+    {
+      "name": "Synology DS224+ NAS",
+      "asin": "B0CLLR145Z",
+      "price": "$299",
+      "note": "home NAS"
+    },
+    {
+      "name": "TP-Link BE9300 Wi-Fi 7 Router",
+      "asin": "B0CPPK34ZL",
+      "price": "$299",
+      "note": "WiFi 7 router"
+    }
+  ],
+  "outdoor-tech": [
+    {
+      "name": "Garmin eTrex SE",
+      "asin": "B0BT35C89P",
+      "price": "$149",
+      "note": "handheld GPS"
+    },
+    {
+      "name": "Goal Zero Nomad 10 Solar Panel",
+      "asin": "B07QZJ3BCV",
+      "price": "$99",
+      "note": "portable solar"
+    },
+    {
+      "name": "Black Diamond Moji Lantern",
+      "asin": "B093QQNX8N",
+      "price": "$24",
+      "note": "camping lantern"
+    },
+    {
+      "name": "Garmin Edge 540 Bike Computer",
+      "asin": "B0C1YN7NW4",
+      "price": "$349",
+      "note": "best bike GPS"
+    }
+  ],
+  "health-wellness": [
+    {
+      "name": "Philips Sonicare 4100",
+      "asin": "B09LD8T445",
+      "price": "$39",
+      "note": "best electric toothbrush"
+    },
+    {
+      "name": "Waterpik Aquarius Water Flosser",
+      "asin": "B00HFQQ0VU",
+      "price": "$69",
+      "note": "water flosser"
+    },
+    {
+      "name": "Theragun Mini 2.0",
+      "asin": "B0C5JTHML7",
+      "price": "$199",
+      "note": "massage gun"
+    },
+    {
+      "name": "Verilux HappyLight Luxe",
+      "asin": "B07RPG3CLP",
+      "price": "$49",
+      "note": "light therapy lamp"
+    }
+  ],
+  "monitors-displays": [
+    {
+      "name": "Dell U3223QE 32\" 4K USB-C",
+      "asin": "B0B2P5LNWJ",
+      "price": "$699",
+      "note": "best 4K productivity"
+    },
+    {
+      "name": "LG 34WN80C-B Ultrawide",
+      "asin": "B07YGZ7C1K",
+      "price": "$479",
+      "note": "best ultrawide"
+    },
+    {
+      "name": "ASUS ZenScreen MB16ACE Portable",
+      "asin": "B07Q4P2C6G",
+      "price": "$219",
+      "note": "best portable monitor"
+    },
+    {
+      "name": "Dell S2722DGM 1440p 165Hz",
+      "asin": "B095V23T7C",
+      "price": "$249",
+      "note": "budget gaming monitor"
     }
   ]
 }
