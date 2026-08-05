@@ -174,5 +174,45 @@ def main():
     print(f"   Done. {len(humanized)} chars")
 
 
+# ── Human-Writing Quality Gate ───────────────────────────
+BANNED_PHRASES = [
+    "in today's digital age", "in the fast-paced world of",
+    "whether you're a seasoned professional", "just starting out",
+    "we're excited", "we're thrilled", "we're delighted",
+    "game-changing", "revolutionary", "cutting-edge",
+    "unlock your potential", "take your", "to the next level",
+    "let's dive in", "without further ado", "at the end of the day",
+    "leveraging", "seamlessly", "best-in-class", "enterprise-grade",
+    "in this article we will", "in this post we will",
+    "imagine you're", "picture this",
+    "in conclusion", "to sum up", "as we've discussed",
+]
+
+def check_human_writing(text: str) -> list[str]:
+    """Check text for AI-sounding patterns. Returns list of violations."""
+    violations = []
+    lower = text.lower()
+    for phrase in BANNED_PHRASES:
+        if phrase in lower:
+            violations.append(f"Banned phrase: '{phrase}'")
+    
+    # Check for hedging patterns
+    hedging = ["might help", "could be useful", "may want to", "could consider",
+               "might be worth", "you might find", "has been shown to"]
+    for h in hedging:
+        if h in lower:
+            violations.append(f"Hedging: '{h}' — be direct")
+    
+    # Check for over-enthusiastic openings
+    first_sentences = ". ".join(text.split(". ")[:3]).lower()
+    if any(w in first_sentences for w in ["excited", "thrilled", "delighted", "proud"]):
+        violations.append("Over-enthusiastic opening")
+    
+    # Check for generic claims with no data
+    if re.search(r'(significantly|dramatically|vastly) (improved|enhanced|better)', lower):
+        violations.append("Generic superlative with no data")
+    
+    return violations
+
 if __name__ == "__main__":
     main()
