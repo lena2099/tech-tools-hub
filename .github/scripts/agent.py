@@ -328,9 +328,8 @@ def format_product_links(products: list) -> str:
             url = f"https://www.amazon.com/dp/{asin}?tag=technolo0b423-20"
             lines.append(f"- {name}: {url} (${price}, {note})")
         else:
-            search = p.get("search", name.replace(" ", "+"))
-            url = f"https://www.amazon.com/s?k={search}&tag=technolo0b423-20"
-            lines.append(f"- {name}: {url} (${price}, {note}, search link)")
+            # Product without ASIN — skip, don't generate search link
+            continue
     return "\n".join(lines)
 
 # Subscription bounties (PA API product links, NOT search redirects)
@@ -460,7 +459,7 @@ def generate_article(topic: dict, angle: str):
     products = pick_products(topic['slug'])
     product_block = format_product_links(products)
     if not product_block:
-        product_block = "(no verified products for this category — use Amazon search links with tag=technolo0b423-20 for every product mentioned)"
+        product_block = "(NO verified products for this category. You MUST find real ASIN links on Amazon and use them. Search links (/s?k=) are PROHIBITED.)"
     month_year = current_date.strftime("%B %Y")
     this_year = current_date.strftime("%Y")
 
@@ -494,15 +493,19 @@ You are LENA, a tech product reviewer based in Shenzhen, China. Your persona:
 CONTENT RULES:
 - Today is {current_date.strftime('%B %d, %Y')}. ONLY real, currently-available products. No 2024 models unless they're still sold new.
 - This is a shopping guide, not a tutorial.
-- Available verified products (use these ASIN links when applicable):
+- Verified products (use these exact ASIN links. NO search links /s?k=):
 {product_block}
-- For products NOT listed above: you MAY include them. Use Amazon search links:
-  `https://www.amazon.com/s?k=PRODUCT+NAME&tag=technolo0b423-20`
-  Replace PRODUCT+NAME with the product name (e.g., Sony+WH-1000XM6).
-- For products listed above with ASINs (amazon.com/dp/...), use exactly the provided link.
-- IMPORTANT: Every product you mention MUST have an Amazon link.
-  If you discuss 5 products, there must be 5 Amazon links in the article.
-  This is not optional — it's the entire business model.
+- LINK FORMAT RULES (ABSOLUTE — violation = article rejected):
+  1. EVERY product you discuss MUST have an Amazon link. 5 products = 5 links. Non-negotiable.
+  2. Use ASIN product links ONLY: `https://www.amazon.com/dp/ASIN?tag=technolo0b423-20`
+  3. SEARCH LINKS (/s?k=) are STRICTLY PROHIBITED. Never use them. Ever.
+  4. For products NOT in the verified list: find the real ASIN on Amazon yourself.
+     The ASIN is the 10-char alphanumeric code in the URL after /dp/
+     Example: amazon.com/dp/B0BT35C89P → ASIN = B0BT35C89P
+  5. INLINE links: put links directly on product names in the body.
+     Good: "The [Sony WH-1000XM5](https://www.amazon.com/dp/B0BZR6H4R5?tag=technolo0b423-20) is $328"
+     Bad: "[Check price on Amazon](link)" at the end of the article
+  6. NO "Check price on Amazon" blocks. NO link dumps at the bottom.
 - No comparison table with fake star ratings. Describe differences in plain sentences.
 - No numbered feature lists. Tell me what matters.
 - Skip the "Quick Picks" box. Skip the "Verdict" with "Best Overall/Budget/Premium" labels. Just tell the reader what to buy and why.
