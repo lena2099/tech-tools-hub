@@ -365,6 +365,56 @@ def call_deepseek(messages, max_tokens=2048, temperature=0.7):
     return resp["choices"][0]["message"]["content"]
 
 
+
+# ── COMMISSION-WEIGHTED TOPIC SELECTION ──────────────────
+# Amazon Associates 2026 commission rates by category:
+#   10%: furniture (home-office-gear)
+#    8%: home improvement (home-cleaning)
+#    5%: pets, kitchen, auto, outdoor
+#    3%: electronics, cameras, drones, networking, etc.
+COMMISSION_WEIGHTS = {
+    "home-office-gear":       10,   # chairs, desks, office furniture
+    "home-cleaning":           8,   # robot vacuums, cordless vacuums, air purifiers
+    "smart-pet-gear":          5,   # feeders, fountains, litter boxes, GPS trackers
+    "smart-kitchen":           5,   # air fryers, coffee makers, sous vide
+    "kitchen-appliances":      5,   # ice makers, rice cookers, blenders, kettles
+    "car-tech":                5,   # dashcams, CarPlay, tire inflators, jump starters
+    "outdoor-tech":            5,   # solar panels, camping lanterns, bike computers
+    "health-wellness":         5,   # electric toothbrushes, water flossers, massage guns
+    "smart-home-devices":      4,   # robot vacuums overflow, smart lights
+    "smart-home-security":     4,   # doorbells, cameras, smart locks
+    "portable-audio":          3,   # BT speakers
+    "home-audio":              3,   # soundbars, bookshelf speakers, DACs
+    "noise-cancelling-headphones": 3,
+    "budget-smartphones":      3,
+    "laptops-computers":       3,
+    "gaming-gear":             3,
+    "ereaders-tablets":        3,
+    "wearables-fitness":       3,
+    "charging-accessories":    3,
+    "photography-video":       3,
+    "drones":                  3,
+    "networking":              3,
+    "monitors-displays":       3,
+}
+
+def weighted_topic_pick(available: list) -> dict:
+    """Pick from available topics weighted by commission rate."""
+    if not available:
+        # Should not happen but fallback
+        return TOPICS[0]
+    # Sum weights, every slug gets at least weight=1 (so 3% categories still show up)
+    import random
+    weights = [COMMISSION_WEIGHTS.get(t["slug"], 3) for t in available]
+    total = sum(weights)
+    # Normalized weighted random
+    r = random.uniform(0, total)
+    cumulative = 0
+    for topic, w in zip(available, weights):
+        cumulative += w
+        if r <= cumulative:
+            return topic
+    return available[-1]  # fallback
 # ── TOPIC ROTATION ───────────────────────────────────────
 def pick_topic_and_angle():
     """Pick next topic and a fresh angle, avoiding recent repeats."""
@@ -380,11 +430,11 @@ def pick_topic_and_angle():
                 recent_slugs.append(line.split(":", 1)[1].strip())
                 break
 
-    # Pick least-recently-used topic
+    # Pick least-recently-used topic, weighted by commission rate
     available = [t for t in TOPICS if t["slug"] not in recent_slugs[:2]]
     if not available:
         available = TOPICS
-    topic = available[random.randint(0, len(available) - 1)]
+    topic = weighted_topic_pick(available)
 
     # Pick angle not used in last 2 articles for this slug
     used_angles = set()
