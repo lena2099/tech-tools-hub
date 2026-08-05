@@ -223,7 +223,7 @@ def main():
     body = parts[2] if len(parts) >= 3 else ""
     pname = post_path.stem
     p = pname.split("-", 3)
-    url = f"{SITE_URL}/{p[0]}/{p[1]}/{p[2]}/{p[3]}.html" if len(p) >= 4 else SITE_URL
+    url = f"{SITE_URL}/{cat}/{p[0]}/{p[1]}/{p[2]}/{p[3]}" if len(p) >= 4 and cat else SITE_URL
 
     print(f"\n{'='*60}")
     print(f"📡 Distributing: {post_path.name}")
