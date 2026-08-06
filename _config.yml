@@ -6,12 +6,13 @@ baseurl: "/tech-tools-hub"
 author:
   name: Lena
 
-theme: minima
+remote_theme: jekyll/minima
 
 google_site_verification: 5c72236a5c25e74d
 
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
   - jekyll-seo-tag
   
 
