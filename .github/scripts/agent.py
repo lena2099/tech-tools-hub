@@ -619,9 +619,9 @@ REVIEW-SPECIFIC WRITING RULES — the patterns that make a review worth reading:
      Good: "The [Sony WH-1000XM5](https://www.amazon.com/dp/B0BZR6H4R5?tag=technolo0b423-20) is $328"
      Bad: "[Check price on Amazon](link)" at the end of the article
   6. NO "Check price on Amazon" blocks. NO link dumps at the bottom.
-- No comparison table with fake star ratings. Describe differences in plain sentences.
+- No fake star ratings. Use the comparison structure above — each product gets its own H2 section.
 - No numbered feature lists. Tell me what matters.
-- Skip the "Quick Picks" box. Skip the "Verdict" with "Best Overall/Budget/Premium" labels. Just tell the reader what to buy and why.
+- Skip the "Quick Picks" box. The structure above IS your verdict — follow it exactly.
 - FAQ section: 2 questions max. Keep answers 2-3 sentences.
 - Mention subscriptions ONLY if genuinely relevant. Don't cram Kindle Unlimited into a keyboard review.
 - Affiliate disclosure at the very end: "*As an Amazon Associate, I earn from qualifying purchases.*"
