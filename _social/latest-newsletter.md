@@ -1,30 +1,30 @@
 # Newsletter Digest — 2026-08-06
 
-Generated: 2026-08-06T02:40:28.411081+00:00
+Generated: 2026-08-06T10:19:04.458110+00:00
 
 ---
 
-# This Week's Best 3 Buys
-_March 17–23_
+# This Week's Best 3 Buys  
+_May 12–18_
 
 Hey,
 
-Been testing gear in my Shenzhen studio all week—my back hurts from the cheap chair, but the good news is I found three things that actually earn their spot. Here’s what’s worth your money right now.
+Spent the week on my knees testing robot mops and almost got sunburned hiking with GPS units. Here's what actually survived my apartment and the trail.
 
-## #1: Roborock Q5 Pro Robot Vacuum Mop
-This is the only robot vac mop under $300 that doesn’t get lost or leave streaks. It mapped my messy apartment in one run, and the mopping pad actually scrubs—not just wipes. Honest flaw: the dustbin fills fast if you have pets. Price: **$289**.
+## #1: VIOFO A229 Pro  
+This dash cam is the only one I tested where the footage didn't look like a potato at night. Plate numbers are actually readable, and the 4K front + 2K rear setup is overkill in the best way. Honest flaw: the app feels like it was designed in 2015. Price: $279.
 
-## #2: Standing Desk 2026 (Budget Pick)
-If you read one standing desk article, this is the one—the motor is quiet, stable at max height, and the memory presets actually work. I’ve been using it for two weeks without a single wobble. Honest flaw: cable management tray is flimsy. Price: **$349** (base model).
+## #2: Roborock Q5 Pro  
+Under $400, this thing vacuums AND mops without me having to babysit it. Mapping is fast, it doesn't get stuck on my rug fringe, and the self-emptying base is a game changer. Honest flaw: the mop pad is thin—expect to re-wet it for big spills. Price: $329.
 
-## #3: Best Soundbar Under $300 for TV
-Dialogue comes through crystal clear even at low volume—no more subtitles for me. It’s got HDMI ARC, so setup is literally two cables. Honest flaw: bass is fine for movies but weak for music. Price: **$279**.
+## #3: Garmin eTrex SE  
+It just works. No touchscreen fuss, no battery anxiety—two AAs lasted me a full weekend of hiking. The buttons feel old-school, but that's the point: you can use it with gloves on. Honest flaw: the screen is small and a bit dim. Price: $149.
 
 ## Also worth a look:
-- **Standing Desk & Ergonomic Chair Combo** — Great if you’re starting from zero, but you’ll outgrow the chair in a year.
-- **Best Robot Vacuums Under $400** — The Q5 Pro beats them all, but this list helps if you need self-emptying.
+- **Standing desk (any brand)** — Just get one with a dual motor; the cheap single-motor ones wobble like jelly at standing height.  
+- **Cheaper robot vacuums under $400** — If you don't need mopping, the Q5 Pro's sibling models are solid, but skip anything with "random navigation" in the specs.
 
-省下这笔钱, buy the Q5 Pro first.
+Save your money for the dash cam—you'll thank me when someone rear-ends you.
 
 — Lena
 
