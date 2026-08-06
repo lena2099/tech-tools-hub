@@ -40,6 +40,9 @@ jobs:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: python .github/scripts/humanizer.py
 
+      - name: 🏗️ Enforce Review Structure
+        run: python .github/scripts/structure_enforcer.py
+
       - name: 🔍 SEO Engine
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
