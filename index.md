@@ -3,5 +3,5 @@ layout: home
 title: Tech & Tools Hub
 ---
 
-AI tools · productivity · remote work · honest tech reviews.
+📍深圳 · 🌏 Reddit真实评价 · 💬 数码发烧友圈子实测
 
