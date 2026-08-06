@@ -1,30 +1,30 @@
 # Newsletter Digest — 2026-08-06
 
-Generated: 2026-08-06T02:12:20.149741+00:00
+Generated: 2026-08-06T02:19:38.220918+00:00
 
 ---
 
 # This Week's Best 3 Buys
-_Feb 3–9_
+_Jan 12–18_
 
 Hey,
 
-Spent way too many hours this week testing robot vacuums against my cat's litter trail and standing desks against my own back pain. Here's what actually survived the week without getting returned.
+Been testing floors, trails, and desks all week — my apartment looks like a gear graveyard. Here's what actually survived the week and earned a spot on your card.
 
 ## #1: Roborock Q5 Pro
-The only robot vacuum mop under $300 that doesn't make you choose between cleaning floors or rugs. It mapped my messy apartment in one pass and didn't get stuck on a single cable. Honest flaw: the mop pad is a bit small for big kitchens. Price: ~$279.
+This is the one I'd tell my own sister to buy. The mopping is actually useful — not the useless wet-wipe drag you get on cheap combos — and the navigation doesn't get lost in my cluttered living room. Honest flaw: the dustbin fills fast if you have pets. $299.
 
-## #2: Waterpik Aquarius
-If you've got counter space, this thing beats every cordless flosser I've tested — the pressure actually stays consistent instead of dying halfway through. My gums stopped bleeding after three days. Honest flaw: it's bulky and loud enough to wake my cat. Price: ~$60.
+## #2: Garmin eTrex SE
+If you want a hiking GPS that just works, this is it. No touchscreen fuss, no phone tethering, just solid satellite lock and a battery that outlasts your legs. Honest flaw: the screen feels a bit 2010 — fine in daylight, but don't expect maps that look like your phone. $149.
 
-## #3: Standing Desk 2026 (Budget Pick)
-The one that made me stop slouching without breaking my wallet. The lift is smooth, the memory presets actually remember, and the wobble at full height is minimal. Honest flaw: the cable tray is cheap plastic that flexes. Price: ~$320.
+## #3: Best Robot Vacuums Under $400 (roundup pick)
+This isn't a single product — it's the list I'd read before spending anything on a vacuum this year. It saved me from buying a $500 model that would've been overkill for a studio. Honest flaw: you'll still need to read it yourself; no shortcut there. Free.
 
 ## Also worth a look:
-- Ergonomic chair combo — Only worth it if you're already getting the desk; the chair is decent but not life-changing.
-- Water flosser cordless option — Fine for travel, but you'll be refilling it twice per session.
+- **Standing Desk 2026 guide** — The "don't buy before reading" warning is real; one $400 desk I tested wobbled like jelly at standing height.
+- **Handheld GPS Hiking 2026 guide** — If you're on a budget, this explains why the eTrex SE beats every $99 knockoff for reliability.
 
-省下这笔钱 — skip the gimmicks, buy the ones that do the job.
+省下这笔钱, or spend it on the right thing — your call. Just don't buy blind.
 
 — Lena
 
