@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-06T00:39:17.765188+00:00",
+  "generated_at": "2026-08-06T00:49:00.302340+00:00",
   "month": "August",
   "month_num": 8,
   "all_categories_scored": {
@@ -13,22 +13,12 @@
       "buyer_intent": "HIGH",
       "seasonal": false
     },
-    "kitchen-appliances": {
-      "score": 6.5,
-      "buyer_intent": "HIGH",
-      "seasonal": false
-    },
-    "health-wellness": {
-      "score": 6.5,
-      "buyer_intent": "HIGH",
-      "seasonal": false
-    },
-    "smart-home-devices": {
-      "score": 5.2,
-      "buyer_intent": "MEDIUM",
-      "seasonal": false
-    },
     "smart-kitchen": {
+      "score": 5.0,
+      "buyer_intent": "HIGH",
+      "seasonal": false
+    },
+    "kitchen-appliances": {
       "score": 5.0,
       "buyer_intent": "HIGH",
       "seasonal": false
@@ -48,6 +38,11 @@
       "buyer_intent": "HIGH",
       "seasonal": false
     },
+    "health-wellness": {
+      "score": 5.0,
+      "buyer_intent": "HIGH",
+      "seasonal": false
+    },
     "laptops-computers": {
       "score": 4.8,
       "buyer_intent": "MEDIUM",
@@ -63,12 +58,17 @@
       "buyer_intent": "MEDIUM",
       "seasonal": true
     },
+    "smart-home-devices": {
+      "score": 4.0,
+      "buyer_intent": "MEDIUM",
+      "seasonal": false
+    },
     "smart-home-security": {
       "score": 4.0,
       "buyer_intent": "MEDIUM",
       "seasonal": false
     },
-    "drones": {
+    "charging-accessories": {
       "score": 3.9,
       "buyer_intent": "MEDIUM",
       "seasonal": false
@@ -98,12 +98,12 @@
       "buyer_intent": "MEDIUM",
       "seasonal": false
     },
-    "charging-accessories": {
+    "photography-video": {
       "score": 3.0,
       "buyer_intent": "MEDIUM",
       "seasonal": false
     },
-    "photography-video": {
+    "drones": {
       "score": 3.0,
       "buyer_intent": "MEDIUM",
       "seasonal": false
@@ -120,16 +120,18 @@
     }
   },
   "recommended": {
-    "slug": "smart-pet-gear",
-    "angle": "Best Automatic Pet Feeder in 2026",
-    "demand_score": 5.0,
+    "slug": "home-office-gear",
+    "angle": "Best Standing Desk in 2026",
+    "demand_score": 10.0,
     "buyer_intent": "HIGH",
     "target_keywords": [
-      "automatic pet feeder",
-      "self cleaning litter box",
-      "GPS dog tracker"
+      "standing desk",
+      "ergonomic chair",
+      "office chair back pain"
     ],
-    "signals": [],
+    "signals": [
+      "💰 High commission (10%)"
+    ],
     "seasonal_note": "",
     "writing_tips": [
       "Open with your strongest opinion — don't bury the verdict.",
@@ -148,16 +150,16 @@
       "score": 8.0
     },
     {
+      "slug": "smart-kitchen",
+      "score": 5.0
+    },
+    {
       "slug": "kitchen-appliances",
-      "score": 6.5
+      "score": 5.0
     },
     {
-      "slug": "health-wellness",
-      "score": 6.5
-    },
-    {
-      "slug": "smart-home-devices",
-      "score": 5.2
+      "slug": "smart-pet-gear",
+      "score": 5.0
     }
   ]
 }
