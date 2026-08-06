@@ -1,0 +1,70 @@
+---
+layout: default
+---
+
+<div class="hero">
+  <div class="hero-content">
+    <p class="hero-emoji">🛒</p>
+    <h1 class="hero-title">Lena的数码买手记</h1>
+    <p class="hero-subtitle">📍深圳 · 🌏 Reddit真实评价 · 💬 数码发烧友圈子实测</p>
+    <p class="hero-desc">帮你过滤海外智商税。<br>找到值不值得多花 <span class="highlight">¥2000</span>。</p>
+  </div>
+</div>
+
+<div class="content-wrapper">
+  <section class="reviews-section">
+    <h2 class="section-title">📝 最新评测</h2>
+
+    <div class="post-grid">
+      {% for post in site.posts limit:12 %}
+        <article class="post-card">
+          <a class="post-card-link" href="{{ post.url | relative_url }}">
+            <div class="post-card-cover">
+              {% assign slug_parts = post.categories | first | default: "tech" %}
+              <span class="post-card-emoji">{{ "🎧💻📱🪑🎮📖⌚🔊🔉🏠🔒🍳🐱🔌🚗📷🛸🧹🌐🏕️💪🖥️⚡" | slice: forloop.index0, 1 | default: "⚡" }}</span>
+            </div>
+            <div class="post-card-body">
+              <span class="post-card-date">{{ post.date | date: "%b %d" }}</span>
+              <h3 class="post-card-title">{{ post.title | escape }}</h3>
+              <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 100 }}</p>
+            </div>
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+
+    {% if site.posts.size > 12 %}
+    <div class="more-link">
+      <a href="#all-posts" class="btn-more">看更多评测 →</a>
+    </div>
+    {% endif %}
+  </section>
+
+  <section class="about-preview">
+    <h2 class="section-title">👤 关于 Lena</h2>
+    <div class="about-card">
+      <p>长居深圳，每天刷 Reddit 和 YouTube 看普通老外买了之后到底后不后悔。混迹数码发烧友圈子，拿到实物用过才敢说值不值。</p>
+      <p><strong>不接厂商送测。自己买的才说真话。</strong></p>
+      <div class="about-stats">
+        <div class="stat"><span class="stat-num">{{ site.posts.size }}</span><span class="stat-label">篇评测</span></div>
+        <div class="stat"><span class="stat-num">23</span><span class="stat-label">个品类</span></div>
+        <div class="stat"><span class="stat-num">100%</span><span class="stat-label">自费</span></div>
+      </div>
+      <a href="/about/" class="btn-more">了解更多 →</a>
+    </div>
+  </section>
+</div>
+
+<!-- All posts list -->
+<section class="all-posts-section" id="all-posts">
+  <h2 class="section-title">📚 全部评测</h2>
+  <ul class="all-posts-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+        <span class="post-cat">[{{ post.categories | first | default: "tech" }}]</span>
+        <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
