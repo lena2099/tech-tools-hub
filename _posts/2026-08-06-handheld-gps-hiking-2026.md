@@ -33,7 +33,7 @@ Reddit上有个老外说："I've had mine for 2 years and it's never let me down
 
 **Buy this if** you want a reliable GPS that you can trust in the backcountry. **Skip it if** you're a map nerd who needs topo maps and route planning — you'll want a bigger screen.
 
-## Runner-Up / Better Value: [Garmin Edge 540](https://www.amazon.com/dp/B0C1YN7NW4?tag=technolo0b423-20) ($349)
+## Runner-Up / Better Value: [Garmin Edge 540](https://www.amazon.com/dp/B0BT36VBGM?tag=technolo0b423-20) ($349)
 
 This is a bike computer, not a hiking GPS. But hear me out: it does 90% of what a hiking GPS does, and it's much better at it. The 2.6-inch color screen is gorgeous, the battery lasts 26 hours, and the satellite acquisition is instant — faster than the eTrex SE.
 

@@ -33,7 +33,7 @@ def validate_article(filepath: Path) -> tuple[int, list[str]]:
     issues = []
 
     # Find ALL Amazon links
-    dp_links = re.findall(r'https://www\.amazon\.com/dp/[A-Z0-9]+\?tag=' + TAG, content)
+    dp_links = re.findall(r'https://www\.amazon\.com/dp/[A-Z0-9]+\\?tag=' + TAG, content)
     search_links = re.findall(r'https://www\.amazon\.com/s\?k=[^"\s]+.*?tag=' + TAG, content)
     all_links = re.findall(r'https://www\.amazon\.com/[^"\s]*?tag=' + TAG, content)
 
