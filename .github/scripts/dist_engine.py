@@ -20,7 +20,7 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 from urllib.parse import quote
 
-SITE_URL = "https://tech-tools-hub.netlify.app"
+SITE_URL = "https://lena2099.github.io/tech-tools-hub"
 SITEMAP_URL = f"{SITE_URL}/sitemap.xml"
 OUT_DIR = Path("_posts")
 DIST_DIR = Path("_dist")
