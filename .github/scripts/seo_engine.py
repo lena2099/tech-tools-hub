@@ -481,7 +481,8 @@ def optimize_keywords(content: str, keywords: list[str]) -> str:
     desc_lines = [l for l in frontmatter.split("\n") if l.startswith("description:")]
     if desc_lines and primary_kw not in desc_lines[0].lower():
         old_desc = desc_lines[0]
-        new_desc = old_desc.split(":", 1)[0] + ': "' + primary_kw.title() + " — " + old_desc.split(":", 1)[1].strip().strip('"')[:120] + '"
+        rest = old_desc.split(":", 1)[1].strip().strip('"')[:120]
+        new_desc = old_desc.split(":", 1)[0] + ': "' + primary_kw.title() + " — " + rest + '"
         content = content.replace(old_desc, new_desc)
         fixes.append("Keyword injected into meta description")
 
