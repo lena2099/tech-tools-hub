@@ -1,4 +1,4 @@
-name: Athena v3 — Generate + SEO + Distribute
+name: Athena v4 — Research + Generate + SEO + Distribute
 
 on:
   schedule:
@@ -23,7 +23,11 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install httpx pyyaml
+        run: pip install httpx pyyaml pytrends
+
+      # ── Stage 0: Research — demand-driven topic selection ──
+      - name: 🔬 Research Demand
+        run: python .github/scripts/research.py
 
       # ── Stage 1: Generate + SEO (one commit) ──
       - name: 🤖 Generate Article
@@ -48,7 +52,7 @@ jobs:
         run: |
           git config user.name "Athena Bot"
           git config user.email "bot@athena.local"
-          git add _posts/ sitemap.xml robots.txt _config.yml
+          git add _posts/ sitemap.xml robots.txt _config.yml research_findings.json
           if git diff --staged --quiet; then
             echo "No changes — already published this cycle"
           else
