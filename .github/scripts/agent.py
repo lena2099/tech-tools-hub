@@ -12,7 +12,7 @@ from urllib.request import Request, urlopen
 API_KEY   = os.environ["DEEPSEEK_API_KEY"]
 DEVTO_KEY = os.environ.get("DEVTO_API_KEY", "")
 INDEXNOW_KEY = "0624a5ea55dc48afaefbe5ce8393c490"
-SITE_URL = "https://tech-tools-hub.netlify.app"
+SITE_URL = "https://lena2099.github.io/tech-tools-hub"
 DRY_RUN   = os.environ.get("DRY_RUN", "") == "1"
 OUT_DIR   = Path("_posts")
 
