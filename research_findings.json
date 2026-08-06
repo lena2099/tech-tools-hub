@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-06T02:39:36.179005+00:00",
+  "generated_at": "2026-08-06T10:18:10.906161+00:00",
   "month": "August",
   "month_num": 8,
   "all_categories_scored": {
@@ -120,14 +120,14 @@
     }
   },
   "recommended": {
-    "slug": "smart-kitchen",
-    "angle": "Best Best Air Fryer in 2026",
+    "slug": "car-tech",
+    "angle": "Best Best Dash Cam in 2026",
     "demand_score": 5.0,
     "buyer_intent": "HIGH",
     "target_keywords": [
-      "best air fryer",
-      "instant pot recipes",
-      "sous vide machine"
+      "best dash cam",
+      "wireless CarPlay adapter",
+      "tire inflator portable"
     ],
     "signals": [],
     "seasonal_note": "",
