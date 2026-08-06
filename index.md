@@ -1,7 +1,87 @@
 ---
-layout: home
-title: Tech & Tools Hub
+layout: default
+title: Lena的数码买手记
 ---
 
-📍深圳 · 🌏 Reddit真实评价 · 💬 数码发烧友圈子实测
+<div class="hero">
+  <div class="hero-content">
+    <p class="hero-emoji">🛒</p>
+    <h1 class="hero-title">Lena的数码买手记</h1>
+    <p class="hero-subtitle">📍深圳 · 🌏 Reddit真实评价 · 💬 数码发烧友圈子实测</p>
+    <p class="hero-desc">帮你过滤海外智商税。<br>找到值不值得多花 <span class="highlight">¥2000</span>。</p>
+  </div>
+</div>
 
+<div class="content-wrapper">
+  <section class="reviews-section">
+    <h2 class="section-title">📝 最新评测</h2>
+    <div class="post-grid">
+      {% for post in site.posts limit:12 %}
+        <article class="post-card">
+          <a class="post-card-link" href="{{ post.url | relative_url }}">
+            <div class="post-card-cover">
+              {% assign cat = post.categories | first | default: "" %}
+              {% if cat == "noise-cancelling-headphones" %}<span class="post-card-emoji">🎧</span>
+              {% elsif cat == "budget-smartphones" %}<span class="post-card-emoji">📱</span>
+              {% elsif cat == "laptops-computers" %}<span class="post-card-emoji">💻</span>
+              {% elsif cat == "home-office-gear" %}<span class="post-card-emoji">🪑</span>
+              {% elsif cat == "gaming-gear" %}<span class="post-card-emoji">🎮</span>
+              {% elsif cat == "ereaders-tablets" %}<span class="post-card-emoji">📖</span>
+              {% elsif cat == "wearables-fitness" %}<span class="post-card-emoji">⌚</span>
+              {% elsif cat == "portable-audio" %}<span class="post-card-emoji">🔊</span>
+              {% elsif cat == "home-audio" %}<span class="post-card-emoji">🔉</span>
+              {% elsif cat == "smart-home-devices" %}<span class="post-card-emoji">🏠</span>
+              {% elsif cat == "smart-home-security" %}<span class="post-card-emoji">🔒</span>
+              {% elsif cat == "smart-kitchen" %}<span class="post-card-emoji">🍳</span>
+              {% elsif cat == "kitchen-appliances" %}<span class="post-card-emoji">🍽️</span>
+              {% elsif cat == "smart-pet-gear" %}<span class="post-card-emoji">🐱</span>
+              {% elsif cat == "charging-accessories" %}<span class="post-card-emoji">🔌</span>
+              {% elsif cat == "car-tech" %}<span class="post-card-emoji">🚗</span>
+              {% elsif cat == "photography-video" %}<span class="post-card-emoji">📷</span>
+              {% elsif cat == "drones" %}<span class="post-card-emoji">🛸</span>
+              {% elsif cat == "home-cleaning" %}<span class="post-card-emoji">🧹</span>
+              {% elsif cat == "networking" %}<span class="post-card-emoji">🌐</span>
+              {% elsif cat == "outdoor-tech" %}<span class="post-card-emoji">🏕️</span>
+              {% elsif cat == "health-wellness" %}<span class="post-card-emoji">💪</span>
+              {% elsif cat == "monitors-displays" %}<span class="post-card-emoji">🖥️</span>
+              {% else %}<span class="post-card-emoji">⚡</span>
+              {% endif %}
+            </div>
+            <div class="post-card-body">
+              <span class="post-card-date">{{ post.date | date: "%b %d" }}</span>
+              <h3 class="post-card-title">{{ post.title | escape }}</h3>
+              <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 100 }}</p>
+            </div>
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="about-preview">
+    <h2 class="section-title">👤 关于 Lena</h2>
+    <div class="about-card">
+      <p>长居深圳，每天刷 Reddit 和 YouTube 看普通老外买了之后到底后不后悔。混迹数码发烧友圈子，拿到实物用过才敢说值不值。</p>
+      <p><strong>不接厂商送测。自己买的才说真话。</strong></p>
+      <div class="about-stats">
+        <div class="stat"><span class="stat-num">{{ site.posts.size }}</span><span class="stat-label">篇评测</span></div>
+        <div class="stat"><span class="stat-num">23</span><span class="stat-label">个品类</span></div>
+        <div class="stat"><span class="stat-num">100%</span><span class="stat-label">自费</span></div>
+      </div>
+      <a href="{{ '/about/' | relative_url }}" class="btn-more">了解更多 →</a>
+    </div>
+  </section>
+
+  <section class="all-posts-section">
+    <h2 class="section-title">📚 全部评测</h2>
+    <ul class="all-posts-list">
+      {% for post in site.posts %}
+        <li>
+          <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+          <span class="post-cat">[{{ post.categories | first | default: "tech" | replace: "-", " " }}]</span>
+          <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+</div>
