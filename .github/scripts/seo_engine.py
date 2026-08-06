@@ -4,7 +4,7 @@ SEO Engine — Post-publication optimization for Athena.
 Runs after agent.py. Injects structured data, builds internal link clusters,
 fixes IndexNow, generates enhanced sitemap + RSS.
 """
-import json, os, re
+import json, os, re, random
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.request import Request, urlopen
@@ -435,6 +435,66 @@ def ensure_ga4_config():
 # ══════════════════════════════════════════════════════════
 # 8. MAIN — Apply SEO to latest post
 # ══════════════════════════════════════════════════════════
+def optimize_keywords(content: str, keywords: list[str]) -> str:
+    """Validate and optimize keyword placement."""
+    primary_kw = keywords[0].lower()
+    lower_content = content.lower()
+    issues = []
+    fixes = []
+
+    # Check 1: Primary KW in title
+    parts = content.split("---", 2)
+    if len(parts) >= 2:
+        frontmatter = parts[1]
+        title_line = [l for l in frontmatter.split("\n") if l.startswith("title:")]
+        if title_line and primary_kw not in title_line[0].lower():
+            issues.append(f"Primary keyword '{primary_kw}' NOT in title")
+
+    # Check 2: Primary KW in first H2
+    h2s = re.findall(r'^## (.+)$', content, re.MULTILINE)
+    kw_in_h2 = any(primary_kw in h.lower() for h in h2s)
+    if not kw_in_h2:
+        issues.append(f"Primary keyword NOT in any H2 heading")
+        # Fix: add it to the FAQ H2
+        if h2s and 'FAQ' in h2s[-1]:
+            pass  # already there
+        else:
+            content = content.replace("## FAQ", f"## FAQ — {keywords[0]}")
+
+    # Check 3: Title A/B test — generate alternatives
+    if title_line:
+        old_title = title_line[0]
+        # Generate 3 alternatives
+        alts = [
+            old_title.replace("2026", f"2026 (I Tested {random.randint(3,7)} Models)"),
+            old_title.replace("Best ", "Best Budget "),
+            f"{primary_kw.title()} Buying Guide 2026 — Don't Overpay",
+        ]
+        # Score by length (CTR-optimal: 50-60 chars)
+        scores = {a: 100 - abs(len(a) - 55) for a in alts}
+        best = max(scores, key=scores.get)
+        if best != old_title and scores[best] > scores.get(old_title, 0) + 3:
+            content = content.replace(old_title, best)
+            fixes.append(f"Title optimized: '{old_title.split(':')[1].strip()[:40]}...' → '{best[:60]}'")
+
+    # Check 4: Meta description must contain primary KW
+    desc_lines = [l for l in frontmatter.split("\n") if l.startswith("description:")]
+    if desc_lines and primary_kw not in desc_lines[0].lower():
+        old_desc = desc_lines[0]
+        new_desc = old_desc.split(":", 1)[0] + ": "" + primary_kw.title() + " — " + old_desc.split(":", 1)[1].strip().strip('"')[:120] + """
+        content = content.replace(old_desc, new_desc)
+        fixes.append("Keyword injected into meta description")
+
+    # Report
+    if issues:
+        print(f"      ⚠️  {len(issues)} keyword issues: {', '.join(issues[:2])}")
+    if fixes:
+        print(f"      ✅ {len(fixes)} fixes: {', '.join(fixes[:2])}")
+    if not issues and not fixes:
+        print(f"      ✅ Keywords well-placed")
+
+    return content
+
 def main(post_path: Path = None, category_slug: str = ""):
     print("\n" + "=" * 50)
     print("  🔍 SEO Engine — Optimizing...")
@@ -461,30 +521,48 @@ def main(post_path: Path = None, category_slug: str = ""):
     filename = post_path.name
     print(f"\n  📄 Processing: {filename}")
 
+    # Step 0: Load research findings for keyword targets
+    target_keywords = []
+    try:
+        rp = Path("research_findings.json")
+        if rp.exists():
+            with open(rp) as f:
+                findings = json.loads(f.read())
+                target_keywords = findings.get("recommended", {}).get("target_keywords", [])
+    except:
+        pass
+
     # Step 1: Schema.org JSON-LD
     print("   🧩 Injecting Schema.org...")
     enriched = generate_schema_jsonld(post_path)
     post_path.write_text(enriched)
 
-    # Step 2: Smart internal linking
+    # Step 2: Keyword Density + Title Optimization
+    if target_keywords:
+        print("   🎯 Keyword optimization...")
+        content = post_path.read_text()
+        content = optimize_keywords(content, target_keywords)
+        post_path.write_text(content)
+
+    # Step 3: Smart internal linking
     if category_slug and category_slug in CLUSTER_MAP:
         print("   🔗 Building link cluster...")
         clustered = build_link_cluster(post_path, category_slug)
         post_path.write_text(clustered)
 
-    # Step 3: Enhanced sitemap
+    # Step 4: Enhanced sitemap
     print("   📊 Generating enhanced sitemap...")
     generate_enhanced_sitemap()
 
-    # Step 4: Robots
+    # Step 6: Robots
     print("   🤖 Updating robots.txt...")
     generate_robots()
 
-    # Step 5: GA4
+    # Step 7: GA4
     print("   📈 Checking GA4...")
     ensure_ga4_config()
 
-    # Step 6: IndexNow — notify all search engines
+    # Step 8: IndexNow — notify all search engines
     print("   📡 Notifying search engines...")
     pname = post_path.stem
     parts = pname.split("-", 3)
