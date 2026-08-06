@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-06T01:02:08.276702+00:00",
+  "generated_at": "2026-08-06T02:11:16.549152+00:00",
   "month": "August",
   "month_num": 8,
   "all_categories_scored": {
@@ -120,16 +120,18 @@
     }
   },
   "recommended": {
-    "slug": "smart-kitchen",
-    "angle": "Best Best Air Fryer in 2026",
-    "demand_score": 5.0,
+    "slug": "home-cleaning",
+    "angle": "Best Robot Vacuum Mop in 2026",
+    "demand_score": 8.0,
     "buyer_intent": "HIGH",
     "target_keywords": [
-      "best air fryer",
-      "instant pot recipes",
-      "sous vide machine"
+      "robot vacuum mop",
+      "cordless stick vacuum",
+      "air purifier allergies"
     ],
-    "signals": [],
+    "signals": [
+      "💰 High commission (8%)"
+    ],
     "seasonal_note": "",
     "writing_tips": [
       "Open with your strongest opinion — don't bury the verdict.",
