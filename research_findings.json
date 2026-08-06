@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-06T02:11:16.549152+00:00",
+  "generated_at": "2026-08-06T02:18:26.484130+00:00",
   "month": "August",
   "month_num": 8,
   "all_categories_scored": {
@@ -120,18 +120,16 @@
     }
   },
   "recommended": {
-    "slug": "home-cleaning",
-    "angle": "Best Robot Vacuum Mop in 2026",
-    "demand_score": 8.0,
+    "slug": "outdoor-tech",
+    "angle": "Best Handheld Gps Hiking in 2026",
+    "demand_score": 5.0,
     "buyer_intent": "HIGH",
     "target_keywords": [
-      "robot vacuum mop",
-      "cordless stick vacuum",
-      "air purifier allergies"
+      "handheld GPS hiking",
+      "portable solar panel",
+      "camping lantern rechargeable"
     ],
-    "signals": [
-      "💰 High commission (8%)"
-    ],
+    "signals": [],
     "seasonal_note": "",
     "writing_tips": [
       "Open with your strongest opinion — don't bury the verdict.",
