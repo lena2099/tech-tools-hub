@@ -20,8 +20,32 @@ layout: default
         <article class="post-card">
           <a class="post-card-link" href="{{ post.url | relative_url }}">
             <div class="post-card-cover">
-              {% assign slug_parts = post.categories | first | default: "tech" %}
-              <span class="post-card-emoji">{{ "🎧💻📱🪑🎮📖⌚🔊🔉🏠🔒🍳🐱🔌🚗📷🛸🧹🌐🏕️💪🖥️⚡" | slice: forloop.index0, 1 | default: "⚡" }}</span>
+              {% assign cat = post.categories | first | default: "" %}
+              {% if cat == "noise-cancelling-headphones" %}<span class="post-card-emoji">🎧</span>
+              {% elsif cat == "budget-smartphones" %}<span class="post-card-emoji">📱</span>
+              {% elsif cat == "laptops-computers" %}<span class="post-card-emoji">💻</span>
+              {% elsif cat == "home-office-gear" %}<span class="post-card-emoji">🪑</span>
+              {% elsif cat == "gaming-gear" %}<span class="post-card-emoji">🎮</span>
+              {% elsif cat == "ereaders-tablets" %}<span class="post-card-emoji">📖</span>
+              {% elsif cat == "wearables-fitness" %}<span class="post-card-emoji">⌚</span>
+              {% elsif cat == "portable-audio" %}<span class="post-card-emoji">🔊</span>
+              {% elsif cat == "home-audio" %}<span class="post-card-emoji">🔉</span>
+              {% elsif cat == "smart-home-devices" %}<span class="post-card-emoji">🏠</span>
+              {% elsif cat == "smart-home-security" %}<span class="post-card-emoji">🔒</span>
+              {% elsif cat == "smart-kitchen" %}<span class="post-card-emoji">🍳</span>
+              {% elsif cat == "kitchen-appliances" %}<span class="post-card-emoji">🍽️</span>
+              {% elsif cat == "smart-pet-gear" %}<span class="post-card-emoji">🐱</span>
+              {% elsif cat == "charging-accessories" %}<span class="post-card-emoji">🔌</span>
+              {% elsif cat == "car-tech" %}<span class="post-card-emoji">🚗</span>
+              {% elsif cat == "photography-video" %}<span class="post-card-emoji">📷</span>
+              {% elsif cat == "drones" %}<span class="post-card-emoji">🛸</span>
+              {% elsif cat == "home-cleaning" %}<span class="post-card-emoji">🧹</span>
+              {% elsif cat == "networking" %}<span class="post-card-emoji">🌐</span>
+              {% elsif cat == "outdoor-tech" %}<span class="post-card-emoji">🏕️</span>
+              {% elsif cat == "health-wellness" %}<span class="post-card-emoji">💪</span>
+              {% elsif cat == "monitors-displays" %}<span class="post-card-emoji">🖥️</span>
+              {% else %}<span class="post-card-emoji">⚡</span>
+              {% endif %}
             </div>
             <div class="post-card-body">
               <span class="post-card-date">{{ post.date | date: "%b %d" }}</span>
