@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-06T02:18:26.484130+00:00",
+  "generated_at": "2026-08-06T02:39:36.179005+00:00",
   "month": "August",
   "month_num": 8,
   "all_categories_scored": {
@@ -120,14 +120,14 @@
     }
   },
   "recommended": {
-    "slug": "outdoor-tech",
-    "angle": "Best Handheld Gps Hiking in 2026",
+    "slug": "smart-kitchen",
+    "angle": "Best Best Air Fryer in 2026",
     "demand_score": 5.0,
     "buyer_intent": "HIGH",
     "target_keywords": [
-      "handheld GPS hiking",
-      "portable solar panel",
-      "camping lantern rechargeable"
+      "best air fryer",
+      "instant pot recipes",
+      "sous vide machine"
     ],
     "signals": [],
     "seasonal_note": "",
