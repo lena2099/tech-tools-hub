@@ -1,0 +1,163 @@
+{
+  "generated_at": "2026-08-06T00:39:17.765188+00:00",
+  "month": "August",
+  "month_num": 8,
+  "all_categories_scored": {
+    "home-office-gear": {
+      "score": 10.0,
+      "buyer_intent": "HIGH",
+      "seasonal": false
+    },
+    "home-cleaning": {
+      "score": 8.0,
+      "buyer_intent": "HIGH",
+      "seasonal": false
+    },
+    "kitchen-appliances": {
+      "score": 6.5,
+      "buyer_intent": "HIGH",
+      "seasonal": false
+    },
+    "health-wellness": {
+      "score": 6.5,
+      "buyer_intent": "HIGH",
+      "seasonal": false
+    },
+    "smart-home-devices": {
+      "score": 5.2,
+      "buyer_intent": "MEDIUM",
+      "seasonal": false
+    },
+    "smart-kitchen": {
+      "score": 5.0,
+      "buyer_intent": "HIGH",
+      "seasonal": false
+    },
+    "smart-pet-gear": {
+      "score": 5.0,
+      "buyer_intent": "HIGH",
+      "seasonal": false
+    },
+    "car-tech": {
+      "score": 5.0,
+      "buyer_intent": "HIGH",
+      "seasonal": false
+    },
+    "outdoor-tech": {
+      "score": 5.0,
+      "buyer_intent": "HIGH",
+      "seasonal": false
+    },
+    "laptops-computers": {
+      "score": 4.8,
+      "buyer_intent": "MEDIUM",
+      "seasonal": true
+    },
+    "gaming-gear": {
+      "score": 4.5,
+      "buyer_intent": "MEDIUM",
+      "seasonal": true
+    },
+    "budget-smartphones": {
+      "score": 4.2,
+      "buyer_intent": "MEDIUM",
+      "seasonal": true
+    },
+    "smart-home-security": {
+      "score": 4.0,
+      "buyer_intent": "MEDIUM",
+      "seasonal": false
+    },
+    "drones": {
+      "score": 3.9,
+      "buyer_intent": "MEDIUM",
+      "seasonal": false
+    },
+    "noise-cancelling-headphones": {
+      "score": 3.0,
+      "buyer_intent": "MEDIUM",
+      "seasonal": false
+    },
+    "ereaders-tablets": {
+      "score": 3.0,
+      "buyer_intent": "MEDIUM",
+      "seasonal": false
+    },
+    "wearables-fitness": {
+      "score": 3.0,
+      "buyer_intent": "MEDIUM",
+      "seasonal": false
+    },
+    "portable-audio": {
+      "score": 3.0,
+      "buyer_intent": "MEDIUM",
+      "seasonal": false
+    },
+    "home-audio": {
+      "score": 3.0,
+      "buyer_intent": "MEDIUM",
+      "seasonal": false
+    },
+    "charging-accessories": {
+      "score": 3.0,
+      "buyer_intent": "MEDIUM",
+      "seasonal": false
+    },
+    "photography-video": {
+      "score": 3.0,
+      "buyer_intent": "MEDIUM",
+      "seasonal": false
+    },
+    "networking": {
+      "score": 3.0,
+      "buyer_intent": "MEDIUM",
+      "seasonal": false
+    },
+    "monitors-displays": {
+      "score": 3.0,
+      "buyer_intent": "MEDIUM",
+      "seasonal": false
+    }
+  },
+  "recommended": {
+    "slug": "smart-pet-gear",
+    "angle": "Best Automatic Pet Feeder in 2026",
+    "demand_score": 5.0,
+    "buyer_intent": "HIGH",
+    "target_keywords": [
+      "automatic pet feeder",
+      "self cleaning litter box",
+      "GPS dog tracker"
+    ],
+    "signals": [],
+    "seasonal_note": "",
+    "writing_tips": [
+      "Open with your strongest opinion — don't bury the verdict.",
+      "Include at least one Reddit user quote or anecdote.",
+      "End every product section with 'Buy this if / Skip if'.",
+      "HIGH buyer intent: emphasize value-for-money and comparison to premium alternatives."
+    ]
+  },
+  "top5_categories": [
+    {
+      "slug": "home-office-gear",
+      "score": 10.0
+    },
+    {
+      "slug": "home-cleaning",
+      "score": 8.0
+    },
+    {
+      "slug": "kitchen-appliances",
+      "score": 6.5
+    },
+    {
+      "slug": "health-wellness",
+      "score": 6.5
+    },
+    {
+      "slug": "smart-home-devices",
+      "score": 5.2
+    }
+  ]
+}
