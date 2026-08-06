@@ -1,14 +1,31 @@
 #!/usr/bin/env python3
 """
 Affiliate link validator — runs after article generation.
-REQUIRES: ASIN product links (/dp/), inline in body, no search links (/s?k/).
+REQUIRES:
+  1. ASIN product links (/dp/) — verified against Amazon (HTTP 200)
+  2. Inline in body
+  3. No search links (/s?k=)
+  4. No link dumps
 Blocks publishing if any rule is violated.
 """
-import sys, re
+import sys, re, subprocess
 from pathlib import Path
 
 MIN_AFFILIATE_LINKS = 2
 TAG = "technolo0b423-20"
+
+def verify_asin(asin: str, timeout: int = 8) -> bool:
+    """Check if an ASIN resolves to a real Amazon product page."""
+    try:
+        r = subprocess.run([
+            'curl', '-s', '-L', '-o', '/dev/null', '-w', '%{http_code}',
+            '--connect-timeout', str(timeout), '--max-time', str(timeout + 2),
+            '-H', 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
+            f'https://www.amazon.com/dp/{asin}'
+        ], capture_output=True, text=True, timeout=timeout + 3)
+        return r.stdout.strip() == '200'
+    except:
+        return False
 
 def validate_article(filepath: Path) -> tuple[int, list[str]]:
     content = filepath.read_text(encoding='utf-8')
@@ -20,9 +37,29 @@ def validate_article(filepath: Path) -> tuple[int, list[str]]:
     search_links = re.findall(r'https://www\.amazon\.com/s\?k=[^"\s]+.*?tag=' + TAG, content)
     all_links = re.findall(r'https://www\.amazon\.com/[^"\s]*?tag=' + TAG, content)
 
+    # Extract unique ASINs
+    unique_asins = list(set(re.findall(r'/dp/([A-Z0-9]{10})\?tag=', content)))
+
     total_dp = len(dp_links)
     total_search = len(search_links)
     total = len(all_links)
+
+    # ═══ HARD BLOCKER 0: ASIN VALIDITY ═══
+    dead_asins = []
+    print(f"   Verifying {len(unique_asins)} unique ASIN(s)...")
+    for asin in unique_asins:
+        if not verify_asin(asin):
+            dead_asins.append(asin)
+            print(f"      ❌ {asin} — DEAD (HTTP != 200)")
+
+    if dead_asins:
+        issues.append(
+            f"BLOCKED: {len(dead_asins)} dead ASIN(s): {', '.join(dead_asins)}. "
+            f"These ASINs do not resolve to valid Amazon product pages. "
+            f"Replace them with verified ASINs from products.json or search links."
+        )
+    else:
+        print(f"      ✅ All {len(unique_asins)} ASIN(s) verified")
 
     # ═══ HARD BLOCKERS ═══
 
@@ -40,7 +77,6 @@ def validate_article(filepath: Path) -> tuple[int, list[str]]:
         )
 
     # 3. Links must be inline (not dumped at bottom)
-    # Check for "Check price on Amazon" pattern (indicates link dump)
     if re.search(r'Check price on Amazon', content, re.IGNORECASE):
         issues.append(
             "BLOCKED: 'Check price on Amazon' link dump detected. "
@@ -79,10 +115,9 @@ def main():
         print(f"\n❌ AFFILIATE CHECK FAILED:")
         for issue in issues:
             print(f"   → {issue}")
-        print(f"\n   Status: ASIN links={len(re.findall(r'/dp/', latest.read_text()))}, search links blocked")
         return 1
 
-    print(f"✅ Affiliate check passed: {count} ASIN product links + disclosure + inline format")
+    print(f"\n✅ Affiliate check passed: {count} verified ASIN links + disclosure + inline format")
 
     return 0
 
