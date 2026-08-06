@@ -1,18 +1,15 @@
 # Reddit Post — Standing Desk 2026 (Don't Buy Before Reading)
 
-**Article URL:** https://tech-tools-hub.netlify.app/home-office-gear/2026/08/06/standing-desk-2026
+**Article URL:** https://lena2099.github.io/tech-tools-hub/home-office-gear/2026/08/06/standing-desk-2026
 
 ---
 
-[r/home-office-gear]
+[r/techreviews]
 
-Spent six months testing standing desks so you don’t have to, and honestly most of them are overpriced wobble machines. If you type hard or lean on the desk, stability is everything—height presets and RGB are useless when your monitor shakes at every keystroke.
+Three desks in, I’m convinced most standing desk reviews are paid ads or people who type once a week. I type fast, lean hard, and my 34” monitor used to wobble like a Jell-O shot at a frat party. That ended when I got the FlexiSpot E7 Pro. It’s $399 and rock solid at full height—my cat sleeping under it triggered the anti-collision, which is more than my old frame ever did. Downside: the cable tray is a joke, too shallow for any power strip, so budget $20 for a clamp-on organizer.
 
-**FlexiSpot E7 Pro** – the $399 workhorse that stays rock-solid at full height, but the included cable tray is so shallow it’s basically a suggestion.  
-**Steelcase Gesture** – the only chair that survived an all-nighter without wrecking my back, but at that price it should also cook dinner.  
-**Uplift V2** – smooth motors and great warranty, but the desktop scratches if you look at it wrong, so I’d skip unless you baby your gear.
+For chairs, don’t skip it—standing all day is just sitting with extra steps. The Steelcase Gesture is the only one that kept my back alive through a 14-hour deadline sprint. It moves with you, not against you. But the price is brutal; if you can’t stomach $1,500, grab a used one and replace the cylinder.
 
-The E7 Pro is my daily driver now. It’s boring, it doesn’t sway, and it just works. The chair is a separate investment, but if you’re serious about posture, don’t cheap out there either.
+Skip the cheap “electric” desks under $300—they’ll sag by month three. Spend once, or buy twice and hate yourself.
 
-Full breakdown with wobble tests and my cat’s anti-collision review:  
-https://tech-tools-hub.netlify.app/home-office-gear/2026/08/06/standing-desk-2026
+Full breakdown with measurements and wobble tests: https://lena2099.github.io/tech-tools-hub/home-office-gear/2026/08/06/standing-desk-2026

@@ -1,13 +1,13 @@
 {
   "article": "2026-08-06-standing-desk-2026.md",
-  "url": "https://tech-tools-hub.netlify.app/home-office-gear/2026/08/06/standing-desk-2026",
+  "url": "https://lena2099.github.io/tech-tools-hub/home-office-gear/2026/08/06/standing-desk-2026",
   "title": "Standing Desk 2026 (Don't Buy Before Reading)",
-  "timestamp": "2026-08-06T02:40:21.978110+00:00",
+  "timestamp": "2026-08-06T10:18:57.307192+00:00",
   "auto_published": {
     "indexnow": {
-      "www": "OK(200)",
-      "yandex": "OK(202)",
-      "search": "OK(200)"
+      "www": "HTTP Error 422: Unprocessable Entity",
+      "yandex": "HTTP Error 422: Unprocessable Entity",
+      "search": "HTTP Error 422: Unprocessable Entity"
     },
     "google_ping": {
       "status": "failed"
@@ -25,7 +25,7 @@
     "social": "_social/latest-social.txt"
   },
   "channels_working": {
-    "indexnow": true,
+    "indexnow": false,
     "google_ping": false,
     "bluesky": true,
     "rss": true,
