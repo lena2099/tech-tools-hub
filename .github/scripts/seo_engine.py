@@ -438,63 +438,59 @@ def ensure_ga4_config():
 def optimize_keywords(content: str, keywords: list[str]) -> str:
     """Validate and optimize keyword placement."""
     primary_kw = keywords[0].lower()
-    lower_content = content.lower()
     issues = []
     fixes = []
 
-    # Check 1: Primary KW in title
     parts = content.split("---", 2)
-    if len(parts) >= 2:
-        frontmatter = parts[1]
-        title_line = [l for l in frontmatter.split("\n") if l.startswith("title:")]
-        if title_line and primary_kw and primary_kw not in title_line[0].lower():
-            issues.append(f"Primary keyword '{primary_kw}' NOT in title")
+    if len(parts) < 2:
+        return content
+    frontmatter = parts[1]
+
+    # Check 1: Primary KW in title
+    title_line = [l for l in frontmatter.split("\n") if l.startswith("title:")]
+    if title_line and primary_kw and primary_kw not in title_line[0].lower():
+        issues.append("Primary keyword NOT in title")
 
     # Check 2: Primary KW in first H2
     h2s = re.findall(r'^## (.+)$', content, re.MULTILINE)
     kw_in_h2 = any(primary_kw in h.lower() for h in h2s)
     if not kw_in_h2:
-        issues.append(f"Primary keyword NOT in any H2 heading")
-        # Fix: add it to the FAQ H2
-        if h2s and 'FAQ' in h2s[-1]:
-            pass  # already there
-        else:
-            content = content.replace("## FAQ", f"## FAQ — {keywords[0]}")
+        issues.append("Primary keyword NOT in any H2 heading")
 
-    # Check 3: Title A/B test — generate alternatives
+    # Check 3: Title A/B optimization
     if title_line:
         old_title = title_line[0]
-        # Generate 3 alternatives
         alts = [
-            old_title.replace("2026", f"2026 (I Tested {random.randint(3,7)} Models)"),
+            old_title.replace("2026", "2026 (I Tested " + str(random.randint(3, 7)) + " Models)"),
             old_title.replace("Best ", "Best Budget "),
-            f"{primary_kw.title()} Buying Guide 2026 — Don't Overpay",
+            primary_kw.title() + " Buying Guide 2026",
         ]
-        # Score by length (CTR-optimal: 50-60 chars)
-        scores = {a: 100 - abs(len(a) - 55) for a in alts}
+        scores = {}
+        for a in alts:
+            scores[a] = 100 - abs(len(a) - 55)
         best = max(scores, key=scores.get)
         if best != old_title and scores[best] > scores.get(old_title, 0) + 3:
             content = content.replace(old_title, best)
-            fixes.append(f"Title optimized: '{old_title.split(':')[1].strip()[:40]}...' → '{best[:60]}'")
+            fixes.append("Title optimized")
 
-    # Check 4: Meta description must contain primary KW
+    # Check 4: Meta description keyword
     desc_lines = [l for l in frontmatter.split("\n") if l.startswith("description:")]
-    if desc_lines and primary_kw not in desc_lines[0].lower():
+    if desc_lines and primary_kw and primary_kw not in desc_lines[0].lower():
         old_desc = desc_lines[0]
-        rest = old_desc.split(":", 1)[1].strip().strip('"')[:120]
-        new_desc = old_desc.split(":", 1)[0] + ': "' + primary_kw.title() + " — " + rest + '"
+        old_val = old_desc.split(":", 1)[1].strip().strip('"')
+        new_desc = old_desc.split(":", 1)[0] + ': "' + primary_kw.title() + " - " + old_val[:110] + '"'
         content = content.replace(old_desc, new_desc)
         fixes.append("Keyword injected into meta description")
 
-    # Report
     if issues:
-        print(f"      ⚠️  {len(issues)} keyword issues: {', '.join(issues[:2])}")
+        print("      {} keyword issues: {}".format(len(issues), ", ".join(issues[:2])))
     if fixes:
-        print(f"      ✅ {len(fixes)} fixes: {', '.join(fixes[:2])}")
+        print("      {} fixes: {}".format(len(fixes), ", ".join(fixes[:2])))
     if not issues and not fixes:
-        print(f"      ✅ Keywords well-placed")
+        print("      Keywords well-placed")
 
     return content
+
 
 def main(post_path: Path = None, category_slug: str = ""):
     print("\n" + "=" * 50)
