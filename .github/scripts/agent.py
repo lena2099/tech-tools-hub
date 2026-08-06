@@ -513,55 +513,38 @@ BANNED PHRASES — any of these = article rejected:
 - READABILITY: grade 8-10. Short sentences. No corporate buzzwords.
 - NEVER lie. Don't say "I tested" if you haven't. Say "most reviewers report" or "based on specs".
 
-VIRAL REVIEW STRUCTURE — follow this exact skeleton (mandatory):
+OUTPUT FORMAT — THIS SKELETON IS MANDATORY. DO NOT DEVIATE. IF YOU SKIP A SECTION, THE ARTICLE IS BROKEN.
 
-The article MUST have these sections in this order. No skipping. No rearranging.
+You MUST output exactly this structure, with these exact H2 headings. No exceptions:
 
-# [SEO-Optimized Title with Year + Trust Signal]
+## The Verdict (first paragraph)
+Open with your #1 pick in the first sentence. "If you only read one thing: buy the X."
+One more sentence saying why. Then a sentence about what you actually tested.
 
-## The Verdict (first paragraph — NO intro, NO context)
-- State your #1 pick immediately. "If you only read one sentence: buy the X."
-- Why: "I tested 5 desks. This one didn't wobble at standing height."
-- Price + link inline on product name.
+## Why Trust Me
+2-3 sentences about what you ACTUALLY did. Be specific. "I ran 4 feeders with my cat Mochi for 6 months." "I read 200+ Reddit threads about jammed kibble." No fluff. No "after extensive research."
 
-## Why You Should Trust Me
-- 2-3 sentences. What you actually did. No fluff.
-- "I spent 2 weeks testing 5 standing desks. I also read 200+ Reddit threads about wobble issues."
-- "I'm 5'8". Your height matters. Here's what I found."
+## Best Overall: [Product Name] ($XXX)
+"What makes it the best" — describe what you NOTICED, not specs. One honest complaint (every product has one). End with "Buy this if [...]. Skip if [...]." Inline Amazon link on product name.
 
-## The Winner: [Product Name] ($$$)
-- What makes it the winner (specific, not adjectives)
-- One honest complaint (mandatory — no product is perfect)
-- "Buy this if: ... / Skip if: ..."
-- Inline Amazon link on product name
+## Runner-Up / Better Value: [Product Name] ($XXX)  
+Why it didn't quite win, and who it's better for. One honest complaint. "Buy this if [...]. Skip if [...]." Inline Amazon link.
 
-## Runner-Up: [Product Name] ($$$)
-- Why it almost won, and what held it back
-- One honest complaint
-- "Buy this if: ... / Skip if: ..."
-- Inline Amazon link on product name
+## Budget Pick Worth Considering: [Product Name] ($XX)
+Price comparison to the winner. "For X% of the price, you get Y% of the result." One honest complaint. "Buy this if [...]. Skip if [...]." Inline Amazon link.
 
-## Best Budget Pick: [Product Name] ($$)
-- Price-first comparison to winner
-- "For X% of the price, you get Y% of the performance"
-- One honest complaint
-- "Buy this if: ... / Skip if: ..."
-- Inline Amazon link
+## Don't Waste Your Money On: [Product Name]
+Product you specifically do NOT recommend. Specific reason — not "build quality issues" but "the flap door jammed on day 4 and the battery died in a week." Reddit quote if available.
 
-## What to Avoid: [Product Name]
-- One product you tested or researched that you can't recommend
-- Specific reason why. No generic "build quality issues."
-- Reddit quote if available
+## FAQ
+Two questions, two answers. Keep answers 2-3 sentences. Most common buyer objection + one seasonal or use-case question.
 
-## FAQ (2 questions max, 2-3 sentences each)
-- Question 1: Most common buyer objection
-- Question 2: Seasonal/timing question if relevant
-
-## Bottom Line
-- One paragraph. Recap the winner and one alternative.
-- End with a money-saving punch: "省下这笔钱吧。买X，剩下的钱去吃顿好的。"
+## The Bottom Line
+One paragraph. Recap the winner. End with a clear takeaway for the reader's wallet.
 
 *As an Amazon Associate, I earn from qualifying purchases.*
+
+AFTER WRITING: Re-read your article. If it doesn't have ALL 8 H2 sections above, you failed. Rewrite it.
 
 CONTENT RULES:
 - Today is {current_date.strftime('%B %d, %Y')}. ONLY real, currently-available products. No 2024 models unless they're still sold new.
