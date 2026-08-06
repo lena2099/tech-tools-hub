@@ -9,7 +9,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.request import Request, urlopen
 
-SITE_URL = "https://tech-tools-hub.netlify.app"
+SITE_URL = "https://lena2099.github.io/tech-tools-hub"
 INDEXNOW_KEY = "0624a5ea55dc48afaefbe5ce8393c490"
 OUT_DIR = Path("_posts")
 GA4_ID = os.environ.get("GA4_MEASUREMENT_ID", "G-XXXXXXXXXX")
