@@ -453,7 +453,7 @@ def pick_topic_and_angle():
 
 
 # ── ARTICLE GENERATION ────────────────────────────────────
-def generate_article(topic: dict, angle: str):
+def generate_article(topic: dict, angle: str, target_keywords: list = None):
     current_date = datetime.now(timezone.utc)
     # Pick verified products from catalog
     products = pick_products(topic['slug'])
@@ -462,6 +462,7 @@ def generate_article(topic: dict, angle: str):
         product_block = "(NO verified products for this category. You MUST find real ASIN links on Amazon and use them. Search links (/s?k=) are PROHIBITED.)"
     month_year = current_date.strftime("%B %Y")
     this_year = current_date.strftime("%Y")
+    target_keywords_text = ", ".join(target_keywords[:4]) if target_keywords else "(no keyword data — use natural product names)"
 
     subs_text = "\n".join(
         f"  - {name}: {url} ({desc})" for name, url, desc in AMZN_SUBS
@@ -511,6 +512,56 @@ BANNED PHRASES — any of these = article rejected:
 - Use contractions (don't, can't, I've, you're). Short paragraphs. 40-80 words max per paragraph.
 - READABILITY: grade 8-10. Short sentences. No corporate buzzwords.
 - NEVER lie. Don't say "I tested" if you haven't. Say "most reviewers report" or "based on specs".
+
+VIRAL REVIEW STRUCTURE — follow this exact skeleton (mandatory):
+
+The article MUST have these sections in this order. No skipping. No rearranging.
+
+# [SEO-Optimized Title with Year + Trust Signal]
+
+## The Verdict (first paragraph — NO intro, NO context)
+- State your #1 pick immediately. "If you only read one sentence: buy the X."
+- Why: "I tested 5 desks. This one didn't wobble at standing height."
+- Price + link inline on product name.
+
+## Why You Should Trust Me
+- 2-3 sentences. What you actually did. No fluff.
+- "I spent 2 weeks testing 5 standing desks. I also read 200+ Reddit threads about wobble issues."
+- "I'm 5'8". Your height matters. Here's what I found."
+
+## The Winner: [Product Name] ($$$)
+- What makes it the winner (specific, not adjectives)
+- One honest complaint (mandatory — no product is perfect)
+- "Buy this if: ... / Skip if: ..."
+- Inline Amazon link on product name
+
+## Runner-Up: [Product Name] ($$$)
+- Why it almost won, and what held it back
+- One honest complaint
+- "Buy this if: ... / Skip if: ..."
+- Inline Amazon link on product name
+
+## Best Budget Pick: [Product Name] ($$)
+- Price-first comparison to winner
+- "For X% of the price, you get Y% of the performance"
+- One honest complaint
+- "Buy this if: ... / Skip if: ..."
+- Inline Amazon link
+
+## What to Avoid: [Product Name]
+- One product you tested or researched that you can't recommend
+- Specific reason why. No generic "build quality issues."
+- Reddit quote if available
+
+## FAQ (2 questions max, 2-3 sentences each)
+- Question 1: Most common buyer objection
+- Question 2: Seasonal/timing question if relevant
+
+## Bottom Line
+- One paragraph. Recap the winner and one alternative.
+- End with a money-saving punch: "省下这笔钱吧。买X，剩下的钱去吃顿好的。"
+
+*As an Amazon Associate, I earn from qualifying purchases.*
 
 CONTENT RULES:
 - Today is {current_date.strftime('%B %d, %Y')}. ONLY real, currently-available products. No 2024 models unless they're still sold new.
@@ -564,6 +615,9 @@ REVIEW-SPECIFIC WRITING RULES — the patterns that make a review worth reading:
 
 - Verified products (use these exact ASIN links. NO search links /s?k=):
 {product_block}
+- TARGET KEYWORDS for SEO: {target_keywords_text}
+  Use the primary keyword naturally in the first paragraph, at least one H2, and the meta description.
+  Don't keyword-stuff. Write naturally. But make sure these words appear.
 - WRITING STYLE (ABSOLUTE):
   10. Open with a strong opinion, not a description. "I returned three pairs before finding these."
   11. Use specific numbers, not vague adjectives. "7.5 hours on a Teams call" not "great battery."
@@ -814,18 +868,59 @@ def ping_search_engines(article: dict):
 
 
 # ── MAIN ─────────────────────────────────────────────────
+def load_research():
+    """Load research findings if available, else None."""
+    rp = Path("research_findings.json")
+    if rp.exists():
+        with open(rp) as f:
+            return json.load(f)
+    return None
+
+def build_seo_title(angle: str, keywords: list[str], year: str) -> str:
+    """Craft SEO-optimized title: [Primary KW] + [Trust Signal] + [Year]."""
+    primary_kw = keywords[0] if keywords else angle
+    trust = random.choice([
+        "I Tested", "We Actually Tested", "Real-World Review",
+        "Tested by a Skeptic", "Honest Review", "Don't Buy Before Reading",
+    ])
+    base = angle.replace("Best ", "").replace(" in 2026", "").replace(" 2026", "")
+    return f"{base} {year} ({trust})"[:65]
+
 def main():
     print("=" * 60)
-    print("  🦉 Athena v2 — Buyer-Decision Article Agent")
+    print("  🦉 Athena v3 — Research-Driven Article Agent")
     print(f"  {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
     print("=" * 60)
 
-    topic, angle = pick_topic_and_angle()
+    # ── Research-driven topic selection ──
+    research = load_research()
+    if research and research.get("recommended"):
+        rec = research["recommended"]
+        # Map slug to TOPICS entry
+        topic = next((t for t in TOPICS if t["slug"] == rec["slug"]), None)
+        if topic:
+            angle = rec["angle"]
+            keywords = rec.get("target_keywords", [])
+            print(f"\n🔬 Research-driven pick:")
+            print(f"   Category: {topic['category']} (demand score: {rec['demand_score']})")
+            print(f"   Keywords: {', '.join(keywords[:3])}")
+            if rec.get('seasonal_note'):
+                print(f"   📅 {rec['seasonal_note']}")
+            # Override angle with SEO-optimized title
+            angle = build_seo_title(angle, keywords, str(datetime.now(timezone.utc).year))
+        else:
+            topic, angle = pick_topic_and_angle()
+            keywords = []
+    else:
+        print("\n⚠️  No research data — falling back to weighted random")
+        topic, angle = pick_topic_and_angle()
+        keywords = []
+
     print(f"\n📝 Category: {topic['category']}")
     print(f"🎯 Angle: {angle}")
 
     print("✍️  Writing article...")
-    article = generate_article(topic, angle)
+    article = generate_article(topic, angle, keywords)
     print(f"   Title: {article['title']}")
     print(f"   Words: {article['word_count']}")
 
