@@ -1,0 +1,35 @@
+{
+  "article": "2026-08-06-standing-desk-2026.md",
+  "url": "https://tech-tools-hub.netlify.app/home-office-gear/2026/08/06/standing-desk-2026",
+  "title": "Standing Desk 2026 (Don't Buy Before Reading)",
+  "timestamp": "2026-08-06T00:50:04.776695+00:00",
+  "auto_published": {
+    "indexnow": {
+      "www": "OK(200)",
+      "yandex": "OK(200)",
+      "search": "OK(200)"
+    },
+    "google_ping": {
+      "status": "failed"
+    },
+    "bluesky": {
+      "status": "published"
+    },
+    "rss": {
+      "status": "ok",
+      "entries": 10
+    }
+  },
+  "manual_publish": {
+    "reddit": "_social/latest-reddit.md",
+    "social": "_social/latest-social.txt"
+  },
+  "channels_working": {
+    "indexnow": true,
+    "google_ping": false,
+    "bluesky": true,
+    "rss": true,
+    "manual_reddit": true,
+    "manual_social": true
+  }
+}
