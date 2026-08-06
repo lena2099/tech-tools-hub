@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-06T00:49:00.302340+00:00",
+  "generated_at": "2026-08-06T01:02:08.276702+00:00",
   "month": "August",
   "month_num": 8,
   "all_categories_scored": {
@@ -68,11 +68,6 @@
       "buyer_intent": "MEDIUM",
       "seasonal": false
     },
-    "charging-accessories": {
-      "score": 3.9,
-      "buyer_intent": "MEDIUM",
-      "seasonal": false
-    },
     "noise-cancelling-headphones": {
       "score": 3.0,
       "buyer_intent": "MEDIUM",
@@ -94,6 +89,11 @@
       "seasonal": false
     },
     "home-audio": {
+      "score": 3.0,
+      "buyer_intent": "MEDIUM",
+      "seasonal": false
+    },
+    "charging-accessories": {
       "score": 3.0,
       "buyer_intent": "MEDIUM",
       "seasonal": false
@@ -120,18 +120,16 @@
     }
   },
   "recommended": {
-    "slug": "home-office-gear",
-    "angle": "Best Standing Desk in 2026",
-    "demand_score": 10.0,
+    "slug": "smart-kitchen",
+    "angle": "Best Best Air Fryer in 2026",
+    "demand_score": 5.0,
     "buyer_intent": "HIGH",
     "target_keywords": [
-      "standing desk",
-      "ergonomic chair",
-      "office chair back pain"
+      "best air fryer",
+      "instant pot recipes",
+      "sous vide machine"
     ],
-    "signals": [
-      "💰 High commission (10%)"
-    ],
+    "signals": [],
     "seasonal_note": "",
     "writing_tips": [
       "Open with your strongest opinion — don't bury the verdict.",
