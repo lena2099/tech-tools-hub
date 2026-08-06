@@ -1,0 +1,35 @@
+{
+  "article": "2026-08-06-best-automatic-pet-feeder-2026.md",
+  "url": "https://tech-tools-hub.netlify.app/smart-pet-gear/2026/08/06/best-automatic-pet-feeder-2026",
+  "title": "",
+  "timestamp": "2026-08-06T00:40:24.325008+00:00",
+  "auto_published": {
+    "indexnow": {
+      "www": "OK(200)",
+      "yandex": "OK(202)",
+      "search": "OK(200)"
+    },
+    "google_ping": {
+      "status": "failed"
+    },
+    "bluesky": {
+      "status": "published"
+    },
+    "rss": {
+      "status": "ok",
+      "entries": 10
+    }
+  },
+  "manual_publish": {
+    "reddit": "_social/latest-reddit.md",
+    "social": "_social/latest-social.txt"
+  },
+  "channels_working": {
+    "indexnow": true,
+    "google_ping": false,
+    "bluesky": true,
+    "rss": true,
+    "manual_reddit": true,
+    "manual_social": true
+  }
+}
