@@ -1,4 +1,4 @@
-name: Athena v4 — Research + Generate + SEO + Distribute
+name: Athena v5 — Research + Generate + Cover + SEO + Distribute
 
 on:
   schedule:
@@ -23,7 +23,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install httpx pyyaml pytrends
+        run: pip install httpx pyyaml pytrends Pillow
 
       # ── Stage 0: Research — demand-driven topic selection ──
       - name: 🔬 Research Demand
@@ -45,6 +45,9 @@ jobs:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: python .github/scripts/seo_engine.py
 
+      - name: 🎨 Generate Cover Image
+        run: python .github/scripts/cover_gen.py
+
       - name: 🔗 Affiliate Link Check
         run: python .github/scripts/affiliate_check.py
 
@@ -52,7 +55,7 @@ jobs:
         run: |
           git config user.name "Athena Bot"
           git config user.email "bot@athena.local"
-          git add _posts/ sitemap.xml robots.txt _config.yml research_findings.json
+          git add _posts/ sitemap.xml robots.txt _config.yml research_findings.json assets/
           if git diff --staged --quiet; then
             echo "No changes — already published this cycle"
           else
@@ -71,10 +74,34 @@ jobs:
 
       - name: 💾 Commit Distribution Report
         run: |
-          git add _dist/
+          git add _dist/ _social/
           if git diff --staged --quiet; then
             echo "No distribution changes"
           else
-            git commit -m "📡 Dist: cross-post report ($(date -u +%Y-%m-%d_%H:%M))"
+            git commit -m "📡 Dist: cross-post + social content ($(date -u +%Y-%m-%d_%H:%M))"
+            git push
+          fi
+
+      # ── IP Building: standalone opinion posts (not article links) ──
+      - name: 💬 Bluesky Opinion Post
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+        run: python .github/scripts/bluesky_opinion.py
+
+      # ── IP Building: newsletter digest ──
+      - name: 📧 Newsletter Digest
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: python .github/scripts/newsletter_engine.py
+
+      - name: 💾 Commit Social + Newsletter
+        run: |
+          git add _social/ _dist/
+          if git diff --staged --quiet; then
+            echo "No social/newsletter changes"
+          else
+            git commit -m "💬📧 Social: opinion post + newsletter digest ($(date -u +%Y-%m-%d_%H:%M))"
             git push
           fi
