@@ -56,7 +56,7 @@ The 50MP main camera is decent, but here's the thing nobody tells you: Samsung's
 
 ### Moto G Stylus 2026 — $299 on Amazon
 
-[Buy the Moto G Stylus here](https://www.amazon.com/dp/B0GR2DX7ZT?tag=technolo0b423-20)
+[Buy the Moto G Stylus here](https://www.amazon.com/dp/Moto G Stylus?tag=technolo0b423-20)
 
 This is the budget pick, and I'm hesitant to recommend it. The built-in stylus is fun for doodling, but I've owned it for a week and used it exactly twice. The screen is 120Hz, which is wild at this price, but the processor struggles when you multitask hard. Heavy games? Forget it.
 

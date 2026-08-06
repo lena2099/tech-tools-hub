@@ -43,7 +43,7 @@ But if you also bike — and I mean actually bike, not just occasionally — thi
 
 **Buy this if** you're a cyclist who also hikes. **Skip it if** you only hike — save the $200.
 
-## Budget Pick Worth Considering: [Black Diamond Moji Lantern](https://www.amazon.com/dp/B093QQNX8N?tag=technolo0b423-20) ($24)
+## Budget Pick Worth Considering: [Black Diamond Moji Lantern](https://www.amazon.com/dp/B09NQK6W85?tag=technolo0b423-20) ($24)
 
 Wait, this is a lantern, not a GPS. I know. But here's the thing: your phone already has GPS. What it doesn't have is a battery that lasts a weekend. The Moji runs 60 hours on 3 AAA batteries. It weighs 2.2 ounces. It clips to your backpack strap.
 

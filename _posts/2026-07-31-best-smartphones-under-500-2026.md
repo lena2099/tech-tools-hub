@@ -63,7 +63,7 @@ Exynos 1580 + 50MP 主摄。三星的相机调教偏鲜艳，拍食物和人像�
 
 缺点：拍照是这几台里最差的，塑料机身。性能只够日常用，大型游戏跑不动。
 
-[在 Amazon 上搜 Moto G Stylus 2026](https://www.amazon.com/dp/B0GR2DX7ZT?tag=technolo0b423-20)
+[在 Amazon 上搜 Moto G Stylus 2026](https://www.amazon.com/dp/Moto G Stylus?tag=technolo0b423-20)
 
 ---
 
