@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T14:39:38.358473+00:00",
+  "generated_at": "2026-08-08T17:57:23.495717+00:00",
   "month": "August",
   "month_num": 8,
   "all_categories_scored": {
@@ -13,32 +13,37 @@
       "buyer_intent": "HIGH",
       "seasonal": false
     },
+    "smart-pet-gear": {
+      "score": 6.5,
+      "buyer_intent": "HIGH",
+      "seasonal": false
+    },
+    "car-tech": {
+      "score": 6.5,
+      "buyer_intent": "HIGH",
+      "seasonal": false
+    },
+    "outdoor-tech": {
+      "score": 6.5,
+      "buyer_intent": "HIGH",
+      "seasonal": false
+    },
+    "health-wellness": {
+      "score": 6.5,
+      "buyer_intent": "HIGH",
+      "seasonal": false
+    },
+    "smart-home-devices": {
+      "score": 5.2,
+      "buyer_intent": "MEDIUM",
+      "seasonal": false
+    },
     "smart-kitchen": {
       "score": 5.0,
       "buyer_intent": "HIGH",
       "seasonal": false
     },
     "kitchen-appliances": {
-      "score": 5.0,
-      "buyer_intent": "HIGH",
-      "seasonal": false
-    },
-    "smart-pet-gear": {
-      "score": 5.0,
-      "buyer_intent": "HIGH",
-      "seasonal": false
-    },
-    "car-tech": {
-      "score": 5.0,
-      "buyer_intent": "HIGH",
-      "seasonal": false
-    },
-    "outdoor-tech": {
-      "score": 5.0,
-      "buyer_intent": "HIGH",
-      "seasonal": false
-    },
-    "health-wellness": {
       "score": 5.0,
       "buyer_intent": "HIGH",
       "seasonal": false
@@ -58,13 +63,13 @@
       "buyer_intent": "MEDIUM",
       "seasonal": true
     },
-    "smart-home-devices": {
+    "smart-home-security": {
       "score": 4.0,
       "buyer_intent": "MEDIUM",
       "seasonal": false
     },
-    "smart-home-security": {
-      "score": 4.0,
+    "charging-accessories": {
+      "score": 3.9,
       "buyer_intent": "MEDIUM",
       "seasonal": false
     },
@@ -93,11 +98,6 @@
       "buyer_intent": "MEDIUM",
       "seasonal": false
     },
-    "charging-accessories": {
-      "score": 3.0,
-      "buyer_intent": "MEDIUM",
-      "seasonal": false
-    },
     "photography-video": {
       "score": 3.0,
       "buyer_intent": "MEDIUM",
@@ -120,18 +120,16 @@
     }
   },
   "recommended": {
-    "slug": "home-cleaning",
-    "angle": "Best Robot Vacuum Mop in 2026",
-    "demand_score": 8.0,
+    "slug": "smart-kitchen",
+    "angle": "Best Best Air Fryer in 2026",
+    "demand_score": 5.0,
     "buyer_intent": "HIGH",
     "target_keywords": [
-      "robot vacuum mop",
-      "cordless stick vacuum",
-      "air purifier allergies"
+      "best air fryer",
+      "instant pot recipes",
+      "sous vide machine"
     ],
-    "signals": [
-      "💰 High commission (8%)"
-    ],
+    "signals": [],
     "seasonal_note": "",
     "writing_tips": [
       "Open with your strongest opinion — don't bury the verdict.",
@@ -150,16 +148,16 @@
       "score": 8.0
     },
     {
-      "slug": "smart-kitchen",
-      "score": 5.0
-    },
-    {
-      "slug": "kitchen-appliances",
-      "score": 5.0
-    },
-    {
       "slug": "smart-pet-gear",
-      "score": 5.0
+      "score": 6.5
+    },
+    {
+      "slug": "car-tech",
+      "score": 6.5
+    },
+    {
+      "slug": "outdoor-tech",
+      "score": 6.5
     }
   ]
 }
