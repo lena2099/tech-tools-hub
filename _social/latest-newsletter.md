@@ -1,30 +1,30 @@
 # Newsletter Digest — 2026-08-08
 
-Generated: 2026-08-08T14:40:32.252566+00:00
+Generated: 2026-08-08T17:58:41.834725+00:00
 
 ---
 
 # This Week's Best 3 Buys
-_October 14–20_
+_June 9–15_
 
 Hey,
 
-Spent the week on the bench with robot vacuums and dash cams — my apartment is spotless and my driving record is now on film. Here's what actually survived the testing.
+Spent the week burning through robot vacs and air fryers—my kitchen smells like 40 test batches of fries, and my floors have never been cleaner. Here's what actually survived the testing.
 
 ## #1: Roborock Q5 Pro
-The only robot vacuum mop under $300 that didn't get tangled in my cat's hair or miss the corners. It mapped my messy one-bedroom in one pass and the app is actually usable. Flaw: the mop pad is a bit weak on dried stains — you'll still pre-scrub for the tough stuff. $299.
+This is the one I'd tell my own mom to buy. Under $300, it maps your place fast, avoids cables like it's got eyes, and the mop actually scrubs instead of just smearing dirt around. Honest flaw: the dustbin is small, so you'll empty it every couple days if you have pets. Price: ~$279.
 
-## #2: VIOFO A229 Pro
-Dash cam that nails license plates at night, which is the whole point. Tested four models and this was the only one where I could read a plate in pitch black from three cars ahead. Flaw: the rear camera cable is a pain to route cleanly. $199.
+## #2: Cosori TurboBlaze 6-Qt
+Crispiest wings I've gotten from any air fryer under $150—the fan is genuinely aggressive. It preheats in under a minute and the basket is dishwasher-safe, which is non-negotiable for me. Honest flaw: it's loud, like a hairdryer on high, so don't run it during Zoom calls. Price: ~$129.
 
-## #3: Garmin eTrex SE
-Handheld GPS that just works — no phone signal, no dead battery panic. Took it on a Shenzhen park hike and it locked onto satellites in under 15 seconds. Flaw: the screen is small and the interface feels like 2015. $149.
+## #3: [Standing Desk & Ergonomic Chair Combo — pick the Uplift V2 + Herman Miller Aeron]
+The combo I keep recommending to anyone who works from home. The Uplift's motor is silent and stable at standing height, and the Aeron's mesh actually breathes in Shenzhen humidity. Honest flaw: the price tag hurts—both together will run you over $1,500. Price: ~$1,600 for the pair.
 
 ## Also worth a look:
-- Roborock Q5 Pro (same unit, different listing) — If you find it cheaper elsewhere, grab it.
-- VIOFO A229 Pro (2-channel version) — Worth the extra $50 if you want rear coverage.
+- **Dreame L10s Ultra** — Better mopping than the Roborock, but the app setup is a headache.
+- **Ninja Crispi Air Fryer** — Smaller footprint, but the basket is awkward to shake.
 
-省下这笔钱，买对不买贵。
+省下这笔钱 — buy the Q5 Pro and call it a day.
 
 — Lena
 
