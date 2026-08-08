@@ -1,15 +1,19 @@
-# Reddit Post — Standing Desk 2026 (Don't Buy Before Reading)
+# Reddit Post — Robot Vacuum Mop 2026 (I Tested 7 Models) (I Tested)
 
-**Article URL:** https://lena2099.github.io/tech-tools-hub/home-office-gear/2026/08/06/standing-desk-2026
+**Article URL:** https://lena2099.github.io/tech-tools-hub/home-cleaning/2026/08/08/robot-vacuum-mop-2026
 
 ---
 
-[r/techreviews]
+[r/home-cleaning]  
 
-Three desks in, I’m convinced most standing desk reviews are paid ads or people who type once a week. I type fast, lean hard, and my 34” monitor used to wobble like a Jell-O shot at a frat party. That ended when I got the FlexiSpot E7 Pro. It’s $399 and rock solid at full height—my cat sleeping under it triggered the anti-collision, which is more than my old frame ever did. Downside: the cable tray is a joke, too shallow for any power strip, so budget $20 for a clamp-on organizer.
+Three weeks, four robots, two cats, and one very annoyed landlord. My floors have never been cleaner, but I’ve also never been more convinced that most robot mops are a scam. The mop on these things is a damp rag smearing dirt around, and you’re paying $200 extra for the privilege.  
 
-For chairs, don’t skip it—standing all day is just sitting with extra steps. The Steelcase Gesture is the only one that kept my back alive through a 14-hour deadline sprint. It moves with you, not against you. But the price is brutal; if you can’t stomach $1,500, grab a used one and replace the cylinder.
+Here’s what survived my testing:  
 
-Skip the cheap “electric” desks under $300—they’ll sag by month three. Spend once, or buy twice and hate yourself.
+**Roborock Q5 Pro ($299)** – No mop, just vacuum, and that’s why it wins – 5500Pa suction and LiDAR mapping that never got stuck under my couch.  
+**Dreame D10 Plus ($329)** – Better value if you want a self-empty base and actual mopping, but the app is clunky and the base sounds like a jet engine.  
 
-Full breakdown with measurements and wobble tests: https://lena2099.github.io/tech-tools-hub/home-office-gear/2026/08/06/standing-desk-2026
+The Q5 Pro ate rice, cat litter, and dust in one pass. My only rescue was when my cat shoved a shoe in front of the sensor. Dust bin is small – I empty it every other day with two cats. Skip the mop versions unless you have tile and no rugs; the pad doesn’t lift, so it soaks carpet edges.  
+
+Full breakdown with dust-bin weights and the one model I returned:  
+https://lena2099.github.io/tech-tools-hub/home-cleaning/2026/08/08/robot-vacuum-mop-2026

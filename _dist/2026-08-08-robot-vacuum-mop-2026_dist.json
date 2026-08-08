@@ -1,0 +1,35 @@
+{
+  "article": "2026-08-08-robot-vacuum-mop-2026.md",
+  "url": "https://lena2099.github.io/tech-tools-hub/home-cleaning/2026/08/08/robot-vacuum-mop-2026",
+  "title": "Robot Vacuum Mop 2026 (I Tested 7 Models) (I Tested)",
+  "timestamp": "2026-08-08T14:40:24.732785+00:00",
+  "auto_published": {
+    "indexnow": {
+      "www": "HTTP Error 422: Unprocessable Entity",
+      "yandex": "HTTP Error 422: Unprocessable Entity",
+      "search": "HTTP Error 422: Unprocessable Entity"
+    },
+    "google_ping": {
+      "status": "failed"
+    },
+    "bluesky": {
+      "status": "published"
+    },
+    "rss": {
+      "status": "ok",
+      "entries": 10
+    }
+  },
+  "manual_publish": {
+    "reddit": "_social/latest-reddit.md",
+    "social": "_social/latest-social.txt"
+  },
+  "channels_working": {
+    "indexnow": false,
+    "google_ping": false,
+    "bluesky": true,
+    "rss": true,
+    "manual_reddit": true,
+    "manual_social": true
+  }
+}
