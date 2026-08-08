@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-06T10:18:10.906161+00:00",
+  "generated_at": "2026-08-08T14:39:38.358473+00:00",
   "month": "August",
   "month_num": 8,
   "all_categories_scored": {
@@ -120,16 +120,18 @@
     }
   },
   "recommended": {
-    "slug": "car-tech",
-    "angle": "Best Best Dash Cam in 2026",
-    "demand_score": 5.0,
+    "slug": "home-cleaning",
+    "angle": "Best Robot Vacuum Mop in 2026",
+    "demand_score": 8.0,
     "buyer_intent": "HIGH",
     "target_keywords": [
-      "best dash cam",
-      "wireless CarPlay adapter",
-      "tire inflator portable"
+      "robot vacuum mop",
+      "cordless stick vacuum",
+      "air purifier allergies"
     ],
-    "signals": [],
+    "signals": [
+      "💰 High commission (8%)"
+    ],
     "seasonal_note": "",
     "writing_tips": [
       "Open with your strongest opinion — don't bury the verdict.",
